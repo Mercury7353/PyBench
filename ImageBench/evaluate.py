@@ -6,7 +6,8 @@ Use gpt-4 to evaluate the chat history and evaluate which is better
 
 
 import sys
-sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
+#sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
+sys.path.append("..")
 from llmcenter import ChatClient
 from nbclient import NotebookClient
 #from DS_Query_Gen import Generate_task_sequence

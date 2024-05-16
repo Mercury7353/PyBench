@@ -3,8 +3,9 @@ Test gpt-3.5 ,gpt-4 on ImageBench, equipped it with a tool: excute_python
 
 '''
 import sys
-sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
-sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct/redebug")
+#sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
+#sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct/redebug")
+sys.path.append("..")
 from llmcenter import ChatClient
 from nbclient import NotebookClient
 #from DS_Query_Gen import Generate_task_sequence
