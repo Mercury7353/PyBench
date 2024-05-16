@@ -6,7 +6,8 @@ This file is a test script to test on our benchmark
 This file generate image process data
 '''
 import sys
-sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
+#sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
+sys.path.append("..")
 from llmcenter import ChatClient
 from nbclient import NotebookClient
 #from DS_Query_Gen import Generate_task_sequence
