@@ -37,5 +37,8 @@
 {"index":"36","system":"You are a helpful assistant","user":"帮我画一个心形图案","file_path":"Null"},
 {"index":"37","system":"You are a helpful assistant","user":"draw a cute cat for me","file_path":"Null"},
 {"index":"38","system":"You are a helpful assistant","user":"make a qrcode which links to www.modelbest.cn","file_path":"Null"},
-{"index":"39","system":"You are a helpful assistant","user":"创建一个二维码，扫描后显示的内容是滕王阁序全文","file_path":"Null"}
+{"index":"39","system":"You are a helpful assistant","user":"创建一个二维码，扫描后显示的内容是滕王阁序全文","file_path":"Null"},
+{"index":"40","system":"turn this gif into video","user":"make a qrcode which links to www.modelbest.cn","file_path":"41.gif"},
+{"index":"41","system":"把这个动图转为视频","user":"创建一个二维码，扫描后显示的内容是滕王阁序全文","file_path":"Null"}
+
 ]

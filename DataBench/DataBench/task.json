@@ -59,5 +59,5 @@
 {"index":"58","system":"You are a helpful assistant","user":"一根金属棒，在不同长度位置的密度不同。其密度与长度关系为p(x)=2x^2+3x+6(kg/m)，其中x是其长度。求这根金属棒的质量M。","file_path":"Null"},
 {"index":"59","system":"You are a helpful assistant","user":"求x^3+2x^2+3x+4的所有极大值和极小值","file_path":"Null"},
 {"index":"60","system":"You are a helpful assistant","user":"求二阶导：y=2x+1+1/(x+1)","file_path":"Null"},
-{"index":"61","system":"You are a helpful assistant","user":"帮我写一个个人网站，这是我的简历","file_path":"./data/59.txt"},
+{"index":"61","system":"You are a helpful assistant","user":"帮我写一个个人网站，这是我的简历,我只需要一个界面","file_path":"./data/59.txt"},
 ]

@@ -185,7 +185,7 @@ Action:(The action to complete Todo,)
 ```
 
 You will got the result of your code after each step. When the code of previous subtask is excuted successfully, you can write and excuet the code for next subtask
-When you got the code result that can fulfill the user query, you should summarize the previous analyse process and make a formal response to user, The response should follow this format:
+When all the code your write are executed and you got the code result that can fulfill the user query, you should summarize the previous analyse process and make a formal response to user, The response should follow this format:
 WARNING:MAKE SURE YOU GET THE CODE EXECUTED RESULT THAT FULFILLED ALL REQUIREMENT OF USER BEFORE USE "Finished"
 Finished: <Answer to user query>
 
@@ -208,7 +208,7 @@ Some notice:
         test_data=json.loads(json_str)
     #print(test_data)
     
-    for task in test_data:
+    for task in test_data[-1:]:
         print("Task:\n",task['user'])
         turns=[]
         #print(task.keys())
@@ -272,12 +272,12 @@ print("当前执行路径是:", current_path)''')
             #messages.append({"role":"tool","content":code_result})
             #print("Code Result:\n",code_result)
         
-        json_file_name = './trajectory_llama30515_codeact_wo_plan.jsonl'
+        json_file_name = './trajectory_llama30515_codeact.jsonl'
 
         # 使用 json.dump 方法将字典列表写入 JSON 文件
         with open(json_file_name, 'a') as wr:
             json_string=json.dumps(messages,ensure_ascii=False)
-            wr.write(json_string+'\n')
+            #wr.write(json_string+'\n')
             print("write jsonl")
 
 
