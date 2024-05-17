@@ -186,7 +186,7 @@ Action:(The action to complete Todo,)
 
 You will got the result of your code after each step. When the code of previous subtask is excuted successfully, you can write and excuet the code for next subtask
 When you got the code result that can fulfill the user query, you should summarize the previous analyse process and make a formal response to user, The response should follow this format:
-
+WARNING:MAKE SURE YOU GET THE CODE EXECUTED RESULT THAT FULFILLED ALL REQUIREMENT OF USER BEFORE USE "Finished"
 Finished: <Answer to user query>
 
 
@@ -222,13 +222,16 @@ Some notice:
 current_path = os.getcwd()
 print("当前执行路径是:", current_path)''')
         print(code_result)
-        messages=[{"role":"system","content":system_prompt_template.format(index=index)},{'role':"user","content":"[INFO]The data is uploaded to {file_path}".format(file_path=file_path)},{"role":"user","content":user_query}]  
+        messages=[{"role":"system","content":system_prompt_template.format(index=index)},{'role':"user","content":"[INFO]The data is uploaded to {file_path}".format(file_path=file_path)},{"role":"user","content":"Use uploaded data to fulfill the requirement:\n"+user_query}]  
         count=0
         for _ in range(10): #max 5 turn interaction
             count+=1
             print("Round:",count)
             if LLM.name=="Llama3":
-                rsp=LLM.chat(messages)
+                try:
+                    rsp=LLM.chat(messages)
+                except:
+                    break
                 print("LLama3 response\n",rsp) 
             #if LLM.name=="LLama3":
             messages.append({"role":"assistant","content":rsp})
@@ -242,7 +245,7 @@ print("当前执行路径是:", current_path)''')
             #    code=_extract_code(rsp)
             
             #print("Response:\n",rsp)
-            print("Code:\n",code)
+            #print("Code:\n",code)
 
             code_result = execute_code(code)
               
@@ -251,7 +254,7 @@ print("当前执行路径是:", current_path)''')
                 roll_back()
                 error_message=code_result.split('\n')[-2]
                 print("Code Result\n",error_message)
-                messages.append({"role":"user","content":"This is a tool message: "+error_message})
+                messages.append({"role":"user","content":"This is the execution result of your code: "+error_message})
                 continue
                 #print("Debug",messages[-2:])
                 #debug_msg=Message(role=RoleType.USER,content="You are a code reviewer, please repeat the bug first and analyse why the code has the bug, just return your reasoning process,do not return any code.Please also Check This:When the code want to draw a plot, use plt.savefig() and print the image path in markdown format instead of plt.show()")
