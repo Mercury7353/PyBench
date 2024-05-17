@@ -11,3 +11,8 @@
 test_codeact和testtest_function call 分别是测试llmcenter模型的两种方法的脚本  
 
 已有的图片数据和轨迹数据同样在文件夹中
+
+## 0517 update.   
+Complete ImageBench and DataBench. 
+Currently, DataBench is totally evaluated by gpt-4(Given trajectory). 
+While the PassRate of ImageBench is evaluted by myself...  Quality is evaluated by gpt-4
