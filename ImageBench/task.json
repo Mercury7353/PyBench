@@ -33,5 +33,9 @@
 {"index":"32","system":"You are a helpful assistant","user":"以这张图为背景，创建一个二维码，要求中间是红色，四角是蓝色的渐变色，扫描后指向的内容是www.x.com","file_path":"./data/32.png"},
 {"index":"33","system":"You are a helpful assistant","user":"draw a QRCode and use this image as  a logo at the center of the qrcode","file_path":"./data/33.png"},
 {"index":"34","system":"You are a helpful assistant","user":"set the background color to white, and draw a image-colored wordcloud picture,use python,AI,AGI,LLM,Agent,CodeInterpreter,Code,Visualization","file_path":"./data/34.png"},
-{"index":"35","system":"You are a helpful assistant","user":"提取这张图的前景与背景，并以此为背景，根据文件中的文本画一个词云，要求词的大小与词频相关","file_path":"./data/35.png & ./data/35.txt"}
+{"index":"35","system":"You are a helpful assistant","user":"提取这张图的前景与背景，并以此为背景，根据文件中的文本画一个词云，要求词的大小与词频相关","file_path":"./data/35.png & ./data/35.txt"},
+{"index":"36","system":"You are a helpful assistant","user":"帮我画一个心形图案","file_path":"Null"},
+{"index":"37","system":"You are a helpful assistant","user":"draw a cute cat for me","file_path":"Null"},
+{"index":"38","system":"You are a helpful assistant","user":"make a qrcode which links to www.modelbest.cn","file_path":"Null"},
+{"index":"39","system":"You are a helpful assistant","user":"创建一个二维码，扫描后显示的内容是滕王阁序全文","file_path":"Null"}
 ]

@@ -1,0 +1,242 @@
+Size (cm),Weight (g),Brix (Sweetness),pH (Acidity),Softness (1-5),HarvestTime (days),Ripeness (1-5),Color,Variety,Blemishes (Y/N),Quality (1-5)
+7.5,180,12,3.2,2,10,4,Orange,Valencia,N,4
+8.2,220,10.5,3.4,3,14,4.5,Deep Orange,Navel,N,4.5
+6.8,150,14,3,1,7,5,Light Orange,Cara Cara,N,5
+9,250,8.5,3.8,4,21,3.5,Orange-Red,Blood Orange,N,3.5
+8.5,210,11.5,3.3,2.5,12,5,Orange,Hamlin,Y (Minor),4.5
+6.7,126,9.1,3,2,25,2,Orange,Navel,N,1
+7.2,160,9,3.5,3.5,9,4,Yellow-Orange,Tangelo (Hybrid),N,4
+6.5,130,13.5,2.8,1.5,5,4.5,Light Orange,Murcott (Hybrid),N,4.5
+8.8,240,7.5,4,5,18,3,Deep Orange,Moro (Blood),Y (Sunburn),3
+7.8,190,12,3.1,2,11,4.5,Orange,Jaffa,N,5
+9.5,270,6,4.2,4.5,24,2.5,Orange-Red,Cara Cara,Y (Mold Spot),2.5
+7.8,183,14.8,3.7,2,12,3,Deep Orange,Valencia,Y (Mold Spot),4
+8,200,10,3.5,3,13,4,Orange,Clementine,N,4.5
+7,140,11,3.2,2.5,8,4.5,Deep Orange,Washington Navel,N,5
+9.2,260,9.5,3.7,4.5,20,4,Orange-Red,Star Ruby,N,4
+6.3,120,14.5,2.9,1,6,5,Light Orange,Tangerine,N,5
+8.7,230,8,3.9,3.5,17,3.5,Orange,Ambiance,Y (Bruise),3.5
+9.6,218,14.1,4.2,4,11,1,Deep Orange,Cara Cara,Y (Sunburn),4
+7.5,247,9.1,3.3,4,24,5,Light Orange,Clementine,N,2
+7.4,170,12.5,3,2,10,4,Yellow-Orange,Jaffa,N,4.5
+10,300,7,4.1,5,25,3,Orange-Red,Blood Orange,N,3
+8.1,205,11,3.4,2.5,14,4.5,Deep Orange,Murcott (Hybrid),N,5
+7.6,180,9,3.3,3,11,4,Orange,California Valencia,N,4.5
+9.8,280,6.5,4.3,5,23,2.5,Orange-Red,Moro (Blood),Y (Split Skin),2
+7.9,190,10.5,3.1,2.5,12,4,Orange,Honey Tangerine,N,4.5
+8.4,215,8.5,3.8,4,16,3.5,Deep Orange,Navel (Late Season),N,4
+6.7,140,13,3,1.5,7,4.5,Light Orange,Clementine (Seedless),N,5
+6.3,111,10,4.3,4,10,5,Orange-Red,Cara Cara,N,4
+7.5,177,8.6,3.5,4,11,1,Light Orange,Temple,N,1
+9,240,7.5,4,4.5,20,3,Orange-Red,Cara Cara,Y (Sunburn Patch),3
+8.3,220,11,3.3,3,15,4,Orange,Hamlin,N,4.5
+7.1,150,9.5,3.4,3.5,9,4,Yellow-Orange,Minneola (Hybrid),N,4.5
+7.7,185,12,3.2,2,11,4.5,Deep Orange,Temple,N,5
+8.9,245,8,3.9,4,19,3,Orange-Red,Moro (Blood),N,4
+6.2,110,15,2.8,1,5,5,Light Orange,Satsuma Mandarin,N,5
+8.6,225,9.5,3.6,3,17,4,Orange,Midsweet (Hybrid),Y (Scars),3.5
+7.3,165,10,3.3,2.5,9,4.5,Deep Orange,California Valencia,N,5
+9.7,285,7,4.2,4.5,22,2.5,Orange-Red,Cara Cara,Y (Mold Spot),2.5
+8,200,11.5,3.4,3,13,4,Orange,Navel (Early Season),N,4.5
+7.5,175,8.5,3.7,4,10,3.5,Deep Orange,Ambiance,N,4
+9.2,260,10.5,3.2,4,20,4.5,Orange-Red,Star Ruby,N,4.5
+6.4,125,13.5,3,1.5,6,5,Light Orange,Tangerine,N,5
+7.8,190,9,3.5,3.5,12,4,Yellow-Orange,Ortanique (Hybrid),N,4.5
+8.3,210,12.5,3.1,2,15,4.5,Deep Orange,Washington Navel,N,5
+6.6,135,14,2.9,1,7,5,Light Orange,Clementine (Seedless),N,5
+7.7,185,12,3.2,2,11,4.5,Deep Orange,Jaffa,N,5
+8.9,240,8.5,3.8,4.5,18,3.5,Orange-Red,Cara Cara,N,4.5
+8.2,215,10,3.4,3,14,4,Orange,Hamlin,N,4.5
+9.4,275,6.5,4.1,5,24,2.5,Orange-Red,Moro (Blood),N,3
+7.2,160,11.5,3.2,2,8,4.5,Deep Orange,Temple,N,5
+8.8,230,9,3.7,4,18,3.5,Orange-Red,Midsweet (Hybrid),Y (Scars),3.5
+6.1,105,14,2.9,1,4,5,Light Orange,Satsuma Mandarin,N,5
+8.5,220,10.5,3.3,2.5,16,4,Orange,California Valencia,N,4.5
+9.9,290,5.5,4.4,5,23,2,Orange-Red,Cara Cara,Y (Mold Spot),2
+7.7,185,12,3.1,3,11,4.5,Orange,Navel (Early Season),N,4.5
+7.4,170,8,3.8,4,9,3.5,Deep Orange,Ambiance,N,4
+9.1,255,11,3.2,4,19,4.5,Orange-Red,Star Ruby,N,4.5
+6.3,120,12.5,3,1.5,5,5,Light Orange,Tangerine,Y (Sunburn Patch),5
+7.6,180,9.5,3.4,3.5,10,4,Yellow-Orange,Ortanique (Hybrid),N,4.5
+8.1,205,13,3,2,13,4.5,Deep Orange,Washington Navel,N,5
+6.5,130,13.5,2.9,1,6,5,Light Orange,Clementine (Seedless),N,5
+8.7,235,7,4,4.5,17,3,Orange-Red,Cara Cara,Y (Sunburn Patch),3
+8,200,10.5,3.3,3,12,4,Orange,Hamlin,N,4.5
+7.3,165,11.5,3.2,2.5,8,4.5,Deep Orange,California Valencia,N,5
+9,240,8.5,3.9,4.5,20,3.5,Orange-Red,Moro (Blood),Y (Minor Insect Damage),4
+6.8,140,12,3,1.5,7,5,Light Orange,Honey Tangerine,N,5
+8.4,215,7.5,4,4,15,3,Deep Orange,Navel (Late Season),N,4
+7.1,150,10,3.3,3,9,4,Yellow-Orange,Minneola (Hybrid),Y (Bruising),3.5
+9.6,280,6,4.2,5,22,2,Orange-Red,Cara Cara,Y (Split Skin),2.5
+7.9,190,11,3.2,2,12,4.5,Deep Orange,Temple,N,5
+8.5,220,8,3.8,4,16,3.5,Orange,Midsweet (Hybrid),Y (Scars),3.5
+6,100,14.5,2.8,1,4,5,Light Orange,Satsuma Mandarin,N,5
+8.2,210,9.5,3.6,3,14,4,Orange,California Valencia,N,4.5
+7.5,175,10,3.3,2.5,10,4,Deep Orange,Washington Navel,N,4.5
+9.3,270,7,4.1,4.5,21,3,Orange-Red,Star Ruby,Y (Sunburn Patch),3
+6.7,135,13,3,1.5,6,5,Light Orange,Tangerine,N,5
+8.8,235,8.5,3.7,4,18,3.5,Orange-Red,Cara Cara,Y (Mold Spot),3.5
+7.8,190,11.5,3.2,3,11,4.5,Deep Orange,Hamlin,N,3
+8.6,225,12.5,3.1,2.5,17,4.5,Deep Orange,Murcott (Hybrid),N,5
+7,145,10.5,3.4,3.5,8,4,Yellow-Orange,Minneola (Hybrid),Y (Bruising),3.5
+9.1,250,7.5,4,5,20,2.5,Orange-Red,Moro (Blood),N,3
+6.2,115,14,2.9,1,5,5,Light Orange,Clementine (Seedless),N,5
+8.4,210,8,3.7,4,15,3.5,Deep Orange,Navel (Late Season),N,4
+7.7,185,11,3.2,2,11,4.5,Deep Orange,Temple,N,5
+8.9,240,9,3.8,4,19,3,Orange-Red,Midsweet (Hybrid),Y (Scars),3.5
+6.9,140,13.5,3,1.5,7,5,Light Orange,Honey Tangerine,N,5
+8.1,200,10,3.4,3,13,4,Orange,California Valencia,N,4.5
+7.4,170,12,3.1,2.5,9,4.5,Deep Orange,Washington Navel,N,5
+8,205,11.5,3.3,3,12,4,Orange,Ambiance,Y (Sunburn Patch),4
+7.2,160,9,3.5,3.5,8,4,Yellow-Orange,Ortanique (Hybrid),N,4.5
+9.5,280,6.5,4.2,5,22,2.5,Orange-Red,Cara Cara,Y (Split Skin),2.5
+6.5,130,13,3,1,6,5,Light Orange,Tangerine,N,5
+8.7,230,8,3.9,4,17,3.5,Deep Orange,Moro (Blood),N,4
+7.9,190,10,3.2,2.5,11,4.5,Deep Orange,Temple,N,5
+8.2,210,12,3.1,2,14,4.5,Deep Orange,California Valencia,N,5
+6.3,120,14,2.9,1.5,5,5,Light Orange,Satsuma Mandarin,N,5
+6.2,115,14,2.9,1,5,5,Light Orange,Jaffa,N,5
+8.5,220,9,3.6,3.5,16,4,Orange,Midsweet (Hybrid),Y (Scars),3.5
+7.1,150,10.5,3.3,3,7,4,Yellow-Orange,Minneola (Hybrid),N,4.5
+8.5,158,11.2,3.6,4,20,5,Orange,Clementine,N,4
+7.7,192,12.6,3.43,4,21,3,Orange,Navel,N,3
+9.3,127,14.2,3.72,3,22,5,Orange-Red,Honey Tangerine,N,5
+8.9,118,8.1,3.32,5,11,3,Light Orange,Valencia,N,2
+6.7,220,11.3,3.29,4,23,5,Orange,Clementine,Y (Scars),4
+9.7,202,14.3,4.09,5,15,5,Orange-Red,Cara Cara,N,4
+6.1,130,6.8,3.98,3,18,5,Light Orange,Jaffa,Y (Mold Spot),2
+7.4,123,6.7,2.82,1,18,5,Light Orange,Clementine,N,3
+8,143,15.1,3.53,5,13,5,Orange-Red,Washington Navel,N,5
+8.9,269,6.7,3.67,4,25,4,Light Orange,Star Ruby,N,2
+6.1,120,14.7,3.97,5,10,5,Orange-Red,Cara Cara,Y (Split Skin),4
+9.9,152,6.4,3.33,4,17,5,Light Orange,Navel,N,2
+6.9,270,7.4,3.85,2,20,3,Light Orange,Navel,N,2
+6.9,184,14,2.86,1,15,3,Orange-Red,Ambiance,Y (Split Skin),5
+6.1,137,12.4,3.54,4,20,5,Orange,Ortanique (Hybrid),N,4
+6.4,236,10.4,3.32,5,22,4,Orange,Temple,N,3
+6.1,279,14.1,3.9,4,13,4,Orange-Red,Navel,Y (Bruising),4
+7.4,293,11.3,3.36,5,19,4,Orange,Temple,N,3
+9.8,209,11.1,2.88,3,14,2,Orange,Star Ruby,N,3
+7.9,246,7.5,3.61,4,19,5,Light Orange,Cara Cara,N,2
+8.3,253,6.7,3.41,5,16,3,Light Orange,Satsuma Mandarin,N,1
+9.7,298,8.1,4.35,3,16,3,Light Orange,Temple,N,2
+8.2,169,11.8,2.92,4,21,4,Orange,Ambiance,N,3
+6.5,260,15.9,4.37,3,10,4,Orange-Red,Satsuma Mandarin,N,5
+9.6,252,12.7,2.97,3,14,4,Orange,Minneola (Hybrid),N,4
+7,297,12.2,2.9,2,22,4,Orange,Cara Cara,N,4
+6.1,243,7.3,2.9,4,10,4,Light Orange,Honey Tangerine,N (Minor),2
+9.7,108,8.6,3.58,2,18,5,Light Orange,Minneola (Hybrid),N,3
+6.6,117,13.7,3.9,2,16,4,Orange-Red,Moro (Blood),N,5
+8.7,234,9.3,3.9,1,14,2,Light Orange,Ortanique (Hybrid),Y (Sunburn Patch),3
+6.7,276,11,4.33,1,11,3,Orange,Ortanique (Hybrid),Y (Sunburn Patch),4
+7.6,269,6.6,3.39,1,23,3,Light Orange,Moro (Blood),N,2
+8.5,234,13.7,3.17,3,11,3,Orange-Red,Honey Tangerine,Y (Scars),4
+7.9,155,12.4,3.58,1,15,5,Orange,Navel,N,5
+6.7,198,10.6,2.8,3,23,5,Orange-Red,Navel,N,4
+9.8,298,8.2,3.7,5,13,3,Light Orange,Star Ruby,Y (Scars),3
+7.7,122,14.6,3.98,4,12,3,Orange-Red,Washington Navel,N,4
+6.4,293,14.2,3.67,5,11,2,Orange-Red,Moro (Blood),N (Split Skin),3
+9.8,143,11,3.65,3,13,5,Orange,Star Ruby,N,4
+6.9,257,13.2,3.36,4,13,5,Orange-Red,Ortanique (Hybrid),N,4
+6,157,9.2,3.85,1,23,4,Light Orange,Ortanique (Hybrid),N,4
+8.9,180,16,2.86,2,24,2,Orange-Red,Ambiance,N,4
+6.2,177,12,3.3,1,12,2,Deep Orange,Clementine,Y (Scars),4
+6.5,296,15,3.2,4,23,2,Deep Orange,Temple,Y (Mold Spot),4
+7.8,187,14.9,3,2,16,1,Deep Orange,Valencia,N,5
+8.2,129,10,3.6,5,24,2,Orange-Red,Tangerine,Y (Scars),3.5
+7.8,292,14.6,3.2,1,11,3,Deep Orange,Washington Navel,Y (Scars),4
+7.3,281,7.7,3.5,2,23,4,Light Orange,Jaffa,Y (Scars),3.5
+8.4,222,14.8,4,3,17,3,Deep Orange,Washington Navel,Y (Minor),4
+9.2,139,14,3.7,2,22,1,Deep Orange,Tangerine,Y (Minor),4
+7.8,234,7.6,3.2,1,19,1,Light Orange,Temple,Y (Sunburn Patch),1
+7.4,238,10.6,3.6,5,14,1,Orange-Red,Tangerine,Y (Bruising),3.5
+8,264,15.8,3.6,4,15,4,Deep Orange,Valencia,N,4
+8.7,217,13.4,3.6,5,10,2,Deep Orange,Moro (Blood),Y (Mold Spot),4.5
+9.7,294,12.7,3.5,3,19,1,Deep Orange,Navel,Y (Bruising),4
+7.8,206,10,3.6,4,18,5,Orange-Red,Navel,N,4
+7.2,274,12.4,4.3,3,12,5,Deep Orange,Temple,Y (Mold Spot),4
+6.4,298,15.2,3,2,15,3,Deep Orange,Clementine,Y (Sunburn Patch),4
+9.7,126,9.1,4.1,1,21,3,Light Orange,Washington Navel,Y (Minor),1
+7.9,168,16,3.3,1,11,3,Deep Orange,Clementine,N,5
+9.6,246,10.2,3.3,2,12,2,Orange-Red,Cara Cara,Y (Sunburn Patch),4
+9,250,15.4,3.4,1,16,4,Deep Orange,Valencia,Y (Bruising),4
+6.4,106,9.1,2.9,4,20,5,Light Orange,Jaffa,Y (Sunburn Patch),3.5
+6.6,141,13.9,3.2,4,19,3,Deep Orange,Valencia,N,4
+9,126,11.5,4.3,3,11,5,Orange-Red,Navel,N,4
+6.9,176,13.7,3.2,5,15,5,Deep Orange,Cara Cara,N,2.5
+9,256,14.1,3.7,3,12,4,Deep Orange,Satsuma Mandarin,Y (Bruising),4
+6.4,127,15.4,2.9,2,11,5,Deep Orange,Star Ruby,Y (Minor),4
+9.6,151,14.4,4.3,4,19,1,Deep Orange,Moro (Blood),N,4
+7.9,258,14.5,3.4,4,22,4,Deep Orange,Temple,N,4
+9.4,179,11.9,3.1,3,15,3,Orange-Red,Ambiance,N,4
+7.2,288,6.9,3.6,2,16,4,Light Orange,Jaffa,Y (Sunburn Patch),3.5
+7.1,236,11.4,4,2,13,3,Orange-Red,Ambiance,Y (Minor Insect Damage),4
+8.6,139,12.1,4.2,1,15,4,Deep Orange,Moro (Blood),Y (Minor),4
+6.8,263,13.4,3.1,4,12,5,Deep Orange,Navel,N,4
+7.8,204,6.2,2.8,3,11,3,Light Orange,Temple,Y (Minor Insect Damage),2.5
+8.1,292,7.4,3.6,3,16,5,Orange,Jaffa,Y (Minor),3
+9.1,269,13.9,3.1,3,11,5,Deep Orange,Valencia,N,5
+8.7,143,14.5,2.9,2,17,3,Deep Orange,Clementine,N,5
+7.5,129,8.4,4.3,2,14,5,Light Orange,Tangerine,Y (Minor),3.5
+6.9,291,9.9,3.8,5,10,4,Light Orange,Satsuma Mandarin,Y (Mold Spot),3
+6.1,198,9,3.1,4,22,3,Light Orange,Cara Cara,Y (Minor),2.5
+8.4,259,15.1,3.9,2,18,5,Deep Orange,Ortanique (Hybrid),Y (Split Skin),4.5
+6.5,171,11.4,3.2,2,16,2,Orange-Red,Jaffa,Y (Minor),5
+6.9,182,14,3.2,1,18,3,Deep Orange,Star Ruby,Y (Minor),4
+6.9,112,13.6,2.9,1,25,2,Deep Orange,Washington Navel,N,5
+8.6,217,9.1,3.1,1,15,3,Light Orange,Washington Navel,N,2.5
+8.3,245,14.3,3.6,3,15,1,Deep Orange,Satsuma Mandarin,Y (Split Skin),4
+8.3,273,14,3.2,4,22,4,Deep Orange,Tangerine,N,4
+8.7,225,10.2,3.2,3,21,5,Orange-Red,Honey Tangerine,N,4
+6.8,165,14.9,3.1,1,22,4,Deep Orange,Star Ruby,Y (Split Skin),5
+7.5,285,15.2,3.7,3,10,3,Deep Orange,Satsuma Mandarin,N,4.5
+6.7,283,6.3,3,4,21,1,Light Orange,Star Ruby,N,3.5
+8.5,192,12.4,3.2,1,25,4,Deep Orange,Navel,Y (Sunburn Patch),4
+7.6,264,14.2,3.2,3,12,1,Deep Orange,Star Ruby,N,5
+8.9,195,11.1,2.8,5,22,5,Orange-Red,Star Ruby,N,3.5
+8.7,141,7,3.9,4,10,2,Light Orange,Ortanique (Hybrid),N,3.5
+6.7,246,8.6,3.5,4,21,3,Light Orange,Satsuma Mandarin,N,4
+8.3,261,13.2,3.8,3,22,5,Deep Orange,Temple,N,4
+7.7,193,9.8,3.2,2,11,3,Light Orange,Star Ruby,Y (Minor Insect Damage),3.5
+9.6,288,6.6,2.8,2,19,2,Light Orange,Washington Navel,N,1
+6.5,277,8.6,3.6,5,18,4,Light Orange,Clementine,Y (Sunburn Patch),4
+9.1,296,11.1,3.3,3,15,1,Orange-Red,Tangerine,Y (Sunburn Patch),4
+7.2,299,12.7,4.3,5,20,5,Deep Orange,Clementine,Y (Bruising),2.5
+6.5,162,8,3.6,5,14,2,Light Orange,Minneola (Hybrid),Y (Sunburn Patch),2.5
+6.8,142,11,3.4,5,20,3,Orange-Red,Valencia,Y (Sunburn Patch),4
+7.5,138,7,4.1,1,20,3,Orange,Navel,N,2
+6.6,128,10.4,3.7,4,25,1,Orange-Red,Ortanique (Hybrid),N,4
+9.9,169,12.8,3.7,1,13,5,Deep Orange,Washington Navel,N,5
+7.9,197,13.1,3.2,2,14,2,Deep Orange,Temple,Y (Minor),4
+8.4,187,14.8,4.2,5,11,3,Deep Orange,Tangerine,N,4.5
+7.1,298,14.1,3.4,3,23,5,Deep Orange,Clementine,Y (Sunburn Patch),4
+6.4,149,14.3,3.5,3,25,3,Deep Orange,Minneola (Hybrid),Y (Bruising),4
+7.6,237,7.7,3.7,2,24,3,Light Orange,Minneola (Hybrid),N,1
+6.9,146,8.7,3.4,5,22,3,Light Orange,Ortanique (Hybrid),N,4.5
+6.1,233,10.9,3,5,19,5,Orange-Red,Satsuma Mandarin,N,3.5
+8.1,248,7.4,3,5,18,2,Light Orange,Cara Cara,N,4
+7.2,261,8,3.3,5,21,5,Orange,Valencia,N,2.5
+6.2,228,12,4.2,3,10,4,Deep Orange,Ortanique (Hybrid),Y (Scars),4
+7.2,130,6.7,3.6,5,23,5,Light Orange,Temple,N,3
+6.6,267,12.5,4,5,11,1,Deep Orange,Star Ruby,N,3.5
+9.7,280,8.5,4.3,3,19,1,Light Orange,Minneola (Hybrid),Y (Sunburn Patch),3
+7,246,14.3,3.8,1,14,2,Deep Orange,Minneola (Hybrid),N,5
+9.4,291,6.3,3.9,4,17,2,Light Orange,Clementine,N,2.5
+9.8,276,6.5,3.3,1,17,5,Light Orange,Star Ruby,N,2
+7.1,210,13,3.7,2,21,5,Deep Orange,Navel,Y (Scars),4
+6.4,261,14.6,3.2,2,17,3,Deep Orange,Ambiance,Y (Sunburn Patch),4
+7.6,100,14.5,3.1,5,15,2,Deep Orange,Satsuma Mandarin,Y (Sunburn Patch),3.5
+8.2,265,6.8,3.4,5,12,2,Light Orange,Moro (Blood),Y (Scars),3
+7.6,189,11.5,3.2,2,12,4,Orange-Red,Ambiance,N,4
+9.1,202,7.2,3.5,2,20,4,Light Orange,Cara Cara,N,1
+9,147,15.6,3.4,2,17,2,Deep Orange,Moro (Blood),N,5
+9.5,131,6.1,3.3,5,21,2,Light Orange,Star Ruby,Y (Sunburn Patch),3
+6.1,273,8.3,4.3,1,16,4,Orange,Navel,Y (Minor),1
+8.2,249,12.8,3.8,3,17,3,Deep Orange,Tangerine,Y (Scars),4
+8.6,251,11.5,3.8,5,23,3,Orange-Red,Clementine,N,3
+8.5,130,8.1,3.6,3,10,2,Orange,Valencia,Y (Sunburn Patch),4
+8,194,10.9,3.6,5,13,1,Orange-Red,Tangerine,Y (Scars),5
+7.4,275,8.5,3.5,5,20,5,Light Orange,Minneola (Hybrid),N,4
+7.5,196,15.7,3,3,13,3,Deep Orange,Temple,Y (Minor Insect Damage),5
+7.2,251,9.8,4.3,3,23,1,Light Orange,Moro (Blood),Y (Minor Insect Damage),3
+7.3,282,10.5,2.9,4,21,2,Orange-Red,Jaffa,Y (Minor),4

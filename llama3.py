@@ -14,7 +14,7 @@ class LlaMa3():
     def chat(self,messages):
         result=my_input_format(messages,tools=self.tools,tool_choice=None,output=None)
         completion = self.client.chat.completions.create(
-                      model="/home/jeeves/zyl/zyl7353/CodeInterpreter/ObjLLaMa/Llama-3-0429-dscode",
+                      model="/home/jeeves/zyl/zyl7353/CodeInterpreter/ObjLLaMa/codeinterpreter_codeact_0515_hf",
                       messages=result,
                       temperature=0.2,
                     )

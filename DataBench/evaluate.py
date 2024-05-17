@@ -6,7 +6,7 @@ Use gpt-4 to evaluate the chat history and evaluate which is better
 
 
 import sys
-sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct")
+sys.path.append("..")
 from llmcenter import ChatClient
 from nbclient import NotebookClient
 #from DS_Query_Gen import Generate_task_sequence
@@ -26,11 +26,6 @@ import jsonlines
 #user =ChatClient(app_code='CodeAndFunction',user_token=user_token,model_id=20)
 import json
 
-def read_and_print_lines(file1_path, file2_path):
-    
-
-# Replace 'file1.jsonl' and 'file2.jsonl' with the paths to your JSONL files
-read_and_print_lines('file1.jsonl', 'file2.jsonl')
 
 
 if __name__ =="__main__":

@@ -21,7 +21,7 @@ import sys
 from nbclient import NotebookClient
 import nbformat
 sys.path.append("..")
-sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct/redebug")
+#sys.path.append("/home/jeeves/zyl/zyl7353/CodeInterpreter/ReAct/ReAct/redebug")
 from os import system
 #from exact_query import generate_exact_query
 import os
@@ -171,14 +171,13 @@ def parse_code_argument(input_str):
 
 def main():
                 
-    system_prompt_template= """ You are an AI Agent who is proficient in solve complicated task. Each step, you could reconsider the Plan(which should no more than 5 steps), generate specific Todo for current step and write code.
-Each subtask in the plan should be a task need to be complete by code.  The code you write will be appended to a notebook as a new cell. You will get the excution result of the cell
+    system_prompt_template= """ You are an AI Agent who is proficient in solve complicated task. Each step, you should first think step by step according to user query and previous messages. The code you write will be appended to a notebook as a new cell. You will get the excution result of the cell
 When you find you code is error, you last code is removed from the notebook, which means you should rewrite the whole cell(redefine all variables)
 
 Each round, your answer should ALWAYS use the following format:
 
 
-Plan:(Analyse the message you received and plan what you should do)
+Analyse:(Analyse the message you received and plan what you should do)
 This Step Todo: One Subtask need to be done at this step
 Action:(The action to complete Todo,)
 ```python 
@@ -193,9 +192,8 @@ Finished: <Answer to user query>
 
 Some notice: 
 1. When you want to draw a plot, use plt.save() and print the image path in markdown format instead of plt.show()
-2. Save anything to ./output/{index}, make the folder in you code if it does not exist
+2. Save anything to ./output folder, make sure the index: {index} is included in your file name
 3. End the process whenever you complete the task, When you do not have Action(Code), Use: Finished: <summary the analyse process and make response>
-4.
 
 """
    
@@ -224,7 +222,7 @@ Some notice:
 current_path = os.getcwd()
 print("当前执行路径是:", current_path)''')
         print(code_result)
-        messages=[{"role":"system","content":system_prompt_template.format(index=index)},{'role':"user","content":"[INFO]The image is uploaded to {file_path}".format(file_path=file_path)},{"role":"user","content":user_query}]  
+        messages=[{"role":"system","content":system_prompt_template.format(index=index)},{'role':"user","content":"[INFO]The data is uploaded to {file_path}".format(file_path=file_path)},{"role":"user","content":user_query}]  
         count=0
         for _ in range(10): #max 5 turn interaction
             count+=1
@@ -264,14 +262,14 @@ print("当前执行路径是:", current_path)''')
                 #print("Debug Info\n",debugger_info)
                 #messages.append({"role":"user","content":debugger_info+"Now, Please fix the bug and excute the code"})
             else:
-                messages.append({"role":"user","content":"This is a tool message: "+code_result})
+                messages.append({"role":"user","content":"This is the execution result of your code: "+code_result})
                 print("Code Result:\n",code_result)
             
             
             #messages.append({"role":"tool","content":code_result})
             #print("Code Result:\n",code_result)
         
-        json_file_name = './trajectory.jsonl'
+        json_file_name = './trajectory_llama30515_codeact_wo_plan.jsonl'
 
         # 使用 json.dump 方法将字典列表写入 JSON 文件
         with open(json_file_name, 'a') as wr:
