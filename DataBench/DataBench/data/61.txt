@@ -1,0 +1,6 @@
+Name: Mr.X
+Education: ABC University
+Major: Computer Science
+Publication: 
+ACL 2035: The way toward AGI: A suvery Link: https://agi.com 
+

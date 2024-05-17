@@ -25,7 +25,7 @@ import jsonlines
 #from exact_query import generate_exact_query
 # multi-turn conversation
 user_token = "5U562TLXxNo9BMkoMAO6z0Y3p6Fc2yrgDX7G04_Ze3k"
-chat = ChatClient(app_code="CodeAndFunction", user_token=user_token, model_id=36)
+chat = ChatClient(app_code="CodeAndFunction", user_token=user_token, model_id=20)
 #user =ChatClient(app_code='CodeAndFunction',user_token=user_token,model_id=20)
 
 def Plan_Act(chat_history):
