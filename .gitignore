@@ -1,6 +1,8 @@
 # Data file
 DataBench/output/
+DataBench/*.jsonl
 ImageBench/output/
+ImageBench/*.jsonl
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

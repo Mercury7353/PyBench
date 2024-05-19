@@ -89,6 +89,6 @@
 {"index":"59","system":"You are a helpful assistant","user":"求x^3+2x^2+3x+4的所有极大值和极小值","file_path":"Null"},
 {"index":"60","system":"You are a helpful assistant","user":"求二阶导：y=2x+1+1/(x+1)","file_path":"Null"},
 {"index":"61","system":"You are a helpful assistant","user":"design a website for geoffrey hinton","file_path":"./data/61.pdf"},
-{"index":"62","system":"You are a helpful assistant","user":"这是面壁智能的一些信息，请为这家公司设计一个网站主页","file_path":"./data/62.pdf"},
+{"index":"62","system":"You are a helpful assistant","user":"这是面壁智能的一些信息，请为这家公司设计一个网站主页","file_path":"./data/62.pdf"}
 
 ]
