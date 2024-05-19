@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import requests
-import os, sys
 import json
 import traceback
 import time
 import random
-from tqdm import tqdm
-import pdb
 
 
 class ChatClient:
@@ -23,8 +20,8 @@ class ChatClient:
         )
         assert res.status_code == 200
         js = json.loads(res.content)
-        #print("CheckPointJs",type(js))
-        js_code=js['code']
+        # print("CheckPointJs",type(js))
+        js_code = js["code"]
         assert js_code == 0
         return js["data"]
 
@@ -42,17 +39,21 @@ class ChatClient:
             #
             # ("test ponit\n",js,"\ndata:\n",data)
             js = js.json()
-            js_code=js['code']
+            js_code = js["code"]
             assert js_code == 0
             return js["data"]
-        except Exception as err:
+        except Exception:
             traceback.print_exc()
             time.sleep(1)
             self.app_token = self.get_app_token(self.app_code, self.user_token)
             return self.create_conversation(title, user_id)
 
     def chat_sync(
-        self, system_prompt="You are a helpful assistant.", messages=[], conv_id=None,temperature=0.2
+        self,
+        system_prompt="You are a helpful assistant.",
+        messages=[],
+        conv_id=None,
+        temperature=0.2,
     ):
         # TODO need to create new conversation for each eval?
         if conv_id is None:
@@ -82,38 +83,34 @@ class ChatClient:
                 }
                 for msg in messages
             ],
-            "modelParamConfig": {
-            "temperature": temperature,
-            "topP": 0.5
-        }
+            "modelParamConfig": {"temperature": temperature, "topP": 0.5},
         }
         for _ in range(2):
             try:
                 js = requests.post(url, json=data, headers=headers)
-                #print("Data",data)
-                #print("Let's print js",js)
-                
+                # print("Data",data)
+                # print("Let's print js",js)
+
                 js = js.json()
-                
-                js_code=js['code']
-                #assert js_code == 0
-                if js_code!=0:
+
+                js_code = js["code"]
+                # assert js_code == 0
+                if js_code != 0:
                     raise AssertionError
                 return js["data"]["content"]
-            except Exception as err:
+            except Exception:
                 print(js)
                 traceback.print_exc()
                 time.sleep(3)
-                '''
+                """
                 self.app_token = self.get_app_token(self.app_code, self.user_token)
                 #conv_id = self.create_conversation()
                 print("CheckPoint",js)
                 return self.chat_sync(
                     system_prompt=system_prompt, messages=messages
                 )
-                '''
-            #raise ValueError
-        
+                """
+            # raise ValueError
 
 
 def read_jsonl(filename):

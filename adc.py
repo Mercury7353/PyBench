@@ -48,8 +48,8 @@ class ToolProperty(BaseModel):
 
 class FunctionDefinition(BaseModel):
     """
-    ADC Function definition, a custom version of the OpenAI Function definition.
-openai-python/src/openai/types/shared/function_definition.py at main · openai/openai-python
+        ADC Function definition, a custom version of the OpenAI Function definition.
+    openai-python/src/openai/types/shared/function_definition.py at main · openai/openai-python
     """
 
     name: str
@@ -98,7 +98,7 @@ class ToolCall(BaseModel):
     id: str
     """The ID of the tool call."""
 
-    type: Literal["function"]="function"
+    type: Literal["function"] = "function"
     """The type of the tool. Currently, only `function` is supported."""
 
     function: Function

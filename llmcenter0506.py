@@ -1,16 +1,17 @@
-""" llmcenter接口 """
+"""llmcenter接口"""
 
 import json
 import logging
 import traceback
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 import requests
-'''
+
+"""
 from adc.llms.base_llm import BaseLLM
 from adc.register import register_llm
 
-'''
+"""
 from adc import (
     DebugInfo,
     Function,
@@ -33,15 +34,15 @@ LLMCENTER_ROLE_MAP = {
 }
 
 
-#@register_llm("llmcenter")
-class LLMCenter():
+# @register_llm("llmcenter")
+class LLMCenter:
     def __init__(self, llm_config: Dict):
         """初始化
 
         Args:
             llm_config (Dict): 配置
         """
-        #super().__init__(llm_config)
+        # super().__init__(llm_config)
         self.app_code = llm_config.get("app_code")
         self.user_token = llm_config.get("user_token")
         self.token_url = llm_config.get("token_url")  # 获取app_token的url
@@ -124,8 +125,8 @@ class LLMCenter():
                     }
                     for tool_call in msg.tool_calls
                 ]
-            if msg.role.value=="tool":
-                new_msg["tool_call_id"]=msg.tool_call_id
+            if msg.role.value == "tool":
+                new_msg["tool_call_id"] = msg.tool_call_id
             new_messages.append(new_msg)
         return new_messages
 
@@ -179,7 +180,7 @@ class LLMCenter():
             Message: 返回的消息
         """
         messages = self._convert_messages(messages)
-        #tools = self._convert_tools(tools)
+        # tools = self._convert_tools(tools)
         _messages = []
         for msg in messages:
             if msg["role"] == "assistant" and "tool_calls" in msg:
@@ -235,8 +236,7 @@ class LLMCenter():
         elif tool_choice == "auto":
             _tool_choice = {"type": "AUTO"}
         elif isinstance(tool_choice, dict):
-            _tool_choice = {"type": "AUTO",
-                            "functionName": tool_choice["name"]}
+            _tool_choice = {"type": "AUTO", "functionName": tool_choice["name"]}
         else:
             _tool_choice = None
 
@@ -267,9 +267,9 @@ class LLMCenter():
         response = requests.request(
             "POST", self.url, headers=headers, data=payload
         ).json()
-        #print("CheckPoint",response)
+        # print("CheckPoint",response)
         msg = response["data"]["messages"][0]
-        #print("Test",msg)
+        # print("Test",msg)
         if "toolCall" in msg and msg["toolCall"] is not None:
             msg = Message(
                 role=RoleType.ASSISTANT,
@@ -292,11 +292,7 @@ class LLMCenter():
         else:
             return Message(role=RoleType.ASSISTANT, content=msg["content"])
 
-    def chat(
-        self,
-        messages: List[Message],
-        tools
-    ) -> Tuple[Message, DebugInfo]:
+    def chat(self, messages: List[Message], tools) -> Tuple[Message, DebugInfo]:
         """接受用户传入的messages和tools[可选]，返回新的message和debug_info
         tools:Optional[List[Tool]] = None,
         Args:
@@ -312,6 +308,8 @@ class LLMCenter():
             return msg, DebugInfo(info={})
         except Exception as e:
             return Message(role="assistant", content=traceback.format_exc()), DebugInfo(
-                info={"LLMCenterError": str(
-                    e), "LLMCenter_traceback": traceback.format_exc()}
+                info={
+                    "LLMCenterError": str(e),
+                    "LLMCenter_traceback": traceback.format_exc(),
+                }
             )

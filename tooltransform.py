@@ -3,17 +3,19 @@
 """
 format input messages, global_arguments, tools, tool_choice to a input string
 """
+
+import ast
 import json
+import logging
 import random
 import re
-from typing import List, Dict, Optional, Union
-from io import StringIO
-import ast
 import traceback
-import logging
+from typing import Dict, List, Optional
 
 logging.basicConfig(
-    level=logging.INFO, format="[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s", datefmt="%H:%M:%S"
+    level=logging.INFO,
+    format="[%(asctime)s] {%(pathname)s:%(lineno)d} %(levelname)s - %(message)s",
+    datefmt="%H:%M:%S",
 )
 logger = logging.getLogger(__name__)
 
@@ -23,7 +25,7 @@ t2t = {"integer": "int", "string": "str", "number": "float", "boolean": "bool"}
 def message_format(msg):
     """https://github.com/facebookresearch/llama/blob/main/llama/generation.py#L343"""
     if msg["role"] == "assistant":
-        #msg["tool_call_string"] = ""
+        # msg["tool_call_string"] = ""
         content = msg.get("content", "")
         if content is None:
             content = ""
@@ -45,14 +47,16 @@ def message_format(msg):
                         tool_call["arguments"] = json.loads(tool_call["arguments"])
                     except:
                         continue
-                args = ",".join([k + "=" + add_quotes(v) for k, v in tool_call["arguments"].items()])
+                args = ",".join(
+                    [k + "=" + add_quotes(v) for k, v in tool_call["arguments"].items()]
+                )
                 tool_calls.append(f"{tool_name}({args})")
 
             content += "<|tool_call|>" + "\n".join(tool_calls).strip()
             msg["tool_call_string"] = "\n".join(tool_calls).strip()
             msg["content"] = content
-            assmsg={"role":"assistant","content":content}
-            msg=assmsg
+            assmsg = {"role": "assistant", "content": content}
+            msg = assmsg
 
     return msg
 
@@ -126,7 +130,9 @@ def generate_class(class_name, class_json, generated_classes=[]):
         generated_classes.append(class_string)
     elif class_type == "array":
         if "items" in class_json:
-            class_name = generate_class(class_name, class_json["items"], generated_classes)
+            class_name = generate_class(
+                class_name, class_json["items"], generated_classes
+            )
             class_name = f"List[{class_name}]"
         else:
             class_name = f'List[{class_json["type"]}]'
@@ -138,7 +144,9 @@ def generate_class(class_name, class_json, generated_classes=[]):
             if key not in class_json.get("required", []):
                 attr_class_name = f"Optional[{attr_class_name}]"
             if "description" in value:
-                class_string += f"    {key}: {attr_class_name} # {value['description']}\n"
+                class_string += (
+                    f"    {key}: {attr_class_name} # {value['description']}\n"
+                )
             else:
                 class_string += f"    {key}: {attr_class_name}\n"
         generated_classes.append(class_string)
@@ -188,7 +196,9 @@ def my_input_format(
         tools_string = ""
     if tool_choice is not None and "name" in tool_choice:
         tool_choice_template = "你必须使用{tool_choice}工具。"
-        tool_choice_string = tool_choice_template.format(tool_choice=tool_choice["name"]).strip()
+        tool_choice_string = tool_choice_template.format(
+            tool_choice=tool_choice["name"]
+        ).strip()
     else:
         tool_choice_string = ""
 
@@ -208,8 +218,8 @@ def add_system_suffix(messages, system_suffix):
     idx = -1
     for i, msg in enumerate(messages):
         if msg["role"] == "system":
-            idx=i
-            msg['content']+="\n"+system_suffix
+            idx = i
+            msg["content"] += "\n" + system_suffix
             break
             first, second = system_suffix.split("<|tool_call|>", 1)
             msg["content"] += "\n" + first
@@ -218,7 +228,9 @@ def add_system_suffix(messages, system_suffix):
             break
     if idx == -1:
         first, second = system_suffix.split("<|tool_call|>", 1)
-        messages.insert(0, {"role": "system", "content": first, "tool_call_string": second})
+        messages.insert(
+            0, {"role": "system", "content": first, "tool_call_string": second}
+        )
     return messages
 
 
@@ -236,7 +248,7 @@ def convert_function_call_to_json(string):
             # print('converted to', this_one)
             tool_calls.append(this_one)
         return tool_calls
-    except Exception as e:
+    except Exception:
         return []
 
 
@@ -272,8 +284,14 @@ def main():
                     "type": "object",
                     "description": "a parameter description",
                     "properties": {
-                        "a1": {"type": "number", "description": "a1 parameter description"},
-                        "a2": {"type": "boolean", "description": "a2 parameter description"},
+                        "a1": {
+                            "type": "number",
+                            "description": "a1 parameter description",
+                        },
+                        "a2": {
+                            "type": "boolean",
+                            "description": "a2 parameter description",
+                        },
                     },
                 },
                 "b": {
@@ -282,8 +300,14 @@ def main():
                     "items": {
                         "type": "object",
                         "properties": {
-                            "c": {"type": "integer", "description": "c parameter description"},
-                            "d": {"type": "number", "description": "d parameter description"},
+                            "c": {
+                                "type": "integer",
+                                "description": "c parameter description",
+                            },
+                            "d": {
+                                "type": "number",
+                                "description": "d parameter description",
+                            },
                         },
                     },
                 },
@@ -317,7 +341,12 @@ def transform(data, num_sample: int, r: random.Random):
         #             if r.random() < use_tool_choice_prob:
         #                 msg["content"] += f"你必须使用{tool_name}工具。"
         # step 3: transform messages, convert tools and tool_calls to string
-        messages = my_input_format(data["messages"], tools=data.get("tools", None), tool_choice=None, output=None)
+        messages = my_input_format(
+            data["messages"],
+            tools=data.get("tools", None),
+            tool_choice=None,
+            output=None,
+        )
         # step 4: return
         return {"messages": messages}
     except:
