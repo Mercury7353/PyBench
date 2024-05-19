@@ -14,11 +14,14 @@ class LlaMa3():
     def chat(self,messages):
         result=my_input_format(messages,tools=self.tools,tool_choice=None,output=None)
         completion = self.client.chat.completions.create(
-                      model="/home/jeeves/zyl/zyl7353/CodeInterpreter/ObjLLaMa/codeinterpreter_codeact_0515_hf",
-                      messages=result,
-                      temperature=0.2,
+                    #model="/home/jeeves/zyl/zyl7353/CodeInterpreter/ObjLLaMa/codeinterpreter_codeact_0515_hf",
+                    #model="/mnt/data/user/tc_agi/panyinxu/models/Qwen1.5-32B-Chat",
+                    model="/mnt/data/user/tc_agi/yh/ckpts/qwen1.5_32b/qwen1.5_32b_sft.job_669184_step2000/",
+                    messages=result,
+                    temperature=0.2,
+                    top_p=0.5,
                     )
-        
+
         #content=completion.choices[0].message['content']['content']
         #print("test",content)
 
@@ -68,7 +71,7 @@ tools= [
 result=my_input_format(messages=messages,tools=tools,tool_choice=None,output=None)
 print(result)
 for msg in result:
-    
+
     print("tool_call_string" in msg.keys())
 '''
 
