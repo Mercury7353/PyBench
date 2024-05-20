@@ -71,4 +71,3 @@ if __name__ == "__main__":
     for msg in result:
 
         print("tool_call_string" in msg.keys())
-    """

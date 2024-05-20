@@ -35,6 +35,7 @@ from langchain_experimental.tools.python.tool import PythonAstREPLTool
 
 # from exact_query import generate_exact_query
 from llama3 import LlaMa3
+from GPT import GPT
 
 
 def execute_code(code_str: str, tool: PythonAstREPLTool):
@@ -256,7 +257,9 @@ plt.imshow(cv2.cvtColor(result, cv2.COLOR_BGR2RGB))
     ]
     # print("in")
 
-    LLM = LlaMa3(tools=None)
+    #LLM = LlaMa3(tools=None)
+    #LLM = GPT("gpt-35-turbo-16k", 0.2)
+    LLM = GPT("gpt-4-32k", 0.2)
     with open("task.json") as f:
         json_str = f.read()
         test_data = json.loads(json_str)
@@ -292,7 +295,18 @@ print("当前执行路径是:", current_path)""",
             {"role": "user", "content": user_query},
         ]
         for _ in range(3):
-            rsp = LLM.chat(messages=messages)
+            if LLM.name == "Llama3":
+                try:
+                    rsp = LLM.chat(messages=messages)
+                except:
+                    break
+                print("LLama3 response\n", rsp)
+            elif LLM.name == "GPT":
+                try:
+                    rsp, _debug_info = LLM.chat(messages, tools=[])
+                except:
+                    break
+                rsp = rsp.content
             code = _extract_code(rsp)
             # print(len(code))
             if len(code) == 0:
@@ -329,7 +343,9 @@ print("当前执行路径是:", current_path)""",
 
         if flag == 0:
             turns.append(3)
-        with open("qwen_ours_0518.jsonl", "a") as f:
+        #with open("qwen_ours_0518.jsonl", "a") as f:
+        #with open("gpt35_0519.jsonl", "a") as f:
+        with open("gpt4_0519.jsonl", "a") as f:
             json_string = json.dumps(messages, ensure_ascii=False)
             f.write(json_string + "\n")
             print("write jsonl")

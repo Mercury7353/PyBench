@@ -108,6 +108,8 @@ class LLMCenter:
             return "error"
 
     def _convert_messages(self, messages: List[Message]) -> List[Dict]:
+        if messages is not None and len(messages) > 0 and isinstance(messages[0], dict):
+            messages = [Message.model_validate(msg) for msg in messages]
         new_messages = []
         for msg in messages:
             new_msg = {
@@ -150,6 +152,8 @@ class LLMCenter:
         return new_property
 
     def _convert_tools(self, tools: List[Tool]) -> List[Dict]:
+        #if tools is not None and len(tools) > 0 and isinstance(tools[0], dict):
+        #    tools = [Tool.model_validate(t) for t in tools]
         new_tools = []
         for tool in tools:
             new_tool = {

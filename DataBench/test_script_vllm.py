@@ -37,6 +37,7 @@ from os import system
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
 
 from llama3 import LlaMa3
+from GPT import GPT
 
 
 def execute_code(code_str: str, tool: PythonAstREPLTool):
@@ -209,7 +210,9 @@ Some notice:
     # system_prompt_template
     # startVLLM() # 会占用当前bash，需要另外单独启动
 
-    LLM = LlaMa3(tools=None)
+    #LLM = LlaMa3(tools=None)
+    #LLM = GPT("gpt-35-turbo-16k", 0.2)
+    LLM = GPT("gpt-4-32k", 0.2)
     with open("task.json") as f:
         json_str = f.read()
         print(json_str)
@@ -258,6 +261,13 @@ print("当前执行路径是:", current_path)""",
                 except:
                     break
                 print("LLama3 response\n", rsp)
+            elif LLM.name == "GPT":
+                try:
+                    rsp, _ = LLM.chat(messages, tools=[])
+                except:
+                    break
+                rsp = rsp.content
+                print("GPT response\n", rsp)
             # if LLM.name=="LLama3":
             messages.append({"role": "assistant", "content": rsp})
 
@@ -283,17 +293,17 @@ print("当前执行路径是:", current_path)""",
                 )
                 print("Code Result:\n", code_result)
                 continue
-                roll_back()
-                error_message = code_result.split("\n")[-2]
-                print("Code Result\n", error_message)
-                messages.append(
-                    {
-                        "role": "user",
-                        "content": "This is the execution result of your code: "
-                        + error_message,
-                    }
-                )
-                continue
+                #roll_back()
+                #error_message = code_result.split("\n")[-2]
+                #print("Code Result\n", error_message)
+                #messages.append(
+                #    {
+                #        "role": "user",
+                #        "content": "This is the execution result of your code: "
+                #        + error_message,
+                #    }
+                #)
+                #continue
                 # print("Debug",messages[-2:])
                 # debug_msg=Message(role=RoleType.USER,content="You are a code reviewer, please repeat the bug first and analyse why the code has the bug, just return your reasoning process,do not return any code.Please also Check This:When the code want to draw a plot, use plt.savefig() and print the image path in markdown format instead of plt.show()")
                 # debug_messages=funcall_messages[-2:]
@@ -316,12 +326,12 @@ print("当前执行路径是:", current_path)""",
             # print("Code Result:\n",code_result)
 
         # json_file_name = './trajectory_qwen_chat_0518.jsonl'
-        json_file_name = "./trajectory_qwen_ours_0518.jsonl"
+        json_file_name = "./trajectory_gpt4_0519.jsonl"
 
         # 使用 json.dump 方法将字典列表写入 JSON 文件
         with open(json_file_name, "a") as wr:
             json_string = json.dumps(messages, ensure_ascii=False)
-            # wr.write(json_string+'\n')
+            wr.write(json_string+'\n')
             print("write jsonl")
 
 
