@@ -71,6 +71,8 @@ jupyterlab
 jupyterlab-pygments
 jupyterlab-server
 keras
+langchain
+langchain-experimental
 librosa
 loguru
 lxml
@@ -91,6 +93,7 @@ numba
 numexpr
 numpy
 numpy-financial
+openai
 opencv-python
 openpyxl
 orjson
