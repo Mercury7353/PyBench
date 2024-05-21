@@ -41,6 +41,7 @@ fastapi
 fastjsonschema
 ffmpeg-python
 ffmpy
+fire
 flask
 flask-cachebuster
 flask-cors
