@@ -128,7 +128,9 @@ def main(config_path: str, task_path: str, output_path: str):
                 messages.append({"role": "tool", "content": code_response})
 
         save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
-        print(json.dumps({"messages": messages}), file=fout)
+        item = {"messages": messages}
+        item.update(task)
+        print(json.dumps(item, ensure_ascii=False), file=fout)
     logger.info("finished")
 
 
