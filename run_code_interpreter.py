@@ -7,31 +7,9 @@ from langchain_experimental.tools.python.tool import PythonAstREPLTool
 from loguru import logger
 from yaml import safe_load
 
-from llms import BaseLLM, LLMCenter, OpenAIAPI
+from llms import build_llm
 from llms.utils import message2dict
 from utils.output_parser import parse_code_action
-
-
-def build_llm(llm_type: str, config: Dict[str, Any]) -> BaseLLM:
-    """build llm from config
-
-    Args:
-        llm_type (str): llm type, only support llmcenter and openai
-        config (Dict[str, Any]): the dict of llm config
-
-    Raises:
-        ValueError: llm_type should be llmcenter or openai
-
-    Returns:
-        BaseLLM: LLMCenter or OpenAIAPI
-    """
-    if llm_type == "llmcenter":
-        llm = LLMCenter(config)
-    elif llm_type == "openai":
-        llm = OpenAIAPI(config)
-    else:
-        raise ValueError("llm_type should be llmcenter or openai")
-    return llm
 
 
 def execute_code(code_str: str, tool: PythonAstREPLTool):
@@ -103,7 +81,15 @@ def main(config_path: str, task_path: str, output_path: str):
             )
             logger.info(f"Reasoning: {reasoning}")
             logger.info(f"Code script: {code_script}")
-            messages.append({"role": "assistant", "content": out_msg.content})
+            if code_script is None or code_script.strip() == "":
+                messages.append({"role": "assistant", "content": reasoning})
+            else:
+                messages.append(
+                    {
+                        "role": "assistant",
+                        "content": f"{reasoning}\n{config['code_start_token']}\n{code_script}\n{config['code_end_token']}",
+                    }
+                )
 
             if code_script is None or code_script.strip() == "":
                 break

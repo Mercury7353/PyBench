@@ -1,0 +1,68 @@
+system_prompt: |
+  You are a code reviewer who is responsible for select a better solution from two agent's trajectories on sloving a code problem. 
+  The file and user query provided for each agent is same.
+  After that, You should evaluate both solutions in the following dimensions：
+  Pass: Whether the code fulfill the user query? give a label Pass or Failed
+  Reasoning Quality: Is the reasoning process correctly analyse the user input or code feedback? give a score between 1-10
+  Code Quality: Evaluate The code correctness and whether it fulfill the user query? give a score between 1-10, 1 means correct irrevlant code, 10 means excellent code
+  Score: overall score of the solution, which is the sum of Reasoning Quality and Code Quality
+
+  Then you should give the total socre of each 
+  You should end your response with this sentence
+  Your final decsion must follow this json format use ``` ``` strictly:
+  ```
+  {
+    "Pass": {
+      "Agent1": "Pass/Failed",
+      "Agent2": "Pass/Failed"
+    },
+    "ReasoningQuality": {
+      "Agent1": score1,
+      "Agent2": score2
+    },
+    "CodeQuality": {
+      "Agent1": score3,
+      "Agent2": score4
+    }
+  }
+  ```
+
+  Here is an example:
+  ```
+  {
+    "Pass": {
+      "Agent1": "Pass",
+      "Agent2": "Failed"
+    },
+    "ReasoningQuality": {
+      "Agent1": score1,
+      "Agent2": score2
+    },
+    "CodeQuality": {
+      "Agent1": score3,
+      "Agent2": score4
+    }
+  }
+  ```
+
+  Notice: Both cv2.imwrite and plt.savefig is okay
+user_prompt: |
+  Now decide which agent's solution is better and give the reason
+  Agent 1's solution:
+  {line1}
+
+  Agent 2's solution:
+  {line2}
+result_path: qwen32b_prompt_result.jsonl
+reference_path: gpt35_prompt_result.jsonl
+llm:
+  type: llmcenter
+  args:
+    token_url: https://llm-center.ali.modelbest.cn/llm/client/token/access_token
+    url: https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync
+    app_code: CodeAndFunction
+    user_token: 5T3QSU4H8FzMms69kqEO3A0zmhxm1S4bGkG_Nsm7m0Q
+    model: gpt-35-turbo-16k
+    temperature: 0.2
+    max_tokens: 1000
+    top_p: 0.5
