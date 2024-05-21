@@ -64,7 +64,9 @@ def extract_code(
     if end_index == -1:
         return rsp, ""
 
-    return rsp[:start_index].strip(), rsp[start_index:end_index].strip()
+    return rsp[:start_index].replace(code_start_token, "").strip(), rsp[
+        start_index:end_index
+    ].strip()
 
 
 def convert_function_call_to_json(string):

@@ -5,6 +5,7 @@ from yaml import safe_load
 
 from llms import build_llm
 from utils.output_parser import extract_code
+import fire
 
 
 def sum_scores(score_list):
@@ -16,8 +17,14 @@ def sum_scores(score_list):
     # 遍历列表中的每一项
     for item in score_list:
         score_dict = item["Decision"]
-        agent1_score = score_dict["ReasoningQuality"]["Agent1"] + score_dict["CodeQuality"]["Agent1"]
-        agent2_score = score_dict["ReasoningQuality"]["Agent2"] + score_dict["CodeQuality"]["Agent2"]
+        agent1_score = (
+            score_dict["ReasoningQuality"]["Agent1"]
+            + score_dict["CodeQuality"]["Agent1"]
+        )
+        agent2_score = (
+            score_dict["ReasoningQuality"]["Agent2"]
+            + score_dict["CodeQuality"]["Agent2"]
+        )
         agent1_pass = score_dict["Pass"]["Agent1"]
         agent2_pass = score_dict["Pass"]["Agent2"]
         agent1_pass_list.append(agent1_pass)
@@ -76,7 +83,17 @@ def main(config_path):
             )
         except:
             continue
-    total_score_agent1, total_score_agent2, agent1_pass_rate, agent2_pass_rate = sum_scores(eval_result)
+    total_score_agent1, total_score_agent2, agent1_pass_rate, agent2_pass_rate = (
+        sum_scores(eval_result)
+    )
     logger.info("evaluation finished")
-    logger.info(f"Agent1, total score: {total_score_agent1}, pass rate: {agent1_pass_rate}")
-    logger.info(f"Agent2, total score: {total_score_agent2}, pass rate: {agent2_pass_rate}")
+    logger.info(
+        f"Agent1, total score: {total_score_agent1}, pass rate: {agent1_pass_rate}"
+    )
+    logger.info(
+        f"Agent2, total score: {total_score_agent2}, pass rate: {agent2_pass_rate}"
+    )
+
+
+if __name__ == "__main__":
+    fire.Fire(main)

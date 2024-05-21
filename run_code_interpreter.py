@@ -10,6 +10,7 @@ from yaml import safe_load
 from llms import build_llm
 from llms.utils import message2dict
 from utils.output_parser import parse_code_action
+from utils.save_notebook import generate_notebook, save_as_ipynb
 
 
 def execute_code(code_str: str, tool: PythonAstREPLTool):
@@ -43,7 +44,7 @@ def main(config_path: str, task_path: str, output_path: str):
     logger.info(f"total tasks: {len(test_data)}")
     for task in test_data:
         tool = PythonAstREPLTool()
-        file_path = task["file_path"]
+        file_path = ",".join(task["file_paths"])
         user_query = task["user"]
         index = task["index"]
 
@@ -66,6 +67,20 @@ def main(config_path: str, task_path: str, output_path: str):
                 "content": user_query,
             },
         ]
+        cells = [
+            {"role": "system", "text": system_prompt_template},
+            # {"role": "system", "content": system_prompt_template.format(index=index)},
+            {
+                "role": "user",
+                "text": "[INFO]The data is uploaded to {file_path}".format(
+                    file_path=file_path
+                ),
+            },
+            {
+                "role": "user",
+                "text": user_query,
+            },
+        ]
         for count in range(max_turns):  # max 5 turn interaction
             logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
             logger.info(f"input messages: {messages}")
@@ -83,6 +98,7 @@ def main(config_path: str, task_path: str, output_path: str):
             logger.info(f"Code script: {code_script}")
             if code_script is None or code_script.strip() == "":
                 messages.append({"role": "assistant", "content": reasoning})
+                cells.append({"role": "assistant", "text": reasoning})
             else:
                 messages.append(
                     {
@@ -90,6 +106,7 @@ def main(config_path: str, task_path: str, output_path: str):
                         "content": f"{reasoning}\n{config['code_start_token']}\n{code_script}\n{config['code_end_token']}",
                     }
                 )
+                cells.append({"role": "assistant", "text": reasoning})
 
             if code_script is None or code_script.strip() == "":
                 break
@@ -98,8 +115,17 @@ def main(config_path: str, task_path: str, output_path: str):
             logger.info(f"Code response:\n{code_response}")
             if config["mode"] == "prompt":
                 messages.append({"role": "user", "content": code_response})
+                cells.append(
+                    {
+                        "role": "assistant",
+                        "code": code_script,
+                        "result": code_response,
+                    }
+                )
             else:
                 messages.append({"role": "tool", "content": code_response})
+
+        save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
         print(json.dumps({"messages": messages}), file=fout)
     logger.info("finished")
 

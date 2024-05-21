@@ -38,7 +38,8 @@ for i, row in df.iterrows():
     if not isinstance(question, str) or question.strip() == "":
         attach = row["附带文件"]
         files = find_fuzzy_file(attach, i + 2)
-        data[-1]["attachments"].append(attach)
+        if isinstance(attach, str):
+            data[-1]["attachments"].append(attach)
         data[-1]["file_paths"] += files
     else:
         attach = row["附带文件"]
@@ -51,7 +52,9 @@ for i, row in df.iterrows():
                 "category3": category3,
                 "user": question,
                 "file_paths": files,
-                "attachments": [attach],
+                "attachments": [],
             }
         )
+        if isinstance(attach, str):
+            data[-1]["attachments"].append(attach)
 json.dump(data, open("data/meta/task.json", "w"), ensure_ascii=False, indent=4)

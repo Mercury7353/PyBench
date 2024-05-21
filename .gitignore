@@ -1,5 +1,8 @@
 # Data file
-#data/
+data/
+cells/
+output/
+.virtual_documents/
 *.jsonl
 # Byte-compiled / optimized / DLL files
 __pycache__/

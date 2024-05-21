@@ -124,6 +124,7 @@
         "category3": "数据格式转换",
         "user": "Please save this file as an xls file",
         "file_paths": [
+            "data/Turkey_Syria_Earthquake.xlsx",
             "data/Turkey_Syria_Earthquake.csv"
         ],
         "attachments": [
@@ -898,9 +899,7 @@
         "category3": "函数分析图",
         "user": "绘制正弦和余弦函数的图像，并分析其周期性",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "73",
@@ -909,9 +908,7 @@
         "category3": "函数分析图",
         "user": "Could you please tell me what is the max value of y? y = - 2 * x * x + 4 * x + 100. Make a plot to show the curve of y.",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "74",
@@ -1418,9 +1415,7 @@
         "category3": "画心形",
         "user": "帮我画一个心形图案",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "116",
@@ -1429,9 +1424,7 @@
         "category3": "画心形",
         "user": "draw a cute cat for me",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "117",
@@ -1440,9 +1433,7 @@
         "category3": "生成二维码",
         "user": "make a qrcode which links to www.modelbest.cn",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "118",
@@ -1451,9 +1442,7 @@
         "category3": "生成二维码",
         "user": "创建一个二维码，扫描后显示的内容是滕王阁序全文",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "119",
@@ -1510,9 +1499,7 @@
         "category3": "画词云",
         "user": "提取这篇小说的关键词并绘制成词云",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "124",
@@ -1551,9 +1538,7 @@
         "category3": "抓取数据并转换格式",
         "user": "Extracting Key Information of FaceWall Intelligence Company from Baidu Baike and Saving it as an Excel File",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "129",
@@ -1562,9 +1547,7 @@
         "category3": "抓取数据并转换格式",
         "user": "从huggingface上查找rag相关的数据集，把下载量前三的数据集下载下来，保存为每行一个Json的格式，每个json需要有role和content字段，role字段可以是system, user, assistant或knowledge，content字段是具体的内容。",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "130",
@@ -1625,9 +1608,7 @@
         "category3": "简单计算",
         "user": "2的1000次方是多少？",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "135",
@@ -1636,9 +1617,7 @@
         "category3": "简单计算",
         "user": "1到10000的倒数之和是多少，保留10位小数",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "136",
@@ -1647,9 +1626,7 @@
         "category3": "求积分",
         "user": "假设函数为f(x)=x+1,求在[1, 2]上的积分",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "137",
@@ -1658,9 +1635,7 @@
         "category3": "求积分",
         "user": "一根金属棒，在不同长度位置的密度不同。其密度与长度关系为p(x)=2x^2+3x+6(kg/m)，其中x是其长度。求这根金属棒的质量M。",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "138",
@@ -1669,9 +1644,7 @@
         "category3": "求导",
         "user": "求x^3+2x^2+3x+4的所有极大值和极小值",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "139",
@@ -1680,9 +1653,7 @@
         "category3": "求导",
         "user": "求二阶导：y=2x+1+1/(x+1)",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "140",
@@ -1691,9 +1662,7 @@
         "category3": "求导",
         "user": "用python写一个贪吃蛇",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "141",
@@ -1702,9 +1671,7 @@
         "category3": "求导",
         "user": "write a flappy bird html demo",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "142",
@@ -1729,8 +1696,7 @@
             "data/面壁智能.pdf"
         ],
         "attachments": [
-            "📄面壁智能",
-            NaN
+            "📄面壁智能"
         ]
     },
     {
@@ -1740,9 +1706,7 @@
         "category3": "求导",
         "user": "Help me convert the WAV file to MP3 file",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "146",
@@ -1751,9 +1715,7 @@
         "category3": "求导",
         "user": "cut the first 30 seconds of the audio file and save it to a new file",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "147",
@@ -1762,9 +1724,7 @@
         "category3": "求导",
         "user": "enhance the volume ",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     },
     {
         "index": "148",
@@ -1773,8 +1733,6 @@
         "category3": "求导",
         "user": "检测音频中的静音部分，自动将音频文件分割成多个片段",
         "file_paths": [],
-        "attachments": [
-            NaN
-        ]
+        "attachments": []
     }
 ]
