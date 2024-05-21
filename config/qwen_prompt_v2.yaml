@@ -22,6 +22,7 @@ system_prompt_template: |
   1. When you want to draw a plot, use plt.save() and print the image path in markdown format instead of plt.show()
   2. Save anything to ./output folder
   3. End the process whenever you complete the task, When you do not have Action(Code), Use: Finished: <summary the analyse process and make response>
+  4. Do not ask for user input in your python code.
 code_start_token: "```python"
 code_end_token: "```"
 mode: prompt
