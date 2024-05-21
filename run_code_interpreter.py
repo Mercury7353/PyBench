@@ -1,10 +1,9 @@
 import json
+import os
 import traceback
 
-import matplotlib
-
-matplotlib.use("Agg")
 import fire
+import matplotlib
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
 from loguru import logger
 from yaml import safe_load
@@ -13,6 +12,8 @@ from llms import build_llm
 from llms.utils import message2dict
 from utils.output_parser import parse_code_action
 from utils.save_notebook import generate_notebook, save_as_ipynb
+
+matplotlib.use("Agg")
 
 
 def execute_code(code_str: str, tool: PythonAstREPLTool):
@@ -34,6 +35,8 @@ def execute_code(code_str: str, tool: PythonAstREPLTool):
 
 
 def main(config_path: str, task_path: str, output_path: str):
+    os.makedirs("cells", exist_ok=True)
+    os.makedirs("output", exist_ok=True)
     logger.info("started")
     config = safe_load(open(config_path, "r"))
     logger.info("config loaded")

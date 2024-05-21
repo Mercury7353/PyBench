@@ -1,7 +1,7 @@
 # Data file
 data/
-cells/
-output/
+*cells/
+*output/
 .virtual_documents/
 *.jsonl
 # Byte-compiled / optimized / DLL files
