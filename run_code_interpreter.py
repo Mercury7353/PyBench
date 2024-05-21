@@ -1,7 +1,9 @@
 import json
 import traceback
-from typing import Any, Dict
 
+import matplotlib
+
+matplotlib.use("Agg")
 import fire
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
 from loguru import logger
