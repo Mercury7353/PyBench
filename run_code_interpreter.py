@@ -47,12 +47,17 @@ def main(config_path: str, task_path: str, output_path: str):
     test_data = json.load(open(task_path, "r"))
     fout = open(output_path, "w")
     logger.info(f"total tasks: {len(test_data)}")
+    if os.path.exists(output_path):
+        processed_ids = set(
+            [json.loads(line)["index"] for line in open(output_path, "r")]
+        )
     for task in test_data:
         tool = PythonAstREPLTool()
         file_path = ",".join(task["file_paths"])
         user_query = task["user"]
         index = task["index"]
-
+        if index in processed_ids:
+            continue
         logger.info("==" * 80)
         logger.info(f"Task index: {index}")
         logger.info(f"Task:\n{user_query}")
