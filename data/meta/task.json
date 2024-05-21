@@ -1698,41 +1698,5 @@
         "attachments": [
             "📄面壁智能"
         ]
-    },
-    {
-        "index": "145",
-        "category1": "音频处理",
-        "category2": "简单网页开发",
-        "category3": "求导",
-        "user": "Help me convert the WAV file to MP3 file",
-        "file_paths": [],
-        "attachments": []
-    },
-    {
-        "index": "146",
-        "category1": "音频处理",
-        "category2": "简单网页开发",
-        "category3": "求导",
-        "user": "cut the first 30 seconds of the audio file and save it to a new file",
-        "file_paths": [],
-        "attachments": []
-    },
-    {
-        "index": "147",
-        "category1": "音频处理",
-        "category2": "简单网页开发",
-        "category3": "求导",
-        "user": "enhance the volume ",
-        "file_paths": [],
-        "attachments": []
-    },
-    {
-        "index": "148",
-        "category1": "音频处理",
-        "category2": "简单网页开发",
-        "category3": "求导",
-        "user": "检测音频中的静音部分，自动将音频文件分割成多个片段",
-        "file_paths": [],
-        "attachments": []
     }
 ]
