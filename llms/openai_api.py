@@ -31,6 +31,11 @@ class OpenAIAPI(BaseLLM):
             kwargs = dict(
                 messages=[message2dict(msg) for msg in messages],
             )
+        elif isinstance(messages[0], dict):
+            kwargs = dict(
+                messages=messages,
+            )
+
         kwargs.update(self.config["model_args"])
         if tools is not None:
             if len(tools) > 0 and isinstance(tools[0], Tool):
