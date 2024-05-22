@@ -27,6 +27,7 @@ def execute_code(code_str: str, tool: PythonAstREPLTool):
     Returns:
         str: code execution result
     """
+    # TODO: PythonAstREPLTool do not return full traceback when error occurs
     try:
         result = tool.invoke(code_str)
         result = str(result)
@@ -98,7 +99,6 @@ def main(config_path: str, task_path: str, output_path: str):
             logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
             logger.info(f"input messages: {messages}")
             out_msg, debug_info = llm.generate(messages)
-            time.sleep(1)
             logger.info(f"output msg: {message2dict(out_msg)}")
 
             reasoning, code_script = parse_code_action(
