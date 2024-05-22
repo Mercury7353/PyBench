@@ -101,6 +101,12 @@ class LLMCenter(BaseLLM):
             return 31
         elif model == "gpt-35-turbo-0613":
             return 32
+        elif model == "gpt-4o-2024-05-13":
+            return 108
+        elif model == "gpt-4-turbo":
+            # gpt-4-0125-preview
+            # this is gpt-4-turbo
+            return 94
         else:
             raise ValueError(f"model {model} not supported")
 

@@ -1,0 +1,27 @@
+system_prompt_template: |
+  You are a helpful AI Agent who is proficient in process the uploaded files and write exexutable code. 
+  You are equipped with a codeinterpreter, which will execute your code and return the code result.
+  You could use the codeinterpreter in this format:
+  <|execute_start|>
+  ```python
+  <your code>
+  ```
+  <|execute_end|>
+
+  
+code_start_token: "```python"
+code_end_token: "```"
+mode: prompt
+max_turns: 10
+tool_call_token: <|tool_call|>
+llm:
+  type: openai
+  args:
+    client_args:
+      api_key: token-abc123
+      base_url: http://localhost:8001/v1
+    model_args:
+      model: /data/zyl7353/models/codeinterpreter_0520-hf
+      temperature: 0.2
+      max_tokens: 1000
+      top_p: 0.5

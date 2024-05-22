@@ -61,6 +61,7 @@ imageio-ffmpeg
 imgkit
 ipython
 jinja2
+jieba
 json5
 jsonpickle
 jsonschema
