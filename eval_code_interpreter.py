@@ -1,11 +1,12 @@
 import json
 
+import fire
 from loguru import logger
 from yaml import safe_load
 
 from llms import build_llm
 from utils.output_parser import extract_code
-import fire
+import os
 
 
 def sum_scores(score_list):
@@ -42,7 +43,14 @@ def sum_scores(score_list):
     return total_score_agent1, total_score_agent2, agent1_pass_rate, agent2_pass_rate
 
 
-def main(config_path):
+def sort_by_index(lines):
+    data = [json.loads(line) for line in lines]
+    data = sorted(data, key=lambda x: x["index"])
+    lines = [json.dumps(item, ensure_ascii=False, indent=4) for item in data]
+    return lines
+
+
+def main(config_path, output_path):
     logger.info("started")
     config = safe_load(open(config_path, "r"))
     logger.info("config loaded")
@@ -53,14 +61,24 @@ def main(config_path):
 
     evaluate_system_prompt = config["system_prompt"]
 
-    eval_result = []
+    if os.path.exists(output_path):
+        eval_result = [json.loads(line) for line in open(output_path, "r")]
+    else:
+        eval_result = []
+    fout = open(output_path, "a")
+    processed_ids = set([item["index"] for item in eval_result])
     file1 = open(config["reference_path"], "r", encoding="utf-8")
     file2 = open(config["result_path"], "r", encoding="utf-8")
     lines1 = file1.readlines()
     lines2 = file2.readlines()
+    lines1 = sort_by_index(lines1)
+    lines2 = sort_by_index(lines2)
     assert len(lines1) == len(lines2)
     for line1, line2 in zip(lines1, lines2):
-        rsp = llm.generate(
+        data1 = json.loads(line1)
+        if data1["index"] in processed_ids:
+            continue
+        rsp, _ = llm.generate(
             messages=[
                 {"role": "system", "content": evaluate_system_prompt},
                 {
@@ -73,14 +91,17 @@ def main(config_path):
         try:
             analysis, decision = extract_code(rsp.content, "```", "```")
             decision = json.loads(decision)
-            logger.info("Analysis:\n" + analysis)
-            logger.info("Decision:\n" + decision)
-            eval_result.append(
-                {
-                    "Analysis": analysis,
-                    "Decision": decision,
-                }
-            )
+            logger.info(f"Analysis:\n{analysis}")
+            logger.info(f"Decision:\n{decision}")
+            eval_item = {
+                "Analysis": analysis,
+                "Decision": decision,
+                "Reference": line1,
+                "Result": line2,
+                "index": data1["index"],
+            }
+            eval_result.append(eval_item)
+            print(json.dumps(eval_item, ensure_ascii=False), file=fout)
         except:
             continue
     total_score_agent1, total_score_agent2, agent1_pass_rate, agent2_pass_rate = (

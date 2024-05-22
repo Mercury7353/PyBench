@@ -107,6 +107,8 @@ class LLMCenter(BaseLLM):
             # gpt-4-0125-preview
             # this is gpt-4-turbo
             return 94
+        elif model == "gpt4o-0513":
+            return 112
         else:
             raise ValueError(f"model {model} not supported")
 
