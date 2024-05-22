@@ -12,6 +12,7 @@ from llms import build_llm
 from llms.utils import message2dict
 from utils.output_parser import parse_code_action
 from utils.save_notebook import generate_notebook, save_as_ipynb
+import time
 
 matplotlib.use("Agg")
 
@@ -45,12 +46,14 @@ def main(config_path: str, task_path: str, output_path: str):
     system_prompt_template = config["system_prompt_template"]
     max_turns = config["max_turns"]
     test_data = json.load(open(task_path, "r"))
-    fout = open(output_path, "w")
     logger.info(f"total tasks: {len(test_data)}")
     if os.path.exists(output_path):
         processed_ids = set(
             [json.loads(line)["index"] for line in open(output_path, "r")]
         )
+    else:
+        processed_ids = set()
+    fout = open(output_path, "a")
     for task in test_data:
         tool = PythonAstREPLTool()
         file_path = ",".join(task["file_paths"])
@@ -95,6 +98,7 @@ def main(config_path: str, task_path: str, output_path: str):
             logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
             logger.info(f"input messages: {messages}")
             out_msg, debug_info = llm.generate(messages)
+            time.sleep(1)
             logger.info(f"output msg: {message2dict(out_msg)}")
 
             reasoning, code_script = parse_code_action(
