@@ -27,7 +27,7 @@ llm:
       api_key: token-abc123
       base_url: http://localhost:8001/v1
     model_args:
-      model: /data/zyl7353/models/codeinterpreter_0520-hf
+      model: /mnt/data/user/tc_agi/zyl7353/models/codeinterpreter_0520-hf
       temperature: 0.2
       max_tokens: 1000
       top_p: 0.85
