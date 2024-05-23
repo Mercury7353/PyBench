@@ -40,9 +40,10 @@ def sum_scores(score_list):
     agent1_pass_count = agent1_pass_list.count("Pass")
     agent2_pass_count = agent2_pass_list.count("Pass")
     total_len = len(score_list)
-    agent1_pass_rate = float(agent1_pass_count) / float(total_len)
-    agent2_pass_rate = float(agent2_pass_count) / float(total_len)
+    agent1_pass_rate = float(agent1_pass_count) / float(total_len - len(broken))
+    agent2_pass_rate = float(agent2_pass_count) / float(total_len - len(broken))
     logger.info(f"{len(broken)} evaluation results are broken: {broken}")
+    logger.info(f"total_len: {total_len}")
     return total_score_agent1, total_score_agent2, agent1_pass_rate, agent2_pass_rate
 
 
@@ -118,6 +119,8 @@ def main(config_path, output_path):
     logger.info(
         f"Agent2, total score: {total_score_agent2}, pass rate: {agent2_pass_rate}"
     )
+    logger.info(f"Agent1: {config["reference_path"]}")
+    logger.info(f"Agent2: {config["result_path"]}")
 
 
 if __name__ == "__main__":

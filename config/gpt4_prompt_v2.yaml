@@ -29,10 +29,13 @@ mode: prompt
 max_turns: 10
 tool_call_token: <|tool_call|>
 llm:
-  type: openai
-  args:  # cls.__init__(args)
-    client_args:
-      api_key: sk-ySffXlL8FXcv3ZdI713a2688F17340D9Af02C6Be7d0eC106
-      base_url: https://gtapi.xiaoerchaoren.com:8932/v1
-    model_args:
-      model: gpt-4-turbo-2024-04-09
+  type: llmcenter
+  args:
+    token_url: https://llm-center.ali.modelbest.cn/llm/client/token/access_token
+    url: https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync
+    app_code: CodeAndFunction
+    user_token: 5T3QSU4H8FzMms69kqEO3A0zmhxm1S4bGkG_Nsm7m0Q
+    model: gpt-4-turbo
+    temperature: 0.2
+    max_tokens: 1000
+    top_p: 0.5
