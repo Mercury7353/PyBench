@@ -63,6 +63,7 @@ def main(config_path: str, task_path: str, output_path: str):
             user_query = task["user"]
             index = task["index"]
             My_Assistant = GPT(output_path)
+            
             My_Assistant.chat(user_query, file_path, index)
             continue
 

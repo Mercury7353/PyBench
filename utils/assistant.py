@@ -71,7 +71,12 @@ class GPT():
         return client,assistant,thread
 
     def _add_message(self,message,file_path):
-        file_list=self._upload_file(path_list=file_path)
+        try:
+            file_list=self._upload_file(path_list=file_path)
+
+        except:
+            file_list=[]
+
         self.client.beta.threads.messages.create(
         thread_id=self.thread.id,
         role="user",
@@ -220,7 +225,7 @@ class GPT():
                 except:
                     continue
 
-        full_message={"messages":messages}
+        full_message={"messages":messages,"index":index}
 
 
 
