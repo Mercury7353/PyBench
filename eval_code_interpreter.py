@@ -1,4 +1,5 @@
 import json
+import os
 
 import fire
 from loguru import logger
@@ -6,7 +7,6 @@ from yaml import safe_load
 
 from llms import build_llm
 from utils.output_parser import extract_code
-import os
 
 
 def sum_scores(score_list):
@@ -16,23 +16,25 @@ def sum_scores(score_list):
     agent1_pass_list = []
     agent2_pass_list = []
     # 遍历列表中的每一项
+    broken = set()
     for item in score_list:
-        score_dict = item["Decision"]
-        agent1_score = (
-            score_dict["ReasoningQuality"]["Agent1"]
-            + score_dict["CodeQuality"]["Agent1"]
-        )
-        agent2_score = (
-            score_dict["ReasoningQuality"]["Agent2"]
-            + score_dict["CodeQuality"]["Agent2"]
-        )
-        agent1_pass = score_dict["Pass"]["Agent1"]
-        agent2_pass = score_dict["Pass"]["Agent2"]
-        agent1_pass_list.append(agent1_pass)
-        agent2_pass_list.append(agent2_pass)
-        # 累加到各自的总分
-        total_score_agent1 += int(agent1_score)
-        total_score_agent2 += int(agent2_score)
+        try:
+            score_dict = item["Decision"]
+            agent1_score = int(score_dict["ReasoningQuality"]["Agent1"]) + int(
+                score_dict["CodeQuality"]["Agent1"]
+            )
+            agent2_score = int(score_dict["ReasoningQuality"]["Agent2"]) + int(
+                score_dict["CodeQuality"]["Agent2"]
+            )
+            agent1_pass = score_dict["Pass"]["Agent1"]
+            agent2_pass = score_dict["Pass"]["Agent2"]
+            agent1_pass_list.append(agent1_pass)
+            agent2_pass_list.append(agent2_pass)
+            # 累加到各自的总分
+            total_score_agent1 += int(agent1_score)
+            total_score_agent2 += int(agent2_score)
+        except:
+            broken.add(item["index"])
 
     # 返回Agent 1和Agent 2的总分之和
     agent1_pass_count = agent1_pass_list.count("Pass")
@@ -40,6 +42,7 @@ def sum_scores(score_list):
     total_len = len(score_list)
     agent1_pass_rate = float(agent1_pass_count) / float(total_len)
     agent2_pass_rate = float(agent2_pass_count) / float(total_len)
+    logger.info(f"{len(broken)} evaluation results are broken: {broken}")
     return total_score_agent1, total_score_agent2, agent1_pass_rate, agent2_pass_rate
 
 
@@ -78,6 +81,7 @@ def main(config_path, output_path):
         data1 = json.loads(line1)
         if data1["index"] in processed_ids:
             continue
+        logger.info(f"evaluating: {data1['index']}")
         rsp, _ = llm.generate(
             messages=[
                 {"role": "system", "content": evaluate_system_prompt},

@@ -3,8 +3,8 @@ system_prompt: |
   The file and user query provided for each agent is same.
   After that, You should evaluate both solutions in the following dimensions：
   Pass: Whether the code fulfill the user query? give a label Pass or Failed
-  Reasoning Quality: Is the reasoning process correctly analyse the user input or code feedback? give a score between 1-10
-  Code Quality: Evaluate The code correctness and whether it fulfill the user query? give a score between 1-10, 1 means correct irrevlant code, 10 means excellent code
+  Reasoning Quality: Is the reasoning process correctly analyse the user input or code feedback? give an integer score between 1-10
+  Code Quality: Evaluate The code correctness and whether it fulfill the user query? give an integer score between 1-10, 1 means correct irrevlant code, 10 means excellent code
   Score: overall score of the solution, which is the sum of Reasoning Quality and Code Quality
 
   Then you should give the total socre of each 
