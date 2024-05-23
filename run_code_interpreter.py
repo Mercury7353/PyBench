@@ -7,17 +7,16 @@ import matplotlib
 from langchain_experimental.tools.python.tool import PythonAstREPLTool
 from loguru import logger
 from yaml import safe_load
-from utils.assistant import GPT
+
 from llms import build_llm
 from llms.utils import message2dict
+from utils.assistant import GPT
 from utils.output_parser import parse_code_action
 from utils.save_notebook import generate_notebook, save_as_ipynb
-import time
 
 matplotlib.use("Agg")
-os.environ["AZURE_OPENAI_API_KEY"]="b5ceeca154844f009e4d6618188305d3"
-os.environ['AZURE_OPENAI_ENDPOINT']="https://zyl-code-interpreter.openai.azure.com/"
-
+os.environ["AZURE_OPENAI_API_KEY"] = "b5ceeca154844f009e4d6618188305d3"
+os.environ["AZURE_OPENAI_ENDPOINT"] = "https://zyl-code-interpreter.openai.azure.com/"
 
 
 def execute_code(code_str: str, tool: PythonAstREPLTool):
@@ -30,6 +29,7 @@ def execute_code(code_str: str, tool: PythonAstREPLTool):
     Returns:
         str: code execution result
     """
+    # TODO: PythonAstREPLTool do not return full traceback when error occurs
     try:
         result = tool.invoke(code_str)
         result = str(result)
@@ -58,13 +58,12 @@ def main(config_path: str, task_path: str, output_path: str):
         processed_ids = set()
     fout = open(output_path, "a")
     for task in test_data:
-        if config["mode"]=="assistant":
-            
+        if config["mode"] == "assistant":
             file_path = task["file_paths"]
             user_query = task["user"]
             index = task["index"]
-            My_Assistant=GPT(output_path)
-            My_Assistant.chat(user_query,file_path,index)
+            My_Assistant = GPT(output_path)
+            My_Assistant.chat(user_query, file_path, index)
             continue
 
         tool = PythonAstREPLTool()
@@ -110,7 +109,6 @@ def main(config_path: str, task_path: str, output_path: str):
             logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
             logger.info(f"input messages: {messages}")
             out_msg, debug_info = llm.generate(messages)
-            time.sleep(1)
             logger.info(f"output msg: {message2dict(out_msg)}")
 
             reasoning, code_script = parse_code_action(
