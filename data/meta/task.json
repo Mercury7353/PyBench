@@ -6,7 +6,7 @@
         "category3": "去除重复项",
         "user": "Could you help me clean the given dataset? Especially clean the duplicated data.",
         "file_paths": [
-            "data/yearly_deaths_by_clinic.csv"
+            "./data/yearly_deaths_by_clinic.csv"
         ],
         "attachments": [
             "📄yearly_deaths_by_clinic"
@@ -19,7 +19,7 @@
         "category3": "去除重复项",
         "user": "帮我处理一下这个数据里面的重复值",
         "file_paths": [
-            "data/Week 40 - US Christmas Tree Sales - 2010 to 2016.csv"
+            "./data/Week 40 - US Christmas Tree Sales - 2010 to 2016.csv"
         ],
         "attachments": [
             "📄Week 40 - US Christmas Tree Sales - 2010 to 2016"
@@ -32,7 +32,7 @@
         "category3": "去除空值",
         "user": "Let's get rid of the null value",
         "file_paths": [
-            "data/accessories_organizer.csv"
+            "./data/accessories_organizer.csv"
         ],
         "attachments": [
             "📄accessories_organizer"
@@ -45,7 +45,7 @@
         "category3": "去除空值",
         "user": "请帮我做一下简单的数据预处理，检查空值，重复值和异常值",
         "file_paths": [
-            "data/ThrowbackDataThursday - 202001 - Ozone Hole.csv"
+            "./data/ThrowbackDataThursday - 202001 - Ozone Hole.csv"
         ],
         "attachments": [
             "📄ThrowbackDataThursday - 202001 - Ozone Hole"
@@ -58,7 +58,7 @@
         "category3": "去除异常值",
         "user": "Please detect and handle with outliers",
         "file_paths": [
-            "data/activity_clean.csv"
+            "./data/activity_clean.csv"
         ],
         "attachments": [
             "📄activity_clean"
@@ -71,7 +71,7 @@
         "category3": "去除异常值",
         "user": "Analyse the distribution of citations and point out the outliners, then tell me the count of countries for each region",
         "file_paths": [
-            "data/AI Country rank 1996-2021.xlsx"
+            "./data/AI Country rank 1996-2021.xlsx"
         ],
         "attachments": [
             "📄AI Country rank 1996-2021"
@@ -84,7 +84,7 @@
         "category3": "去除异常值",
         "user": "检测一下这个数据集里面的异常值，然后对它进行处理",
         "file_paths": [
-            "data/Week 40 - US Christmas Tree Sales - 2010 to 2016.csv"
+            "./data/Week 40 - US Christmas Tree Sales - 2010 to 2016.csv"
         ],
         "attachments": [
             "📄Week 40 - US Christmas Tree Sales - 2010 to 2016"
@@ -97,8 +97,8 @@
         "category3": "数据格式转换",
         "user": "Detect the columns in the dataset, convert the string into float if there is a columns of numeric value but with the type of string.",
         "file_paths": [
-            "data/tv.xlsx",
-            "data/tv.csv"
+            "./data/tv.csv",
+            "./data/tv.xlsx"
         ],
         "attachments": [
             "📄tv"
@@ -111,7 +111,7 @@
         "category3": "数据格式转换",
         "user": "将数据里面的日期转成YYYY-MM-DD格式",
         "file_paths": [
-            "data/Virat_Kohli_ODI.csv"
+            "./data/Virat_Kohli_ODI.csv"
         ],
         "attachments": [
             "📄Virat_Kohli_ODI"
@@ -124,8 +124,7 @@
         "category3": "数据格式转换",
         "user": "Please save this file as an xls file",
         "file_paths": [
-            "data/Turkey_Syria_Earthquake.xlsx",
-            "data/Turkey_Syria_Earthquake.csv"
+            "./data/Turkey_Syria_Earthquake.csv"
         ],
         "attachments": [
             "📄Turkey_Syria_Earthquake"
@@ -138,8 +137,8 @@
         "category3": "按某个维度聚合",
         "user": "按照network对数据做聚合",
         "file_paths": [
-            "data/tv.xlsx",
-            "data/tv.csv"
+            "./data/tv.csv",
+            "./data/tv.xlsx"
         ],
         "attachments": [
             "📄tv"
@@ -152,7 +151,7 @@
         "category3": "按某个维度聚合",
         "user": "group the data by certificate",
         "file_paths": [
-            "data/action.csv"
+            "./data/action.csv"
         ],
         "attachments": [
             "📄action"
@@ -165,8 +164,8 @@
         "category3": "按某列或多列排序",
         "user": "sort the data by average user view",
         "file_paths": [
-            "data/tv.xlsx",
-            "data/tv.csv"
+            "./data/tv.csv",
+            "./data/tv.xlsx"
         ],
         "attachments": [
             "📄tv"
@@ -179,8 +178,8 @@
         "category3": "按某列或多列排序",
         "user": "按照avg_us_viewers和ad_cost做排序",
         "file_paths": [
-            "data/tv.xlsx",
-            "data/tv.csv"
+            "./data/tv.csv",
+            "./data/tv.xlsx"
         ],
         "attachments": [
             "📄tv"
@@ -193,7 +192,7 @@
         "category3": "按条件筛选数据",
         "user": "Select all the data from Wisconsion and draw a pie plot by gender",
         "file_paths": [
-            "data/AdidasSalesdata.xlsx"
+            "./data/AdidasSalesdata.xlsx"
         ],
         "attachments": [
             "📄AdidasSalesdata"
@@ -206,7 +205,7 @@
         "category3": "按条件筛选数据",
         "user": "筛选一些时长超过120分钟且打分超过7分的电影",
         "file_paths": [
-            "data/horror.csv"
+            "./data/horror.csv"
         ],
         "attachments": [
             "📄horror"
@@ -219,7 +218,7 @@
         "category3": "计算统计指标：均值，总和，标准差",
         "user": "calculate the average and variance of the distance column",
         "file_paths": [
-            "data/Qatar_Lusail.csv"
+            "./data/Qatar_Lusail.csv"
         ],
         "attachments": [
             "📄Qatar_Lusail"
@@ -232,7 +231,7 @@
         "category3": "计算统计指标：均值，总和，标准差",
         "user": "统计各列数值的均值和方差",
         "file_paths": [
-            "data/Australia_Melbourne.csv"
+            "./data/Australia_Melbourne.csv"
         ],
         "attachments": [
             "📄Australia_Melbourne"
@@ -245,7 +244,7 @@
         "category3": "按某个列分组",
         "user": "group the data by column: Map and draw a radar graph which shows the average ability of each group ",
         "file_paths": [
-            "data/agents_abilities_stat.csv"
+            "./data/agents_abilities_stat.csv"
         ],
         "attachments": [
             "📄agents_abilities_stat"
@@ -258,7 +257,7 @@
         "category3": "按某个列分组",
         "user": "计算不同区域的保险的不同性别占比",
         "file_paths": [
-            "data/insurance.csv"
+            "./data/insurance.csv"
         ],
         "attachments": [
             "📄insurance"
@@ -271,7 +270,7 @@
         "category3": "按某个列分组",
         "user": "Calculate Average Ratings of Episodes by Different Directors in 'Game of Thrones'",
         "file_paths": [
-            "data/Game_of_Thrones.csv"
+            "./data/Game_of_Thrones.csv"
         ],
         "attachments": [
             "📄Game_of_Thrones"
@@ -284,8 +283,8 @@
         "category3": "两张表关联查询",
         "user": "How many of the Forbes Top 100 Women are from the country with the highest number of Superstore locations?",
         "file_paths": [
-            "data/global_superstore_2016.xlsx",
-            "data/Forbes 100 Women List 2020.csv"
+            "./data/global_superstore_2016.xlsx",
+            "./data/Forbes 100 Women List 2020.csv"
         ],
         "attachments": [
             "📄global_superstore_2016",
@@ -299,8 +298,8 @@
         "category3": "两张表关联查询",
         "user": "两张表里有没有相同的电影？",
         "file_paths": [
-            "data/horror.csv",
-            "data/Highest grossing movies of 2022.xlsx"
+            "./data/horror.csv",
+            "./data/Highest grossing movies of 2022.xlsx"
         ],
         "attachments": [
             "📄horror",
@@ -314,8 +313,8 @@
         "category3": "两张表关联查询",
         "user": "哪家网络公司获得超级碗转播的次数最多？",
         "file_paths": [
-            "data/tv.xlsx",
-            "data/tv.csv"
+            "./data/tv.csv",
+            "./data/tv.xlsx"
         ],
         "attachments": [
             "📄tv"
@@ -328,7 +327,7 @@
         "category3": "两张表关联查询",
         "user": "电影Dunkirk是哪年上映的？能告诉关于这部电影的其他信息吗？",
         "file_paths": [
-            "data/war.csv"
+            "./data/war.csv"
         ],
         "attachments": [
             "📄war"
@@ -341,7 +340,7 @@
         "category3": "两张表关联查询",
         "user": " 网上销售的女性衣服中，出现频率最高的颜色所对应的频率最高的尺码是多少？",
         "file_paths": [
-            "data/women_clothing_ecommerce_sales.csv"
+            "./data/women_clothing_ecommerce_sales.csv"
         ],
         "attachments": [
             "📄women_clothing_ecommerce_sales"
@@ -354,7 +353,7 @@
         "category3": "两张表关联查询",
         "user": "What the births and deaths number in the year of 1841?",
         "file_paths": [
-            "data/yearly_deaths_by_clinic.csv"
+            "./data/yearly_deaths_by_clinic.csv"
         ],
         "attachments": [
             "📄yearly_deaths_by_clinic"
@@ -367,7 +366,7 @@
         "category3": "两张表关联查询",
         "user": "保险付费金额与性别、年龄、bmi或是否吸烟有什么关系？",
         "file_paths": [
-            "data/insurance.csv"
+            "./data/insurance.csv"
         ],
         "attachments": [
             "📄insurance"
@@ -380,8 +379,8 @@
         "category3": "两张表关联查询",
         "user": "Summarize this data for me",
         "file_paths": [
-            "data/tv.xlsx",
-            "data/tv.csv"
+            "./data/tv.csv",
+            "./data/tv.xlsx"
         ],
         "attachments": [
             "📄tv"
@@ -394,7 +393,7 @@
         "category3": "两张表关联查询",
         "user": "Summarize the sales of video games",
         "file_paths": [
-            "data/Video_Game_Sales.csv"
+            "./data/Video_Game_Sales.csv"
         ],
         "attachments": [
             "📄Video_Game_Sales"
@@ -407,7 +406,7 @@
         "category3": "两张表关联查询",
         "user": "2021年2月最受欢迎的旅行终点是哪？",
         "file_paths": [
-            "data/202102-divvy-tripdata.csv"
+            "./data/202102-divvy-tripdata.csv"
         ],
         "attachments": [
             "📄202102-divvy-tripdata"
@@ -420,7 +419,7 @@
         "category3": "两张表关联查询",
         "user": "分析一下全球最受欢迎的youtuber都是来自哪个地区？",
         "file_paths": [
-            "data/Global YouTube Statistics.csv"
+            "./data/Global YouTube Statistics.csv"
         ],
         "attachments": [
             "📄Global YouTube Statistics"
@@ -433,7 +432,7 @@
         "category3": "从分析结果做出决策或制定策略",
         "user": "What Types of Videos Should I Create to Gain Popularity and Become a Top 100 YouTuber Worldwide?",
         "file_paths": [
-            "data/Global YouTube Statistics.csv"
+            "./data/Global YouTube Statistics.csv"
         ],
         "attachments": [
             "📄Global YouTube Statistics"
@@ -446,7 +445,7 @@
         "category3": "从分析结果做出决策或制定策略",
         "user": "这是google近期的股价波动数据，我现在持有10000股google的股票，我应该继续持有还是卖出？",
         "file_paths": [
-            "data/Google.csv"
+            "./data/Google.csv"
         ],
         "attachments": [
             "📄Google"
@@ -459,7 +458,7 @@
         "category3": "从分析结果做出决策或制定策略",
         "user": "删除其中有空值的行，并分析不同类别的电影的分布",
         "file_paths": [
-            "data/movies.csv"
+            "./data/movies.csv"
         ],
         "attachments": [
             "📄movies"
@@ -472,7 +471,7 @@
         "category3": "从分析结果做出决策或制定策略",
         "user": "Processing Actor Information in the Oscars Dataset: Removing Null Values and Analyzing Which Type of Actors are More Likely to Win an Oscar",
         "file_paths": [
-            "data/oscars.xlsx"
+            "./data/oscars.xlsx"
         ],
         "attachments": [
             "📄oscars"
@@ -485,7 +484,7 @@
         "category3": "简单分类机器学习模型训练、分类",
         "user": "训练一个简单机器学习模型，来做鸢尾花的数据作分类",
         "file_paths": [
-            "data/IRIS.csv"
+            "./data/IRIS.csv"
         ],
         "attachments": [
             "📄IRIS"
@@ -498,7 +497,7 @@
         "category3": "简单分类机器学习模型训练、分类",
         "user": "Train a classify model, report its precision and recall. Then save the model",
         "file_paths": [
-            "data/classify.csv"
+            "./data/classify.csv"
         ],
         "attachments": [
             "📄classify"
@@ -511,7 +510,7 @@
         "category3": "聚类，发现潜在模式",
         "user": "对数据中的家庭信息做聚类分析",
         "file_paths": [
-            "data/family.csv"
+            "./data/family.csv"
         ],
         "attachments": [
             "📄family"
@@ -524,7 +523,7 @@
         "category3": "聚类，发现潜在模式",
         "user": "Do cluster analysis on the data",
         "file_paths": [
-            "data/Country Wise Airport.csv"
+            "./data/Country Wise Airport.csv"
         ],
         "attachments": [
             "📄Country Wise Airport"
@@ -537,7 +536,7 @@
         "category3": "趋势分析、周期性分析",
         "user": "Analyse the trend of the stock price",
         "file_paths": [
-            "data/regress_stocks.csv"
+            "./data/regress_stocks.csv"
         ],
         "attachments": [
             "📄regress_stocks"
@@ -550,7 +549,7 @@
         "category3": "趋势分析、周期性分析",
         "user": "Deploy a time-series analyse on the given data, and write a data analyse report with figures",
         "file_paths": [
-            "data/2022-year-tripdata-pivot.xlsx"
+            "./data/2022-year-tripdata-pivot.xlsx"
         ],
         "attachments": [
             "📄2022-year-tripdata-pivot"
@@ -563,7 +562,7 @@
         "category3": "趋势分析、周期性分析",
         "user": "预测农场未来的气温波动",
         "file_paths": [
-            "data/Farm_Weather_Data.xlsx"
+            "./data/Farm_Weather_Data.xlsx"
         ],
         "attachments": [
             "📄Farm_Weather_Data"
@@ -576,7 +575,7 @@
         "category3": "训练回归模型",
         "user": "Explore the data, and train a machine learning model to predict the quality of orange",
         "file_paths": [
-            "data/Classify_Orange Quality Data.csv"
+            "./data/Classify_Orange Quality Data.csv"
         ],
         "attachments": [
             "📄Classify_Orange Quality Data"
@@ -589,7 +588,7 @@
         "category3": "训练回归模型",
         "user": "Explore the data, select and train a machine learning model to predict the university rank",
         "file_paths": [
-            "data/World University Rankings 2023.csv"
+            "./data/World University Rankings 2023.csv"
         ],
         "attachments": [
             "📄World University Rankings 2023"
@@ -602,7 +601,7 @@
         "category3": "做时序预测",
         "user": "Train a model to predict the stock price",
         "file_paths": [
-            "data/regress_stocks.csv"
+            "./data/regress_stocks.csv"
         ],
         "attachments": [
             "📄regress_stocks"
@@ -615,7 +614,7 @@
         "category3": "做时序预测",
         "user": "预测农场未来的天气变化情况",
         "file_paths": [
-            "data/Farm_Weather_Data.xlsx"
+            "./data/Farm_Weather_Data.xlsx"
         ],
         "attachments": [
             "📄Farm_Weather_Data"
@@ -628,7 +627,7 @@
         "category3": "做时序预测",
         "user": "这是一份google股价的波动数据，预测一下google未来的股价",
         "file_paths": [
-            "data/Google.csv"
+            "./data/Google.csv"
         ],
         "attachments": [
             "📄Google"
@@ -641,7 +640,7 @@
         "category3": "提取关键词",
         "user": "Extract key words and draw two wordcloud on pos and neg label(use blue and red colors)",
         "file_paths": [
-            "data/moviereviews2.csv"
+            "./data/moviereviews2.csv"
         ],
         "attachments": [
             "📄moviereviews2"
@@ -654,7 +653,7 @@
         "category3": "提取关键词",
         "user": "这份研报中提到哪些关键词？",
         "file_paths": [
-            "data/重庆啤酒.pdf"
+            "./data/重庆啤酒.pdf"
         ],
         "attachments": [
             "📄重庆啤酒"
@@ -667,7 +666,7 @@
         "category3": "提取主题",
         "user": "Apply a LDA analyse on the dataset",
         "file_paths": [
-            "data/LDA.csv"
+            "./data/LDA.csv"
         ],
         "attachments": [
             "📄LDA"
@@ -680,7 +679,7 @@
         "category3": "提取主题",
         "user": "这篇小说是什么主题？",
         "file_paths": [
-            "data/guangmingbilei.txt"
+            "./data/guangmingbilei.txt"
         ],
         "attachments": [
             "📄guangmingbilei"
@@ -693,7 +692,7 @@
         "category3": "提取情感倾向",
         "user": "Excute Sentiment Analyse on the given csv file",
         "file_paths": [
-            "data/bbc_data.csv"
+            "./data/bbc_data.csv"
         ],
         "attachments": [
             "📄bbc_data"
@@ -706,7 +705,7 @@
         "category3": "画英文词云",
         "user": "Select a proper shape and draw a wordcloud form the title",
         "file_paths": [
-            "data/business_data.csv"
+            "./data/business_data.csv"
         ],
         "attachments": [
             "📄business_data"
@@ -719,7 +718,7 @@
         "category3": "提取关键词并画词云",
         "user": "Extract the keywords from content of the news and draw a wordcloud",
         "file_paths": [
-            "data/entertainment_data.csv"
+            "./data/entertainment_data.csv"
         ],
         "attachments": [
             "📄entertainment_data"
@@ -732,7 +731,7 @@
         "category3": "提取关键词并画词云",
         "user": "提取这篇小说的关键词并绘制成词云",
         "file_paths": [
-            "data/如懿传.txt"
+            "./data/如懿传.txt"
         ],
         "attachments": [
             "📄如懿传"
@@ -745,7 +744,7 @@
         "category3": "拆线图",
         "user": "A line chart for China tea_export",
         "file_paths": [
-            "data/Tea_export.csv"
+            "./data/Tea_export.csv"
         ],
         "attachments": [
             "📄Tea_export"
@@ -758,7 +757,7 @@
         "category3": "拆线图",
         "user": "A line chart plotting the change in the number of Australian gold medals at each Olympic Games",
         "file_paths": [
-            "data/summer_paralympics.csv"
+            "./data/summer_paralympics.csv"
         ],
         "attachments": [
             "📄summer_paralympics"
@@ -771,7 +770,7 @@
         "category3": "拆线图",
         "user": "绘制不同大洲的茶出口量随时间变化的曲线",
         "file_paths": [
-            "data/Tea_export.csv"
+            "./data/Tea_export.csv"
         ],
         "attachments": [
             "📄Tea_export"
@@ -784,7 +783,7 @@
         "category3": "柱状图",
         "user": "对各个产品的销量绘制一个柱状图",
         "file_paths": [
-            "data/sales_data.csv"
+            "./data/sales_data.csv"
         ],
         "attachments": [
             "📄sales_data"
@@ -797,7 +796,7 @@
         "category3": "柱状图",
         "user": "帮我画图分析一下哪些类型的油管视频更受欢迎",
         "file_paths": [
-            "data/Global YouTube Statistics.csv"
+            "./data/Global YouTube Statistics.csv"
         ],
         "attachments": [
             "📄Global YouTube Statistics"
@@ -810,7 +809,7 @@
         "category3": "饼状图",
         "user": "分析员工的受教育程度，做画饼状图分析",
         "file_paths": [
-            "data/HR_Analytics.csv"
+            "./data/HR_Analytics.csv"
         ],
         "attachments": [
             "📄HR_Analytics"
@@ -823,7 +822,7 @@
         "category3": "饼状图",
         "user": "Which Meals Do These Invoices Primarily Originate From? Analyzing with a Pie Chart",
         "file_paths": [
-            "data/Invoices.csv"
+            "./data/Invoices.csv"
         ],
         "attachments": [
             "📄Invoices"
@@ -836,7 +835,7 @@
         "category3": "散点图",
         "user": "绘制X和Y的散点图",
         "file_paths": [
-            "data/Azerbaijan_Baku.csv"
+            "./data/Azerbaijan_Baku.csv"
         ],
         "attachments": [
             "📄Azerbaijan_Baku"
@@ -849,7 +848,7 @@
         "category3": "散点图",
         "user": "Creating a Scatter Plot of Age vs BMI after Removing Null Values in the Data",
         "file_paths": [
-            "data/insurance.csv"
+            "./data/insurance.csv"
         ],
         "attachments": [
             "📄insurance"
@@ -873,7 +872,7 @@
         "category3": "画多图",
         "user": "帮我画两张图，左边的图是年龄与bmi的散点图，然后计算不同年龄的平均保险金额，并在右边绘制一条随着年龄增长保险金额变化的曲线",
         "file_paths": [
-            "data/insurance.csv"
+            "./data/insurance.csv"
         ],
         "attachments": [
             "📄insurance"
@@ -886,7 +885,7 @@
         "category3": "画多图",
         "user": "After Data Cleaning, Plotting Two Graphs: A Line Chart Showing the Variation of Google Closing Prices over Time, and a Bar Chart Representing the Average Closing Prices per Year",
         "file_paths": [
-            "data/Google.csv"
+            "./data/Google.csv"
         ],
         "attachments": [
             "📄Google"
@@ -917,7 +916,8 @@
         "category3": "文档格式转换",
         "user": "把这个文件转为excel格式",
         "file_paths": [
-            "data/wta_matches_qual_itf_1975.csv"
+            "./data/wta_matches_qual_itf_1975.csv",
+            "./data/wta_matches_qual_itf_1975.xlsx"
         ],
         "attachments": [
             "📄wta_matches_qual_itf_1975"
@@ -941,7 +941,7 @@
         "category3": "提取文本+总结摘要/分析",
         "user": "summarize this paper, and what is the main contributions of this paper",
         "file_paths": [
-            "data/WizardMath_Paper.pdf"
+            "./data/WizardMath_Paper.pdf"
         ],
         "attachments": [
             "📄WizardMath_Paper"
@@ -954,7 +954,7 @@
         "category3": "提取文本+总结摘要/分析",
         "user": "读一下这篇小说的前1万字，告诉我这篇小说讲了什么",
         "file_paths": [
-            "data/如懿传.txt"
+            "./data/如懿传.txt"
         ],
         "attachments": [
             "📄如懿传"
@@ -967,7 +967,7 @@
         "category3": "调整大小",
         "user": "resize this image to 224 * 224",
         "file_paths": [
-            "data/78.jpeg"
+            "./data/78.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_50A33BAA4B7E41D78D7DBDDE28FF056E\",1)"
@@ -980,7 +980,7 @@
         "category3": "调整大小",
         "user": "我需要一张1000*500大小的图片",
         "file_paths": [
-            "data/79.jpeg"
+            "./data/79.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_312D26003A8941A8BEC0EE92795EC441\",1)"
@@ -993,7 +993,7 @@
         "category3": "旋转",
         "user": "向左旋转90度",
         "file_paths": [
-            "data/80.jpeg"
+            "./data/80.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_A3AF60793F794FF0979C95A322454E1A\",1)"
@@ -1006,7 +1006,7 @@
         "category3": "旋转",
         "user": "Flip this image vertically.",
         "file_paths": [
-            "data/81.jpeg"
+            "./data/81.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_74C444BD687443FBB2D08A517E4D2BF3\",1)"
@@ -1019,7 +1019,7 @@
         "category3": "旋转",
         "user": "turn this image up to down",
         "file_paths": [
-            "data/82.jpeg"
+            "./data/82.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_379C94731D4844DE915E2542DDD8FBFB\",1)"
@@ -1032,7 +1032,7 @@
         "category3": "裁剪",
         "user": "把这张图沿横向等分成四份",
         "file_paths": [
-            "data/83.jpeg"
+            "./data/83.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_5FE7F4A2A9C1469EA660E959AA122125\",1)"
@@ -1045,7 +1045,7 @@
         "category3": "裁剪",
         "user": "截取这张图的上半部分，取一个方图",
         "file_paths": [
-            "data/84.jpeg"
+            "./data/84.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_330A2BF2967646B9859038FBF92014EE\",1)"
@@ -1058,7 +1058,7 @@
         "category3": "裁剪",
         "user": "Crop a 300*300 area from the center of this image",
         "file_paths": [
-            "data/85.jpeg"
+            "./data/85.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_E951355D8BEB420CAE5F813E2E1B85FF\",1)"
@@ -1071,7 +1071,7 @@
         "category3": "翻转",
         "user": "把这张图左右翻转",
         "file_paths": [
-            "data/86.jpeg"
+            "./data/86.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_89BD0A19F4B64D3EAD4FBB84C5C1BB8A\",1)"
@@ -1084,7 +1084,7 @@
         "category3": "翻转",
         "user": "Flip this image horizontally",
         "file_paths": [
-            "data/87.jpeg"
+            "./data/87.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_6185800F1C0A4C4390205EEFEADE888A\",1)"
@@ -1097,7 +1097,7 @@
         "category3": "删除背景",
         "user": "\nRemove the background of this image",
         "file_paths": [
-            "data/88.jpeg"
+            "./data/88.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_34BC20882DC047AAB81C490E5D902A2A\",1)"
@@ -1110,7 +1110,7 @@
         "category3": "删除背景",
         "user": "删除这张图的背景，只保留前景",
         "file_paths": [
-            "data/89.jpeg"
+            "./data/89.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_4ECDBEE1F2004CCCAE3B4153FDC01690\",1)"
@@ -1123,7 +1123,7 @@
         "category3": "提取图片颜色板",
         "user": "提取这张图的色板",
         "file_paths": [
-            "data/90.jpeg"
+            "./data/90.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_6BAFB11D3E5346E4BB21BA5A18059354\",1)"
@@ -1136,7 +1136,7 @@
         "category3": "提取图片颜色板",
         "user": "Extract the color map from this image",
         "file_paths": [
-            "data/91.jpeg"
+            "./data/91.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_1D5016F811C347529CCF49CCFB7E31C1\",1)"
@@ -1149,7 +1149,7 @@
         "category3": "调整亮度",
         "user": "把亮度调低",
         "file_paths": [
-            "data/92.jpeg"
+            "./data/92.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_8284D78D5DEF40C0BB0728BCA929796D\",1)"
@@ -1162,7 +1162,7 @@
         "category3": "调整亮度",
         "user": "Increase the brightness of this image",
         "file_paths": [
-            "data/93.jpeg"
+            "./data/93.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_D2522C5FACE748A4846E46D2EA210E20\",1)"
@@ -1175,7 +1175,7 @@
         "category3": "对比度",
         "user": "Decrease the contrast of this image",
         "file_paths": [
-            "data/94.jpeg"
+            "./data/94.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_B5DA0E21A9BC4F34A243D82F7D1BC7B9\",1)"
@@ -1188,7 +1188,7 @@
         "category3": "对比度",
         "user": "增加这张图片的对比度",
         "file_paths": [
-            "data/95.jpeg"
+            "./data/95.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_017ABBF470144E6495229190C9933281\",1)"
@@ -1201,7 +1201,7 @@
         "category3": "饱和度",
         "user": "降低这张图的饱和度",
         "file_paths": [
-            "data/96.jpeg"
+            "./data/96.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_F0984F150A48471884C7990378DA8F18\",1)"
@@ -1214,7 +1214,7 @@
         "category3": "饱和度",
         "user": "Increase the saturation of this image",
         "file_paths": [
-            "data/97.jpeg"
+            "./data/97.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_0126821F7D51413A97FC01258D515B4D\",1)"
@@ -1227,7 +1227,7 @@
         "category3": "模糊",
         "user": "给这张图加高斯模糊",
         "file_paths": [
-            "data/98.jpeg"
+            "./data/98.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_FC555A8F023C48789F86943D1C99BB57\",1)"
@@ -1240,7 +1240,7 @@
         "category3": "模糊",
         "user": "add Poisson Noise to the picture",
         "file_paths": [
-            "data/99.jpeg"
+            "./data/99.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_94A0AA0222D04EC785202DAA32C00AA9\",1)"
@@ -1253,7 +1253,7 @@
         "category3": "模糊",
         "user": "把图片转成灰色",
         "file_paths": [
-            "data/100.jpeg"
+            "./data/100.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_4E99B1E07DCF4ACFB342D781BEDCB780\",1)"
@@ -1266,7 +1266,7 @@
         "category3": "边缘检测",
         "user": "检测汽车的边缘",
         "file_paths": [
-            "data/101.jpeg"
+            "./data/101.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_8FFA1F7BD24144D18985114CDA2D010B\",1)"
@@ -1279,7 +1279,7 @@
         "category3": "边缘检测",
         "user": "Detect the edges of the human body",
         "file_paths": [
-            "data/102.jpeg"
+            "./data/102.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_A624E7E60C704145ADDDB641B50350ED\",1)"
@@ -1292,8 +1292,8 @@
         "category3": "多图拼接",
         "user": "把下面两张图拼成一个",
         "file_paths": [
-            "data/103.jpeg",
-            "data/104.jpeg"
+            "./data/103.jpeg",
+            "./data/104.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_ABD9AB2E3F23459A8878ABBC2B80C44F\",1)",
@@ -1307,8 +1307,8 @@
         "category3": "多图拼接",
         "user": "concat the following two images vertically",
         "file_paths": [
-            "data/105.jpeg",
-            "data/106.jpeg"
+            "./data/105.jpeg",
+            "./data/106.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_715E81380B944F1888B5E299C9F3B7D9\",1)",
@@ -1322,8 +1322,8 @@
         "category3": "不同图层拼接",
         "user": "以第一张图为背景，把第二张图放在上层",
         "file_paths": [
-            "data/107.jpeg",
-            "data/108.jpeg"
+            "./data/107.jpeg",
+            "./data/108.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_EA026884FB7747E0837DFA22A82CC80B\",1)",
@@ -1337,7 +1337,7 @@
         "category3": "文本渲染",
         "user": "在图片上添加“鸡同鸭讲”的文字",
         "file_paths": [
-            "data/109.jpeg"
+            "./data/109.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_B4C05710A008456AB91FAD31B53F575E\",1)"
@@ -1350,7 +1350,7 @@
         "category3": "文本渲染",
         "user": "add title \"Map of the Middle East Situation\" in color red",
         "file_paths": [
-            "data/110.jpeg"
+            "./data/110.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_B51E7B9E334B4161961AA9A7B6F03CD3\",1)"
@@ -1363,7 +1363,7 @@
         "category3": "图片格式转换",
         "user": "convert the picture to jpeg format",
         "file_paths": [
-            "data/111.jpeg"
+            "./data/111.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_C586992F3707435285DA8EF375A33664\",1)"
@@ -1376,7 +1376,7 @@
         "category3": "图片格式转换",
         "user": "save this image to pdf file",
         "file_paths": [
-            "data/112.jpeg"
+            "./data/112.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_4FA3788BD8B841228C2876BA88D44A77\",1)"
@@ -1389,7 +1389,7 @@
         "category3": "gif转视频",
         "user": "turn this gif into video",
         "file_paths": [
-            "data/113.gif"
+            "./data/113.gif"
         ],
         "attachments": [
             "=DISPIMG(\"ID_F355B40F3A644CE89264BCB560BDDF4E\",1)"
@@ -1402,7 +1402,7 @@
         "category3": "gif转视频",
         "user": "把这个动图转为视频",
         "file_paths": [
-            "data/114.gif"
+            "./data/114.gif"
         ],
         "attachments": [
             "=DISPIMG(\"ID_F355B40F3A644CE89264BCB560BDDF4E\",1)"
@@ -1451,7 +1451,7 @@
         "category3": "生成二维码",
         "user": "以这张图为背景，创建一个二维码，要求中间是红色，四角是蓝色的渐变色，扫描后指向的内容是",
         "file_paths": [
-            "data/119.jpeg"
+            "./data/119.jpeg"
         ],
         "attachments": [
             "=DISPIMG(\"ID_7C8D750122A245E1BE4AA312F363957F\",1)"
@@ -1464,7 +1464,7 @@
         "category3": "生成二维码",
         "user": "draw a QRCode and use this image as  a logo at the center of the qrcode",
         "file_paths": [
-            "data/120.webp"
+            "./data/120.webp"
         ],
         "attachments": [
             "=DISPIMG(\"ID_70632C1E8BD04937BCF5D4E1FB785C63\",1)"
@@ -1508,8 +1508,8 @@
         "category3": "画词云",
         "user": "set the background color to white, and draw a image-colored wordcloud picture",
         "file_paths": [
-            "data/124.jpeg",
-            "data/baike_text.txt"
+            "./data/124.jpeg",
+            "./data/baike_text.txt"
         ],
         "attachments": [
             "=DISPIMG(\"ID_239749960A714B74A86C8C855EB1612B\",1)",
@@ -1523,8 +1523,8 @@
         "category3": "画词云",
         "user": "提取这张图的前景与背景，并以此为背景，根据文件中的文本画一个词云，要求词的大小与词频相关",
         "file_paths": [
-            "data/126.jpeg",
-            "data/llama2.pdf"
+            "./data/126.jpeg",
+            "./data/llama2.pdf"
         ],
         "attachments": [
             "=DISPIMG(\"ID_53C55924C17A4FCEA9DCB04721260C85\",1)",
@@ -1556,7 +1556,7 @@
         "category3": "总结内容",
         "user": "summarize this paper, and tell me the main contributions of this work",
         "file_paths": [
-            "data/llama2.pdf"
+            "./data/llama2.pdf"
         ],
         "attachments": [
             "📄llama2"
@@ -1569,7 +1569,7 @@
         "category3": "总结内容",
         "user": "这篇研报的核心观点是什么？",
         "file_paths": [
-            "data/新希望.pdf"
+            "./data/新希望.pdf"
         ],
         "attachments": [
             "📄新希望"
@@ -1582,7 +1582,7 @@
         "category3": "回答问题",
         "user": "How much higher is the rating of the Deepseek model compared to Llama2 on Humaneval?",
         "file_paths": [
-            "data/2401.02954v1.pdf"
+            "./data/2401.02954v1.pdf"
         ],
         "attachments": [
             "📄2401.02954v1"
@@ -1595,7 +1595,7 @@
         "category3": "回答问题",
         "user": "重庆啤酒2024年Q1净利同比增长多少？",
         "file_paths": [
-            "data/重庆啤酒.pdf"
+            "./data/重庆啤酒.pdf"
         ],
         "attachments": [
             "📄重庆啤酒"
@@ -1680,7 +1680,7 @@
         "category3": "求导",
         "user": "design a website for geoffrey hinton",
         "file_paths": [
-            "data/Geoffrey Hinton.pdf"
+            "./data/Geoffrey Hinton.pdf"
         ],
         "attachments": [
             "📄Geoffrey Hinton"
@@ -1693,10 +1693,82 @@
         "category3": "求导",
         "user": "这是面壁智能的一些信息，请为这家公司设计一个网站主页",
         "file_paths": [
-            "data/面壁智能.pdf"
+            "./data/面壁智能.pdf"
         ],
         "attachments": [
             "📄面壁智能"
         ]
+    },
+    {
+        "index": "144",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频格式转化",
+        "category3": "求导",
+        "user": "Help me convert the MP3 file to WAV file",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
+        "attachments": []
+    },
+    {
+        "index": "148",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频特征提取",
+        "category3": "求导",
+        "user": "Draw the Mayer spectrum of this audio",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
+        "attachments": []
+    },
+    {
+        "index": "151",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "求导",
+        "user": "Increase the volume in this audio by 10%",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
+        "attachments": []
+    },
+    {
+        "index": "152",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "求导",
+        "user": "把这个两个音频拼接起来，中间用淡出处理",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3","./data/Ghostrifter Official - Haze.wav"],
+        "attachments": []
+    },
+    {
+        "index": "153",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "求导",
+        "user": "Decrease the volume by 100%",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
+        "attachments": []
+    },
+    {
+        "index": "154",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "求导",
+        "user": "cut the first 30 seconds of the audio file and save it to a new file",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
+        "attachments": []
+    },
+    {
+        "index": "155",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "求导",
+        "user": "检测音频中音量低于10%部分，按照这些部分自动将音频文件分割成多个片段，并保存",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
+        "attachments": []
+    },
+    {
+        "index": "156",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "求导",
+        "user": "Put these two audio clips on top of each other",
+        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3","./data/Ghostrifter Official - Haze.wav"],
+        "attachments": []
     }
 ]
