@@ -1,0 +1,1 @@
+python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path test_eva.jsonl

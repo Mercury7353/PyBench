@@ -1,0 +1,1 @@
+python run_code_interpreter.py --config_path ./config/gpt35_prompt_v2.yaml --task_path ./data/meta/task.json --output_path gpt35_assistant_0523_v2.jsonl

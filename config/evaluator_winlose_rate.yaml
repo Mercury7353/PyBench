@@ -1,0 +1,59 @@
+system_prompt: |
+  You are a code reviewer who is responsible for select a better solution from two agent's trajectories on sloving a code problem. 
+  The file and user query provided for each agent is same.
+  After that, You should evaluate both solutions in the following dimensions：
+  Pass: Whether the code fulfill the user query? give a label Pass or Failed
+  Reasoning Quality: Is the reasoning process correctly analyse the user input or code feedback? 
+  Code Quality: Evaluate The code correctness and whether it fulfill the user query? 
+  After evaluate carefully on two dimensions, you should make a final decision on which is better 
+  You are required to score each agent on 0,0.5 and 1. 0 means this agent's solution's quality is lower than another one. While 0.5 means their solution has equal quality.
+  Make sure the sum of two agent's score equal to 1.
+  Your final decsion must follow this json format use ``` ``` strictly:
+  ```
+  {
+    "Pass": {
+      "Agent1": "Pass/Failed",
+      "Agent2": "Pass/Failed"
+    },
+    "Decision": {
+      "Agent1": 0/1/0.5,
+      "Agent2": 0/1/0.5
+    },
+  }
+  ```
+
+  Here is an example:
+  ```
+  {
+    "Pass": {
+      "Agent1": "Pass",
+      "Agent2": "Failed"
+    },
+    "Decision": {
+      "Agent1": 0,
+      "Agent2": 1
+    }
+  }
+  ```
+
+  Notice: Both cv2.imwrite and plt.savefig is okay
+user_prompt: |
+  Now decide which agent's solution is better and give the reason
+  Agent 1's solution:
+  {line1}
+
+  Agent 2's solution:
+  {line2}
+result_path: outputs_0522_v5.jsonl
+reference_path: outputs_0522_v3.jsonl
+llm:
+  type: llmcenter
+  args:
+    token_url: https://llm-center.ali.modelbest.cn/llm/client/token/access_token
+    url: https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync
+    app_code: CodeAndFunction
+    user_token: 5T3QSU4H8FzMms69kqEO3A0zmhxm1S4bGkG_Nsm7m0Q
+    model: gpt4o-0513
+    temperature: 0.2
+    max_tokens: 1000
+    top_p: 0.5
