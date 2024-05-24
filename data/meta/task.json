@@ -97,8 +97,8 @@
         "category3": "数据格式转换",
         "user": "Detect the columns in the dataset, convert the string into float if there is a columns of numeric value but with the type of string.",
         "file_paths": [
-            "./data/tv.csv",
-            "./data/tv.xlsx"
+            "./data/tv.xlsx",
+            "./data/tv.csv"
         ],
         "attachments": [
             "📄tv"
@@ -124,6 +124,7 @@
         "category3": "数据格式转换",
         "user": "Please save this file as an xls file",
         "file_paths": [
+            "./data/Turkey_Syria_Earthquake.xlsx",
             "./data/Turkey_Syria_Earthquake.csv"
         ],
         "attachments": [
@@ -137,8 +138,8 @@
         "category3": "按某个维度聚合",
         "user": "按照network对数据做聚合",
         "file_paths": [
-            "./data/tv.csv",
-            "./data/tv.xlsx"
+            "./data/tv.xlsx",
+            "./data/tv.csv"
         ],
         "attachments": [
             "📄tv"
@@ -164,8 +165,8 @@
         "category3": "按某列或多列排序",
         "user": "sort the data by average user view",
         "file_paths": [
-            "./data/tv.csv",
-            "./data/tv.xlsx"
+            "./data/tv.xlsx",
+            "./data/tv.csv"
         ],
         "attachments": [
             "📄tv"
@@ -178,8 +179,8 @@
         "category3": "按某列或多列排序",
         "user": "按照avg_us_viewers和ad_cost做排序",
         "file_paths": [
-            "./data/tv.csv",
-            "./data/tv.xlsx"
+            "./data/tv.xlsx",
+            "./data/tv.csv"
         ],
         "attachments": [
             "📄tv"
@@ -313,8 +314,8 @@
         "category3": "两张表关联查询",
         "user": "哪家网络公司获得超级碗转播的次数最多？",
         "file_paths": [
-            "./data/tv.csv",
-            "./data/tv.xlsx"
+            "./data/tv.xlsx",
+            "./data/tv.csv"
         ],
         "attachments": [
             "📄tv"
@@ -379,8 +380,8 @@
         "category3": "两张表关联查询",
         "user": "Summarize this data for me",
         "file_paths": [
-            "./data/tv.csv",
-            "./data/tv.xlsx"
+            "./data/tv.xlsx",
+            "./data/tv.csv"
         ],
         "attachments": [
             "📄tv"
@@ -1476,9 +1477,11 @@
         "category2": "词云",
         "category3": "画词云",
         "user": "Select a proper shape and draw a wordcloud form the title",
-        "file_paths": [],
+        "file_paths": [
+            "./data/news.txt"
+        ],
         "attachments": [
-            "画英文词云"
+            "📄news"
         ]
     },
     {
@@ -1487,9 +1490,11 @@
         "category2": "词云",
         "category3": "画词云",
         "user": "Extract the keywords from content of the news and draw a wordcloud",
-        "file_paths": [],
+        "file_paths": [
+            "./data/news.txt"
+        ],
         "attachments": [
-            "提取关键词并画词云"
+            "📄news"
         ]
     },
     {
@@ -1497,9 +1502,13 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "词云",
         "category3": "画词云",
-        "user": "提取这篇小说的关键词并绘制成词云",
-        "file_paths": [],
-        "attachments": []
+        "user": "提取这篇研报的关键词并绘制成词云",
+        "file_paths": [
+            "./data/重庆啤酒.pdf"
+        ],
+        "attachments": [
+            "📄重庆啤酒"
+        ]
     },
     {
         "index": "124",
@@ -1536,7 +1545,7 @@
         "category1": "网页搜索和爬虫",
         "category2": "数据抓取",
         "category3": "抓取数据并转换格式",
-        "user": "Extracting Key Information of FaceWall Intelligence Company from Baidu Baike and Saving it as an Excel File",
+        "user": "Extracting Key Information of ModelBest Intelligence Company from Baidu Baike and Saving it as an Excel File",
         "file_paths": [],
         "attachments": []
     },
@@ -1703,72 +1712,108 @@
         "index": "144",
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频格式转化",
-        "category3": "求导",
+        "category3": "音频格式转化",
         "user": "Help me convert the MP3 file to WAV file",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
-        "attachments": []
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity"
+        ]
     },
     {
-        "index": "148",
+        "index": "145",
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频特征提取",
-        "category3": "求导",
+        "category3": "音频特征提取",
         "user": "Draw the Mayer spectrum of this audio",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
-        "attachments": []
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity"
+        ]
+    },
+    {
+        "index": "146",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "音频编辑",
+        "user": "Increase the volume in this audio by 10%",
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity"
+        ]
+    },
+    {
+        "index": "147",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "音频编辑",
+        "user": "把这个两个音频拼接起来，中间用淡出处理",
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3",
+            "./data/Ghostrifter Official - Haze.wav"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity",
+            "Ghostrifter Official - Haze"
+        ]
+    },
+    {
+        "index": "149",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "音频编辑",
+        "user": "Decrease the volume by 100%",
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity"
+        ]
+    },
+    {
+        "index": "150",
+        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
+        "category2": "音频编辑",
+        "category3": "音频编辑",
+        "user": "cut the first 30 seconds of the audio file and save it to a new file",
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity"
+        ]
     },
     {
         "index": "151",
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
-        "category3": "求导",
-        "user": "Increase the volume in this audio by 10%",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
-        "attachments": []
+        "category3": "音频编辑",
+        "user": "检测音频中的静音部分，自动将音频文件分割成多个片段",
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity"
+        ]
     },
     {
         "index": "152",
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
-        "category3": "求导",
-        "user": "把这个两个音频拼接起来，中间用淡出处理",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3","./data/Ghostrifter Official - Haze.wav"],
-        "attachments": []
-    },
-    {
-        "index": "153",
-        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
-        "category2": "音频编辑",
-        "category3": "求导",
-        "user": "Decrease the volume by 100%",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
-        "attachments": []
-    },
-    {
-        "index": "154",
-        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
-        "category2": "音频编辑",
-        "category3": "求导",
-        "user": "cut the first 30 seconds of the audio file and save it to a new file",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
-        "attachments": []
-    },
-    {
-        "index": "155",
-        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
-        "category2": "音频编辑",
-        "category3": "求导",
-        "user": "检测音频中音量低于10%部分，按照这些部分自动将音频文件分割成多个片段，并保存",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3"],
-        "attachments": []
-    },
-    {
-        "index": "156",
-        "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
-        "category2": "音频编辑",
-        "category3": "求导",
+        "category3": "音频编辑",
         "user": "Put these two audio clips on top of each other",
-        "file_paths": ["./data/Ghostrifter Official - Serenity.mp3","./data/Ghostrifter Official - Haze.wav"],
-        "attachments": []
+        "file_paths": [
+            "./data/Ghostrifter Official - Serenity.mp3",
+            "./data/Ghostrifter Official - Haze.wav"
+        ],
+        "attachments": [
+            "Ghostrifter Official - Serenity",
+            "Ghostrifter Official - Haze"
+        ]
     }
 ]
