@@ -23,6 +23,9 @@ system_prompt: |
   ```
 
   Here is an example:
+  Reasoning: Agent1's reasoning quality is xxxx, Agent1's code quality is xxxx, So the solution is Pass/Failed
+            Agent2's reasoning quality is xxxx, Agent2's code quality is xxxx, So the solution is Pass/Failed
+            Agent1's / Agent2's solution is better, because xxxxx.
   ```
   {
     "Pass": {

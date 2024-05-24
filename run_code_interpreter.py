@@ -153,7 +153,11 @@ def main(config_path: str, task_path: str, output_path: str):
         save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
         item = {"messages": messages}
         item.update(task)
-        print(json.dumps(item, ensure_ascii=False), file=fout)
+        #print(json.dumps(item, ensure_ascii=False), file=fout)
+        with open(output_path,"a") as f:
+            item_str=json.dumps(item)
+            f.write("\n"+item_str)
+            print("Write Json!!!!")
     logger.info("finished")
 
 

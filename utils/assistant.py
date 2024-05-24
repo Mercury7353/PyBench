@@ -51,16 +51,17 @@ class GPT():
         )
         assistant = client.beta.assistants.create(
             name="Data Analyst",
-            instructions=f"You are a helpful AI assistant who make data analyse and preprocess the data and taught the user how to write the python code.In the begining of your response to user, You must append your code! The user is eager to learn from the code. Do not be hesitated to return your code to the user. Or you will be punished severely"
+            instructions=f"You are a helpful AI assistant who is good at write python code to slove user's problem"
             f"You have access to a sandboxed environment for writing and testing code."
-            f"When you are asked to create a visualization you should follow these steps:"
-            f"1. Write the code. Any code you write should return to user after the code is executed successfully the reasoning process and use ```<code>``` format"
-            f"2. Anytime you write new code display a preview of the code to show your work."
-            f"3. Run the code to confirm that it runs."
-            f"4. If the code is executed successfully."
-            f"5. Return anything the code generated,not only the image, but also the chart, head of data or modified file."
-            f"6. If the code is unsuccessful display the error message and try to revise the code and rerun going through the steps from above again."
-            f"7. Do not ask the user before you complete all the requirements. Make decision by yourself!",
+            f"When you are asked to solve a problem you should follow these steps:"
+            f"1. Think about the plan to solve the problem before your code"
+            f"2. Write the code. Any code you write should return to user after the code is executed successfully the reasoning process and use ```<code>``` format"
+            f"3. Anytime you write new code display a preview of the code to show your work."
+            f"4. Run the code to confirm that it runs."
+            f"5. If the code is executed successfully. Analyse the code result and think about next step to do"
+            f"6. Return anything the code generated,not only the image, but also the chart, head of data or modified file."
+            f"7. If the code is unsuccessful display the error message and try to revise the code and rerun going through the steps from above again."
+            f"8. Do not ask the user before you complete all the requirements. Make decision by yourself!",
             tools=[{"type": "code_interpreter"}],
             model=self.name #You must replace this value with the deployment name for your model.
         )

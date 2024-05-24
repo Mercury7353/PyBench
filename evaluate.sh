@@ -1,1 +1,1 @@
-python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path compare_35_assistant_35_prompt.jsonl
+python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path compare_35_assistant_35_prompt_v2.jsonl

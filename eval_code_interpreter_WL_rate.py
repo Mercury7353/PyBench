@@ -88,6 +88,7 @@ def main(config_path, output_path):
             ],
         )
         logger.info(f"evaluate result: {rsp}")
+        #logger.info(f"Data INDEX: {data2["index"]}")
         try:
             analysis, decision = extract_code(rsp.content, "```", "```")
             decision = json.loads(decision)
