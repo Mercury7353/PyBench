@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flappy Bird Demo</title>
+<style>
+    * { padding: 0; margin: 0; }
+    canvas { background: #eee; display: block; margin: auto;}
+</style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="320" height="480"></canvas>
+
+<script>
+
+var cvs = document.getElementById("gameCanvas");
+var ctx = cvs.getContext("2d");
+
+// Load images
+var bird = new Image();
+var bg = new Image();
+var fg = new Image();
+var pipeNorth = new Image();
+var pipeSouth = new Image();
+
+bird.src = "images/bird.png";
+bg.src = "images/bg.png";
+fg.src = "images/fg.png";
+pipeNorth.src= "images/pipeNorth.png";
+pipeSouth.src= "images/pipeSouth.png";
+
+// Some variables
+var gap = 85;
+var constant;
+
+pipeNorth.onload=function(){
+    constant= pipeNorth.height+gap;
+};
+
+// Bird position
+var bX=10;
+var bY=150;
+
+// Gravity effect
+function moveUp(){
+    bY -=25;
+}
+
+document.addEventListener("keydown",moveUp);
+
+function draw(){
+
+ctx.drawImage(bg,0,0);
+ctx.drawImage(pipeNorth,bX,bY);
+ctx.drawImage(pipeSouth,bX,bY+constant);
+
+bY+=1.5;
+
+requestAnimationFrame(draw);
+}
+
+draw();
+
+</script>
+
+</body>
+</html>

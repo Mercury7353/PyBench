@@ -121,6 +121,7 @@ python-multipart
 python-pptx
 pytz
 pywavelets
+pygame
 pyyaml
 qrcode
 rarfile
@@ -162,4 +163,4 @@ xgboost
 xlrd
 xlsxwriter
 xml-python
-zipp
+zipptextblob==1.5.0

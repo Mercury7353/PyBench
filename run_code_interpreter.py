@@ -156,7 +156,7 @@ def main(config_path: str, task_path: str, output_path: str):
         #print(json.dumps(item, ensure_ascii=False), file=fout)
         with open(output_path,"a") as f:
             item_str=json.dumps(item)
-            f.write("\n"+item_str)
+            f.write(item_str+"\n")
             print("Write Json!!!!")
     logger.info("finished")
 

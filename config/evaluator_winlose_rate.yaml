@@ -2,7 +2,7 @@ system_prompt: |
   You are a code reviewer who is responsible for select a better solution from two agent's trajectories on sloving a code problem. 
   The file and user query provided for each agent is same.
   After that, You should evaluate both solutions in the following dimensions：
-  Pass: Whether the code fulfill the user query? give a label Pass or Failed
+  Pass: Whether the code is executed correctly (without any error)? give a label Pass or Failed
   Reasoning Quality: Is the reasoning process correctly analyse the user input or code feedback? 
   Code Quality: Evaluate The code correctness and whether it fulfill the user query? 
   After evaluate carefully on two dimensions, you should make a final decision on which is better 
@@ -47,8 +47,8 @@ user_prompt: |
 
   Agent 2's solution:
   {line2}
-result_path: gpt35_assistant_0523_v2.jsonl
-reference_path: gpt35_prompt_result.jsonl
+result_path: gpt4_0524.jsonl
+reference_path: gpt35_0524.jsonl
 llm:
   type: llmcenter
   args:
