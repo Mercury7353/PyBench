@@ -10,7 +10,6 @@ system_prompt_template: |
   ```  
 
 
-  WARNING:Do not use cv2.waitKey(0) cv2.destroyAllWindows()!!! Or the program will be destoried
 
   Each round, your answer should ALWAYS use the following format(Each of your response should contain code, until you complete the task):
 
@@ -55,3 +54,4 @@ llm:
     temperature: 0.2
     max_tokens: 1000
     top_p: 0.5
+    frequency_penalty: 1.02

@@ -63,7 +63,7 @@ def main(config_path: str, task_path: str, output_path: str):
             user_query = task["user"]
             index = task["index"]
             My_Assistant = GPT(output_path)
-            
+
             My_Assistant.chat(user_query, file_path, index)
             continue
 
@@ -106,58 +106,61 @@ def main(config_path: str, task_path: str, output_path: str):
                 "text": user_query,
             },
         ]
-        for count in range(max_turns):  # max 5 turn interaction
-            logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
-            logger.info(f"input messages: {messages}")
-            out_msg, debug_info = llm.generate(messages)
-            logger.info(f"output msg: {message2dict(out_msg)}")
+        try:
+            for count in range(max_turns):  # max 5 turn interaction
+                logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
+                logger.info(f"input messages: {messages}")
+                out_msg, debug_info = llm.generate(messages)
+                logger.info(f"output msg: {message2dict(out_msg)}")
 
-            reasoning, code_script = parse_code_action(
-                out_msg.content,
-                mode=config["mode"],
-                code_start_token=config["code_start_token"],
-                code_end_token=config["code_end_token"],
-                tool_call_token=config["tool_call_token"],
-            )
-            logger.info(f"Reasoning: {reasoning}")
-            logger.info(f"Code script: {code_script}")
-            if code_script is None or code_script.strip() == "":
-                messages.append({"role": "assistant", "content": reasoning})
-                cells.append({"role": "assistant", "text": reasoning})
-            else:
-                messages.append(
-                    {
-                        "role": "assistant",
-                        "content": f"{reasoning}\n{config['code_start_token']}\n{code_script}\n{config['code_end_token']}",
-                    }
+                reasoning, code_script = parse_code_action(
+                    out_msg.content,
+                    mode=config["mode"],
+                    code_start_token=config["code_start_token"],
+                    code_end_token=config["code_end_token"],
+                    tool_call_token=config["tool_call_token"],
                 )
-                cells.append({"role": "assistant", "text": reasoning})
+                logger.info(f"Reasoning: {reasoning}")
+                logger.info(f"Code script: {code_script}")
+                if code_script is None or code_script.strip() == "":
+                    messages.append({"role": "assistant", "content": reasoning})
+                    cells.append({"role": "assistant", "text": reasoning})
+                else:
+                    messages.append(
+                        {
+                            "role": "assistant",
+                            "content": f"{reasoning}\n{config['code_start_token']}\n{code_script}\n{config['code_end_token']}",
+                        }
+                    )
+                    cells.append({"role": "assistant", "text": reasoning})
 
-            if code_script is None or code_script.strip() == "":
-                break
+                if code_script is None or code_script.strip() == "":
+                    break
 
-            code_response = execute_code(code_script, tool)
-            logger.info(f"Code response:\n{code_response}")
-            if config["mode"] == "prompt":
-                messages.append({"role": "user", "content": code_response})
-                cells.append(
-                    {
-                        "role": "assistant",
-                        "code": code_script,
-                        "result": code_response,
-                    }
-                )
-            else:
-                messages.append({"role": "tool", "content": code_response})
+                code_response = execute_code(code_script, tool)
+                logger.info(f"Code response:\n{code_response}")
+                if config["mode"] == "prompt":
+                    messages.append({"role": "user", "content": code_response})
+                    cells.append(
+                        {
+                            "role": "assistant",
+                            "code": code_script,
+                            "result": code_response,
+                        }
+                    )
+                else:
+                    messages.append({"role": "tool", "content": code_response})
 
-        save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
-        item = {"messages": messages}
-        item.update(task)
-        #print(json.dumps(item, ensure_ascii=False), file=fout)
-        with open(output_path,"a") as f:
-            item_str=json.dumps(item)
-            f.write(item_str+"\n")
-            print("Write Json!!!!")
+            save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
+            item = {"messages": messages}
+            item.update(task)
+            print(json.dumps(item, ensure_ascii=False), file=fout)
+        except Exception:
+            logger.error(traceback.format_exc())
+            save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
+            item = {"messages": messages}
+            item.update(task)
+            print(json.dumps(item, ensure_ascii=False), file=fout)
     logger.info("finished")
 
 

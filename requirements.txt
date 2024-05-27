@@ -107,6 +107,7 @@ pillow
 plotly
 psutil
 pydantic
+pydub
 pygments
 pylog
 pymupdf
