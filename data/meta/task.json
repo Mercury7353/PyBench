@@ -861,7 +861,7 @@
         "category2": "画图",
         "category3": "雷达图",
         "user": "Read the data set and Draw a radar graph ",
-        "file_paths": [],
+        "file_paths": ["./data/IRIS.csv"],
         "attachments": [
             "📄radar"
         ]
@@ -930,7 +930,7 @@
         "category2": "格式转换",
         "category3": "文档格式转换",
         "user": "could you please help to save this file as a docx file",
-        "file_paths": [],
+        "file_paths": ["./data/2401.02954v1.pdf"],
         "attachments": [
             "📄starcoder2paper"
         ]

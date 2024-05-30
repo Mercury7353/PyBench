@@ -1,1 +1,1 @@
-python run_code_interpreter.py --config_path ./config/llama3_prompt.yaml --task_path ./data/meta/task.json --output_path outputs_0524_v2.jsonl
+python run_code_interpreter.py --config_path ./config/llama3_prompt.yaml --task_path ./data/meta/task.json --output_path test.jsonl

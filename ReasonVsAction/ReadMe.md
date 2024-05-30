@@ -1,0 +1,7 @@
+# Reasoning vs CodeAction
+通过实验定量探究 Agent 的ReAct过程中哪个更重要？  
+## Method:  
+Trajectory1: GPT Reasoning + Llama3 code  
+Trajectory2: Llama3 Reasoning + GPT code  
+
+## Metric : GPT evaluate Pass Rate & Win Rate  
