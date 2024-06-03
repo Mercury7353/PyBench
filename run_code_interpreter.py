@@ -18,8 +18,59 @@ matplotlib.use("Agg")
 os.environ["AZURE_OPENAI_API_KEY"] = "b5ceeca154844f009e4d6618188305d3"
 os.environ["AZURE_OPENAI_ENDPOINT"] = "https://zyl-code-interpreter.openai.azure.com/"
 
+import nbformat
+from nbclient import NotebookClient
 
-def execute_code(code_str: str, tool: PythonAstREPLTool):
+def execute_code(code_str: str,nb):
+    #print("codeSTr",code_str)
+    # 创建一个新的notebook对象
+    #code_str = code_str.replace('\\n', '\n')
+    
+    # 添加一个包含代码的cell
+    nb.cells.append(nbformat.v4.new_code_cell(code_str))
+    
+    total_cells=len(nb.cells)
+
+    # 执行notebook
+    client = NotebookClient(nb)
+    try:
+        client.execute()
+    except Exception as e:
+        #print("Code error")
+        
+        #error_message=traceback.format_exc()
+        error_message=str(e)
+        #split('Traceback')[-2]
+        error_message=error_message.split("\n")[-2]
+        #print(error_message)
+        roll_back(nb)
+        return "There are some errors in the code. All variable in this cell should be redefined,Please Debug:\n"+error_message
+    
+    # 提取执行结果
+    #outputs = nb.cells[-1].outputs
+    #print("CheckOutput",nb_c.cells[-1]['outputs'][0])
+    outputs=nb.cells[-1]['outputs']#[0]['data']['text/plain']
+    #print("Output",outputs)
+    
+    result = ""
+    for output in outputs:
+        #print("check point:",output.output_type)
+        if output.output_type == "stream":  # 如果输出是标准输出或标准错误
+            result += output.text
+        elif output.output_type == "execute_result":  # 如果输出是执行结果
+            result += str(output['data']['text/plain'])
+        elif output.output_type == "error":  # 如果输出是错误
+            result += "There are some errors in the code. All variable in this cell should be redefined,Please Debug:\n"
+            result += "Error: " + str(output.ename) + "\n"
+            result += str(output.evalue) + "\n"
+            #result += "".join(output.traceback) + "\n"
+            roll_back(nb)
+    #print(result)
+    return result
+def roll_back(nb):
+    nb.cells.pop()
+    return
+def _execute_code(code_str: str, tool: PythonAstREPLTool):
     """execute python code and return the execution result
 
     Args:
@@ -63,11 +114,13 @@ def main(config_path: str, task_path: str, output_path: str):
             user_query = task["user"]
             index = task["index"]
             My_Assistant = GPT(output_path)
-            
+
             My_Assistant.chat(user_query, file_path, index)
             continue
 
         tool = PythonAstREPLTool()
+        nb = nbformat.v4.new_notebook()
+
         file_path = ",".join(task["file_paths"])
         user_query = task["user"]
         index = task["index"]
@@ -106,58 +159,61 @@ def main(config_path: str, task_path: str, output_path: str):
                 "text": user_query,
             },
         ]
-        for count in range(max_turns):  # max 5 turn interaction
-            logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
-            logger.info(f"input messages: {messages}")
-            out_msg, debug_info = llm.generate(messages)
-            logger.info(f"output msg: {message2dict(out_msg)}")
+        try:
+            for count in range(max_turns):  # max 5 turn interaction
+                logger.info("--" * 10 + f"Round: {count}" + "--" * 10)
+                logger.info(f"input messages: {messages}")
+                out_msg, debug_info = llm.generate(messages)
+                logger.info(f"output msg: {message2dict(out_msg)}")
 
-            reasoning, code_script = parse_code_action(
-                out_msg.content,
-                mode=config["mode"],
-                code_start_token=config["code_start_token"],
-                code_end_token=config["code_end_token"],
-                tool_call_token=config["tool_call_token"],
-            )
-            logger.info(f"Reasoning: {reasoning}")
-            logger.info(f"Code script: {code_script}")
-            if code_script is None or code_script.strip() == "":
-                messages.append({"role": "assistant", "content": reasoning})
-                cells.append({"role": "assistant", "text": reasoning})
-            else:
-                messages.append(
-                    {
-                        "role": "assistant",
-                        "content": f"{reasoning}\n{config['code_start_token']}\n{code_script}\n{config['code_end_token']}",
-                    }
+                reasoning, code_script = parse_code_action(
+                    out_msg.content,
+                    mode=config["mode"],
+                    code_start_token=config["code_start_token"],
+                    code_end_token=config["code_end_token"],
+                    tool_call_token=config["tool_call_token"],
                 )
-                cells.append({"role": "assistant", "text": reasoning})
+                logger.info(f"Reasoning: {reasoning}")
+                logger.info(f"Code script: {code_script}")
+                if code_script is None or code_script.strip() == "":
+                    messages.append({"role": "assistant", "content": reasoning})
+                    cells.append({"role": "assistant", "text": reasoning})
+                else:
+                    messages.append(
+                        {
+                            "role": "assistant",
+                            "content": f"{reasoning}\n{config['code_start_token']}\n{code_script}\n{config['code_end_token']}",
+                        }
+                    )
+                    cells.append({"role": "assistant", "text": reasoning})
 
-            if code_script is None or code_script.strip() == "":
-                break
+                if code_script is None or code_script.strip() == "":
+                    break
 
-            code_response = execute_code(code_script, tool)
-            logger.info(f"Code response:\n{code_response}")
-            if config["mode"] == "prompt":
-                messages.append({"role": "user", "content": code_response})
-                cells.append(
-                    {
-                        "role": "assistant",
-                        "code": code_script,
-                        "result": code_response,
-                    }
-                )
-            else:
-                messages.append({"role": "tool", "content": code_response})
+                code_response = _execute_code(code_script, tool)
+                logger.info(f"Code response:\n{code_response}")
+                if config["mode"] == "prompt":
+                    messages.append({"role": "user", "content": code_response})
+                    cells.append(
+                        {
+                            "role": "assistant",
+                            "code": code_script,
+                            "result": code_response,
+                        }
+                    )
+                else:
+                    messages.append({"role": "tool", "content": code_response})
 
-        save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
-        item = {"messages": messages}
-        item.update(task)
-        #print(json.dumps(item, ensure_ascii=False), file=fout)
-        with open(output_path,"a") as f:
-            item_str=json.dumps(item)
-            f.write(item_str+"\n")
-            print("Write Json!!!!")
+            save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
+            item = {"messages": messages}
+            item.update(task)
+            print(json.dumps(item, ensure_ascii=False), file=fout)
+        except Exception:
+            logger.error(traceback.format_exc())
+            save_as_ipynb(generate_notebook(cells), f"cells/{index}.ipynb")
+            item = {"messages": messages}
+            item.update(task)
+            print(json.dumps(item, ensure_ascii=False), file=fout)
     logger.info("finished")
 
 

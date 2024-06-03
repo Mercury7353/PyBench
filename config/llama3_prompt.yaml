@@ -43,7 +43,7 @@ system_prompt_template: |
   3. End the process whenever you complete the task, When you do not have Action(Code), Use: Finished: <summary the analyse process and make response>
   4. Do not ask for user input in your python code.  
 
-  
+
 code_start_token: "```python"
 code_end_token: "```"
 mode: prompt
@@ -56,7 +56,8 @@ llm:
       api_key: token-abc123
       base_url: http://localhost:8001/v1
     model_args:
-      model: /mnt/data/user/tc_agi/zyl7353/models/codeinterpreter_0520-hf
+      model: /data/zyl7353/models/Meta-Llama-3-8B-Instruct
       temperature: 0.2
       max_tokens: 1000
       top_p: 0.85
+

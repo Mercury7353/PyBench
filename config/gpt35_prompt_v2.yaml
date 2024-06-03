@@ -54,3 +54,4 @@ llm:
     temperature: 0.2
     max_tokens: 1000
     top_p: 0.5
+    frequency_penalty: 1.02

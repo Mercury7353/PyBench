@@ -14,7 +14,7 @@ class LlaMa3():
     def chat(self,messages):
         #result=my_input_format(messages,tools=self.tools,tool_choice=None,output=None)
         completion = self.client.chat.completions.create(
-                      model="/mnt/data/user/tc_agi/zyl7353/models/codeinterpreter_0520-hf",
+                      model="/data/zyl7353/models/codeinterpreter_0529-hf",
                       messages=messages,
                       temperature=0.2,
                     )
@@ -72,3 +72,7 @@ for msg in result:
     print("tool_call_string" in msg.keys())
 '''
 
+if __name__=="__main__":
+    GPT=LlaMa3(tools=None)
+    rsp=GPT.chat([{"role":"syetem","content":"You are a helpful assistant"},{"role":"user","content":"Hi?"}])
+    print(rsp)

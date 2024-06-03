@@ -8,14 +8,14 @@ def find_fuzzy_file(file_name, row_idx):
     
     if isinstance(file_name, str):
         file_name = file_name.replace("📄", "")
-        for file in glob(f"../data/{file_name}.*"):
+        for file in glob(f"./data/{file_name}.*"):
             files.append(file)
-    for file in glob(f"../data/{row_idx}.*"):
+    for file in glob(f"./data/{row_idx}.*"):
         files.append(file)
     return files
 
 
-df = pd.read_excel("../data/meta/工具学习能力分类.xlsx")
+df = pd.read_excel("./data/meta/工具学习能力分类.xlsx")
 data = []
 category1, category2, category3 = None, None, None
 """
@@ -57,4 +57,4 @@ for i, row in df.iterrows():
         )
         if isinstance(attach, str):
             data[-1]["attachments"].append(attach)
-json.dump(data, open("../data/meta/task.json", "w"), ensure_ascii=False, indent=4)
+json.dump(data, open("./data/meta/task.json", "w"), ensure_ascii=False, indent=4)

@@ -111,6 +111,7 @@ plotly
 psutil
 pydantic
 PyMuPDF
+pydub
 pygments
 pylog
 pymupdf

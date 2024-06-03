@@ -49,7 +49,7 @@ class OpenAIAPI(BaseLLM):
         new_message = Message(**new_message.model_dump())
         return new_message, debug_info
 
-    @retry(stop=stop_after_attempt(5), wait=wait_random(min=0.5, max=1.5))
+    @retry(stop=stop_after_attempt(10), wait=wait_random(min=5, max=10))
     def _post_request(self, kwargs: Dict[str, Any]) -> Tuple[OpenAIMessage, DebugInfo]:
         try:
             with self.get_client_args() as client_args:

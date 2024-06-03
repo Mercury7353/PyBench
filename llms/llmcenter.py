@@ -7,6 +7,7 @@ from typing import Dict, List, Optional, Tuple, Union
 
 import requests
 from loguru import logger
+from tenacity import retry, stop_after_attempt, wait_random
 
 from llms.base_llm import BaseLLM
 from llms.schema import (
@@ -220,6 +221,7 @@ class LLMCenter(BaseLLM):
             new_tools.append(new_tool)
         return new_tools
 
+    @retry(stop=stop_after_attempt(10), wait=wait_random(min=5, max=10))
     def _make_request(
         self,
         messages: List[Union[Message, Dict]],

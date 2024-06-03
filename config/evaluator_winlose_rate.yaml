@@ -47,7 +47,7 @@ user_prompt: |
 
   Agent 2's solution:
   {line2}
-result_path: gpt4_0524.jsonl
+result_path: llama3_instruct_0603.jsonl
 reference_path: gpt35_0524.jsonl
 llm:
   type: llmcenter
@@ -56,7 +56,7 @@ llm:
     url: https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync
     app_code: CodeAndFunction
     user_token: 5T3QSU4H8FzMms69kqEO3A0zmhxm1S4bGkG_Nsm7m0Q
-    model: gpt4o-0513
+    model: gpt-4o-2024-05-13
     temperature: 0.2
     max_tokens: 1000
     top_p: 0.5

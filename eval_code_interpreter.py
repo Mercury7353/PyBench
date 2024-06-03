@@ -119,8 +119,8 @@ def main(config_path, output_path):
     logger.info(
         f"Agent2, total score: {total_score_agent2}, pass rate: {agent2_pass_rate}"
     )
-    logger.info(f"Agent1: {config["reference_path"]}")
-    logger.info(f"Agent2: {config["result_path"]}")
+    logger.info(f"Agent1: {config['reference_path']}")
+    logger.info(f"Agent2: {config['result_path']}")
 
 
 if __name__ == "__main__":
