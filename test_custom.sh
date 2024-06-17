@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python run_code_interpreter_nbclient_beta_costum.py --config_path ./config/llama3_prompt.yaml --task_path ./data/meta/task.json --output_path opencodeinterpret_ds.jsonl

@@ -1,1 +1,1 @@
-python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path compare_gpt_llama3_instruct.jsonl
+python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path compare_only.jsonl

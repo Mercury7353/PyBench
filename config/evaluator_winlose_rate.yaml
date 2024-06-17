@@ -47,7 +47,7 @@ user_prompt: |
 
   Agent 2's solution:
   {line2}
-result_path: llama3_instruct_0603.jsonl
+result_path: codeinterpreter_ablation_ultrachat0615.jsonl
 reference_path: gpt35_0524.jsonl
 llm:
   type: llmcenter

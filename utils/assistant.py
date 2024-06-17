@@ -82,6 +82,7 @@ class GPT():
         thread_id=self.thread.id,
         role="user",
         content=message,
+        
         file_ids=file_list
     )
         

@@ -124,7 +124,10 @@ def main(config_path, output_path):
                 "index": index,
             }
             eval_result.append(eval_item)
-            print(json.dumps(eval_item, ensure_ascii=False), file=fout)
+            with open(output_path,'a') as out_file:
+                json_string=json.dumps(eval_item, ensure_ascii=False)
+                out_file.write(json_string+"\n")
+            #print(json.dumps(eval_item, ensure_ascii=False), file=fout)
         except:
             logger.error(traceback.format_exc())
             continue

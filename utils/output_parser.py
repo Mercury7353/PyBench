@@ -28,9 +28,7 @@ def parse_code_action(
     elif mode == "functioncall":
         rsp = fc2dict(output, tool_call_token)
         if "tool_calls" in rsp and len(rsp["tool_calls"]) > 0:
-            return rsp["content"], rsp["tool_calls"][0]["function"]["arguments"][
-                "query"
-            ]
+            return rsp["content"], rsp["tool_calls"][0]["arguments"]["code"]
         else:
             return rsp["content"], ""
     elif mode == "assistant":
@@ -69,8 +67,11 @@ def extract_code(
     ].strip()
 
 
+import ast
+import re
+import json
+
 def convert_function_call_to_json(string):
-    # print('converting', string)
     try:
         tool_calls = []
         x = ast.parse(string)
@@ -80,29 +81,61 @@ def convert_function_call_to_json(string):
             for keyword in tool.value.keywords:
                 function_args[keyword.arg] = ast.literal_eval(keyword.value)
             this_one = {"name": function_name, "arguments": function_args}
-            # print('converted to', this_one)
             tool_calls.append(this_one)
         return tool_calls
     except Exception:
         return []
+import json
 
+def extract_code_from_arguments(arguments_str):
+    try:
+        arguments_dict = json.loads(arguments_str)
+        return arguments_dict.get("code", "")
+    except json.JSONDecodeError:
+        return ""
 
 def fc2dict(sequence: str, spliter="<|tool_call|>"):
     if spliter in sequence:
         content, tool_call_string = sequence.split(spliter, 1)
         try:
-            tool_call_pattern = r"\w+\([.\s\S]*\)"
-            tool_calls = []
-            for match in re.finditer(tool_call_pattern, tool_call_string):
-                tool_call = match.group()
-                tool_call_dicts = convert_function_call_to_json(tool_call)
-                tool_calls.extend(tool_call_dicts)
+            # 找到第一个 { 和最后一个 }
+            start_idx = tool_call_string.find('{')
+            end_idx = tool_call_string.rfind('}')
+            if start_idx != -1 and end_idx != -1:
+                arguments_str = tool_call_string[start_idx:end_idx + 1]
+                print("Arg:",arguments_str)
+                arguments_str=arguments_str.replace("\n","\\n")
+                #code_content = extract_code_from_arguments(arguments_str)
+                tool_call_dict = {
+                    "name": "execute_python",
+                    "arguments": json.loads(arguments_str)
+                }
+                tool_calls = [tool_call_dict]
+            else:
+                tool_calls = []
             return {
                 "content": content.strip(),
                 "tool_calls": tool_calls,
                 "role": "assistant",
             }
-        except:
+        except Exception as e:
+            print(f"Error: {e}")
             return {"content": content.strip(), "role": "assistant"}
     else:
         return {"content": sequence.strip(), "role": "assistant"}
+
+# 示例用法
+sequence = '''To fulfill your request, I will perform the following steps:
+
+1. Read the dataset from the provided path.
+2. Extract the necessary data for the radar chart.
+3. Create a radar chart using the extracted data.
+
+Let's start by reading the dataset.
+
+Action:
+
+
+<|tool_call|>execute_python({"code":"import pandas as pd\n\n# Read the dataset\ndata_path = './data/radar.csv'\ndf = pd.read_csv(data_path)\ndf.head()"})\n'''
+result = fc2dict(sequence)
+print(result)
