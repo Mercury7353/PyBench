@@ -83,23 +83,6 @@ def execute_code(code_str: str,Kernel,nb):
     #print(result)
     return result
 
-def _execute_code(code_str: str, tool: PythonAstREPLTool):
-    """execute python code and return the execution result
-
-    Args:
-        code_str (str): the code to be executed
-        tool (PythonAstREPLTool): python ast repl tool
-
-    Returns:
-        str: code execution result
-    """
-    # TODO: PythonAstREPLTool do not return full traceback when error occurs
-    try:
-        result = tool.invoke(code_str)
-        result = str(result)
-        return result
-    except:
-        return traceback.format_exc()
 
 
 def main(config_path: str, task_path: str, output_path: str):
@@ -142,7 +125,7 @@ def main(config_path: str, task_path: str, output_path: str):
         index = task["index"]
         if index in processed_ids:
             continue
-        tool = PythonAstREPLTool()
+        #tool = PythonAstREPLTool()
         nb=nbformat.v4.new_notebook()
         client = NotebookClient(nb,allow_errors=True)
         client.km=client.create_kernel_manager()
