@@ -28,22 +28,23 @@ def check_content(task_id,trajectory):
 # 示例调用
 if __name__=="__main__":
     trajectory_map={}
-    with open("/data/zyl7353/codeinterpreterbenchmark/test_0620.jsonl","r") as f:
+    with open("./unit_test_result/codeinterpreter_cpt/trajectory.jsonl","r") as f:
         for line in f:
             json_dict=json.loads(line)
             trajectory_map[json_dict["index"]]=json_dict['messages']
-    
+    Pass_Count=0
     #check_content(1)  # 运行所有 test_task_1_ 开头的测试函数
-    for i in range(2,70):
+    for i in range(2,153):
         try:
-            check_content(i,trajectory_map[str(i)])  # 运行所有 test_task_2_ 开头的测试函数
+            check_content(i,trajectory_map[str(i)]) 
             print(i,"Pass")
+            Pass_Count+=1
         except:
             #traceback.print_exc()
             print(i,"Failed")
 
-
-
+    print(Pass_Count)
+    print("PassRate:",float(Pass_Count)/143.0)
 
 
 

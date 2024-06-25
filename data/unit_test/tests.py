@@ -18,6 +18,10 @@ import fnmatch
 import pandas as pd
 import cv2
 import pickle
+from PIL import Image,ImageChops
+import numpy as np
+from PIL import Image
+
 
 def are_images_similar(image_path1, image_path2, threshold=0.75):
     """
@@ -64,6 +68,69 @@ def are_images_similar(image_path1, image_path2, threshold=0.75):
     else:
         return False
 
+def are_two_images_same(img1, img2,threshold=0.4,tolerance=0.5):
+    """
+    比较两张图片的相似程度是否超过给定阈值。
+
+    参数:
+    img1: PIL.Image.Image - 第一张图片
+    img2: PIL.Image.Image - 第二张图片
+    threshold: float - 相似度阈值，默认是0.9（即90%）
+
+    返回:
+    bool - 如果两张图片的相似度超过阈值则返回True，否则返回False
+    """
+    # 如果尺寸不同，将img2放缩到img1的尺寸
+    if img1.size != img2.size:
+        img2 = img2.resize(img1.size)
+    
+    # 如果模式不同，将img2转换为img1的模式
+    if img1.mode != img2.mode:
+        img2 = img2.convert(img1.mode)
+    
+    # 将图像转换为numpy数组
+    img1_np = np.array(img1)
+    img2_np = np.array(img2)
+    
+    # 计算每个像素的差异
+    diff_np = np.abs(img1_np - img2_np)
+    
+    # 计算允许的误差范围
+    tolerance_value = 255 * tolerance
+    
+    # 计算在误差范围内的像素数量
+    within_tolerance = np.all(diff_np <= tolerance_value, axis=-1)
+    similar_pixels = np.count_nonzero(within_tolerance)
+    
+    # 计算总像素数量
+    total_pixels = img1_np.shape[0] * img1_np.shape[1]
+    
+    # 计算相似度
+    similarity = similar_pixels / total_pixels
+    print(similarity)
+    # 判断相似度是否超过阈值
+    return similarity >= threshold
+
+def is_proportionally_similar(img1, img2, tolerance=0.1):
+    """
+    比较两张图片的尺寸比例是否在允许的误差范围内。
+    """
+    # 获取图片尺寸
+    width1, height1 = img1.size
+    width2, height2 = img2.size
+    print("Img1",img1.size)
+    print("Img2",img2.size)
+    # 计算图片的宽高比例
+    ratio1 = width1 / height1
+    ratio2 = width2 / height2
+    
+    # 计算比例差异
+    ratio_diff = abs(ratio1 - ratio2)
+    
+    # 判断比例差异是否在容忍范围内
+    return ratio_diff <= tolerance
+
+
 # Function to identify string-type numeric columns
 def identify_numeric_columns(df):
     numeric_columns = []
@@ -76,6 +143,16 @@ def identify_numeric_columns(df):
                 pass  # If conversion fails, it's not a numeric column
     return numeric_columns
 
+def calculate_sharpness(image_path):
+    # 打开图像并转换为灰度图
+    image = Image.open(image_path).convert('L')
+    image_array = np.array(image)
+    
+    # 使用拉普拉斯算子计算图像的清晰度
+    laplacian = cv2.Laplacian(image_array, cv2.CV_64F)
+    sharpness = laplacian.var()
+    
+    return sharpness
 
 def test_task_2(trajectory):
     df=pd.read_csv('./output/2.csv')
@@ -606,6 +683,776 @@ def test_task_62(trajectory):
 
 def test_task_63(trajectory):
     ans="./output/63.png"
-    ref="./gpt4_output/australian_gold_medals_over_time.png"
+    ref="./gpt4_output/sales_by_product.png"
     #print("WARNING 60 only verify the exist of the images")
     assert are_images_similar(ans,ref)
+
+def test_task_64(trajectory):
+    ans="./output/64.png"
+    ref="./gpt4_output/youtube_category_popularity.png"
+    assert os.path.exists(ans)
+    #print("WARNING 60 only verify the exist of the images")
+    #assert are_images_similar(ans,ref,0) 
+
+def test_task_65(trajectory):
+    ans="./output/65.png"
+    ref="./gpt4_output/employee_education_distribution.png"
+    assert are_images_similar(ans,ref) 
+
+
+def test_task_66(trajectory):
+    ans="./output/66.png"
+    ref="./gpt4_output/meals_distribution_pie_chart.png"
+    assert are_images_similar(ans,ref) 
+
+def test_task_67(trajectory):
+    ans="./output/67.png"
+    ref="./gpt4_output/X_vs_Y_scatter_plot.png"
+    assert are_images_similar(ans,ref) 
+
+def test_task_68(trajectory):
+    ans="./output/67.png"
+    ref="./gpt4_output/X_vs_Y_scatter_plot.png"
+    assert are_images_similar(ans,ref) 
+
+def test_task_69(trajectory):
+    ans="./output/69.png"
+    assert os.path.exists(ans)
+
+def test_task_70(trajectory):
+    ans="./output/70.png"
+    assert os.path.exists(ans)
+
+def test_task_71(trajectory):
+    ans="./output/71.png"
+    assert os.path.exists(ans)
+
+def test_task_72(trajectory):
+    ans="./output/72.png"
+    assert os.path.exists(ans)
+
+def test_task_73(trajectory):
+    ans="./output/73.png"
+    assert os.path.exists(ans)
+
+def test_task_74(trajectory):
+    ans="./output/74.png"
+    assert os.path.exists(ans)
+
+def test_task_75(trajectory):
+    ans="./output/75.docx"
+    assert os.path.exists(ans)
+
+def test_task_76(trajectory):
+    final_answer=trajectory[-1]['content']
+    #print(final_answer)
+    assert "WizardMath" in final_answer
+
+def test_task_77(trajectory):
+    final_answer=trajectory[-1]['content']
+    #print(final_answer)
+    assert "如懿" in final_answer
+
+def test_task_78(trajectory):
+    final_answer=trajectory[-1]['content']
+    #print(final_answer)
+    assert "如懿" in final_answer
+
+def test_task_79(trajectory):
+    image_path="./output/79.png"
+    # 检查文件是否存在
+    #print("Check",os.path.exists(image_path))
+    assert os.path.exists(image_path)
+    with Image.open(image_path) as img:
+        #print("In")
+        width, height = img.size
+        #print("AAA",width, height)
+        assert width==1000
+        assert height==500
+        
+def test_task_80(trajectory):
+    print("[ERROR]This test has error!!!!!!")
+    image_path="./output/80.png"
+    ref_path="./data/80.jpeg"
+    assert os.path.exists(image_path)
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    rotated_image = image.rotate(270, expand=True)
+    assert are_two_images_same(rotated_image,ref_image)
+
+def test_task_81(trajectory):
+    #print("[ERROR]This test has error!!!!!!")
+    image_path="./output/81.png"
+    ref_path="./data/81.jpeg"
+    assert os.path.exists(image_path)
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    rotated_image = image.rotate(180, expand=True)
+    assert are_two_images_same(rotated_image,ref_image)
+
+def test_task_82(trajectory):
+    #print("[ERROR]This test has error!!!!!!")
+    image_path="./output/81.png"
+    ref_path="./data/81.jpeg"
+    assert os.path.exists(image_path)
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    rotated_image = image.rotate(180, expand=True)
+    assert are_two_images_same(rotated_image,ref_image)
+
+def test_task_83(trajectory):
+    image_paths = ["./output/83_1.png", "./output/83_2.png", "./output/83_3.png", "./output/83_4.png"]
+    ref_path = "./data/83.jpeg"
+    
+    # 打开参考图片
+    ref_image = Image.open(ref_path)
+    
+    # 打开并拼接四张图片
+    images = [Image.open(path) for path in image_paths]
+    widths, heights = zip(*(img.size for img in images))
+    
+    total_width = sum(widths)
+    max_height = max(heights)
+    
+    # 创建一个新的空白图像用于拼接
+    new_image = Image.new('RGB', (total_width, max_height))
+    
+    # 将四张图片拼接到新图像上
+    x_offset = 0
+    for img in images:
+        new_image.paste(img, (x_offset, 0))
+        x_offset += img.width
+    
+    # 比较拼接后的图像与参考图像的尺寸比例
+    assert is_proportionally_similar(new_image, ref_image), "The concatenated image is not proportionally similar to the reference image."
+
+def test_task_83(trajectory):
+    image_paths = ["./output/83_1.png", "./output/83_2.png", "./output/83_3.png", "./output/83_4.png"]
+    ref_path = "./data/83.jpeg"
+    
+    # 打开参考图片
+    ref_image = Image.open(ref_path)
+    
+    # 打开并拼接四张图片
+    images = [Image.open(path) for path in image_paths]
+    widths, heights = zip(*(img.size for img in images))
+    
+    total_width = sum(widths)
+    max_height = max(heights)
+    
+    # 创建一个新的空白图像用于拼接
+    new_image = Image.new('RGB', (total_width, max_height))
+    
+    # 将四张图片拼接到新图像上
+    x_offset = 0
+    for img in images:
+        new_image.paste(img, (x_offset, 0))
+        x_offset += img.width
+    
+    # 比较拼接后的图像与参考图像的尺寸比例
+    assert is_proportionally_similar(new_image, ref_image), "The concatenated image is not proportionally similar to the reference image."
+
+def test_task_84(trajectory):
+    image_path ="./output/84.png"
+    ref_path = "./data/84.jpeg"
+    assert os.path.exists(image_path)
+    with Image.open(image_path) as img:
+        #print("In")
+        width, height = img.size
+        #print("AAA",width, height)
+        assert width==height
+        
+    
+    
+def test_task_85(trajectory):
+    image_path ="./output/85.png"
+    ref_path = "./data/85.jpeg"
+    assert os.path.exists(image_path)
+    with Image.open(image_path) as img:
+        #print("In")
+        width, height = img.size
+        #print("AAA",width, height)
+        assert width==300
+        assert height==300
+        
+  
+def test_task_86(trajectory):
+    image_path = "./output/86.png"
+    ref_path = "./data/86.jpeg"
+    
+    # 打开目标图像和参考图像
+    img1 = Image.open(image_path)
+    img2 = Image.open(ref_path)
+    
+    # 将目标图像左右翻转
+    img1_flipped = img1.transpose(Image.FLIP_LEFT_RIGHT)
+    
+    # 比较翻转后的图像与参考图像是否足够相似
+    assert are_two_images_same(img1_flipped, img2), "The flipped image is not similar enough to the reference image."
+
+
+def test_task_87(trajectory):
+    # Same to 86
+    image_path = "./output/87.png"
+    ref_path = "./data/87.jpeg"
+    
+    # 打开目标图像和参考图像
+    img1 = Image.open(image_path)
+    img2 = Image.open(ref_path)
+    
+    # 将目标图像左右翻转
+    img1_flipped = img1.transpose(Image.FLIP_LEFT_RIGHT)
+    
+    # 比较翻转后的图像与参考图像是否足够相似
+    assert are_two_images_same(img1_flipped, img2), "The flipped image is not similar enough to the reference image."
+
+
+
+
+
+def test_task_88(trajectory):
+    image_path = "./output/88.png"
+    ref_path = "./data/88.jpeg"
+    
+    # 打开目标图像
+    image = Image.open(image_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    
+    # 定义黑色像素的阈值（例如，灰度值小于等于50的像素被认为是黑色）
+    black_threshold = 50
+    
+    # 计算黑色像素的数量
+    black_pixels = np.sum(gray_array <= black_threshold)
+    
+    # 计算总像素数量
+    total_pixels = gray_array.size
+    
+    # 计算黑色像素比例
+    black_ratio = black_pixels / total_pixels
+    
+    # 检查图像中黑色像素的比例是否超过30%
+    assert black_ratio > 0.25, "The black pixel percentage does not exceed 30%."
+
+def test_task_89(trajectory):
+    image_path = "./output/89.png"
+    ref_path = "./data/89.jpeg"
+    
+    # 打开目标图像
+    image = Image.open(image_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    
+    # 定义黑色像素的阈值（例如，灰度值小于等于50的像素被认为是黑色）
+    black_threshold = 50
+    
+    # 计算黑色像素的数量
+    black_pixels = np.sum(gray_array <= black_threshold)
+    
+    # 计算总像素数量
+    total_pixels = gray_array.size
+    
+    # 计算黑色像素比例
+    black_ratio = black_pixels / total_pixels
+    print(black_ratio)
+    # 检查图像中黑色像素的比例是否超过30%
+    assert black_ratio > 0.3, "The black pixel percentage does not exceed 30%."
+
+def test_task_90(trajectory):
+    image_path = "./output/90.png"
+    ref_path = "./data/90.jpeg"
+    
+    assert os.path.exists(image_path)
+
+def test_task_91(trajectory):
+    image_path = "./output/91.png"
+    ref_path = "./data/91.jpeg"
+    assert os.path.exists(image_path)
+
+def test_task_92(trajectory):
+    image_path = "./output/92.png"
+    ref_path = "./data/92.jpeg"
+    
+    # 打开目标图像和参考图像
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    gray_ref_image = ref_image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    gray_ref_array = np.array(gray_ref_image)
+    
+    # 计算每个图像的平均亮度
+    avg_brightness_image = np.mean(gray_array)
+    avg_brightness_ref_image = np.mean(gray_ref_array)
+    
+    assert avg_brightness_image < avg_brightness_ref_image, "The brightness of the image is not lower than the reference image."
+
+def test_task_93(trajectory):
+    image_path = "./output/93.png"
+    ref_path = "./data/93.jpeg"
+    # 打开目标图像和参考图像
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    gray_ref_image = ref_image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    gray_ref_array = np.array(gray_ref_image)
+    
+    # 计算每个图像的平均亮度
+    avg_brightness_image = np.mean(gray_array)
+    avg_brightness_ref_image = np.mean(gray_ref_array)
+    
+    assert avg_brightness_image > avg_brightness_ref_image, "The brightness of the image is not lower than the reference image."
+
+    
+def test_task_94(trajectory):
+    image_path = "./output/94.png"
+    ref_path = "./data/94.jpeg"
+    
+    # 打开目标图像和参考图像
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    gray_ref_image = ref_image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    gray_ref_array = np.array(gray_ref_image)
+    
+    # 计算每个图像的对比度（标准差）
+    contrast_image = np.std(gray_array)
+    contrast_ref_image = np.std(gray_ref_array)
+    
+    # 检查目标图像的对比度是否低于参考图像的对比度
+    assert contrast_image < contrast_ref_image, "The contrast of the image is not lower than the reference image."
+
+def test_task_95(trajectory):
+    image_path = "./output/95.png"
+    ref_path = "./data/95.jpeg"
+    
+    # 打开目标图像和参考图像
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    gray_ref_image = ref_image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    gray_ref_array = np.array(gray_ref_image)
+    
+    # 计算每个图像的对比度（标准差）
+    contrast_image = np.std(gray_array)
+    contrast_ref_image = np.std(gray_ref_array)
+    
+   
+    assert contrast_image > contrast_ref_image, "The contrast of the image is not lower than the reference image."
+
+def test_task_96(trajectory):
+    image_path = "./output/96.png"
+    ref_path = "./data/96.jpeg"
+    
+    # 打开目标图像和参考图像
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    
+    # 将图像转换为HSV颜色空间
+    hsv_image = image.convert('HSV')
+    hsv_ref_image = ref_image.convert('HSV')
+    
+    # 将HSV图像转换为numpy数组
+    hsv_array = np.array(hsv_image)
+    hsv_ref_array = np.array(hsv_ref_image)
+    
+    # 计算每个图像的平均饱和度（S通道的平均值）
+    avg_saturation_image = np.mean(hsv_array[:, :, 1])
+    avg_saturation_ref_image = np.mean(hsv_ref_array[:, :, 1])
+    
+    # 检查目标图像的饱和度是否低于参考图像的饱和度
+    assert avg_saturation_image < avg_saturation_ref_image, "The saturation of the image is not lower than the reference image."
+
+def test_task_97(trajectory):
+    image_path = "./output/97.png"
+    ref_path = "./data/97.jpeg"
+    
+    # 打开目标图像和参考图像
+    image = Image.open(image_path)
+    ref_image = Image.open(ref_path)
+    
+    # 将图像转换为HSV颜色空间
+    hsv_image = image.convert('HSV')
+    hsv_ref_image = ref_image.convert('HSV')
+    
+    # 将HSV图像转换为numpy数组
+    hsv_array = np.array(hsv_image)
+    hsv_ref_array = np.array(hsv_ref_image)
+    
+    # 计算每个图像的平均饱和度（S通道的平均值）
+    avg_saturation_image = np.mean(hsv_array[:, :, 1])
+    avg_saturation_ref_image = np.mean(hsv_ref_array[:, :, 1])
+    
+    # 检查目标图像的饱和度是否低于参考图像的饱和度
+    assert avg_saturation_image > avg_saturation_ref_image, "The saturation of the image is not lower than the reference image."
+
+def test_task_98(trajectory):
+    image_path = "./output/98.png"
+    ref_path = "./data/98.jpeg"
+    
+    # 计算目标图像和参考图像的清晰度
+    sharpness_image = calculate_sharpness(image_path)
+    sharpness_ref_image = calculate_sharpness(ref_path)
+    
+    # 检查目标图像的清晰度是否低于参考图像的清晰度
+    assert sharpness_image < sharpness_ref_image, "The sharpness of the image is not lower than the reference image."
+
+def test_task_99(trajectory):
+    image_path = "./output/99.png"
+    ref_path = "./data/99.jpeg"
+    
+    # 计算目标图像和参考图像的清晰度
+    sharpness_image = calculate_sharpness(image_path)
+    sharpness_ref_image = calculate_sharpness(ref_path)
+    
+    # 检查目标图像的清晰度是否低于参考图像的清晰度
+    assert sharpness_image < sharpness_ref_image, "The sharpness of the image is not lower than the reference image."
+
+def is_grayscale(image_path):
+    """
+    检查图像是否是灰度图。
+    """
+    image = Image.open(image_path)
+    return image.mode == 'L'
+
+def test_task_100(trajectory):
+    image_path = "./output/100.png"
+    ref_path = "./data/100.jpeg"
+    
+    # 检查目标图像是否是灰度图
+    is_image_grayscale = is_grayscale(image_path)
+    
+    # 断言目标图像是灰度图
+    assert is_image_grayscale, "The image is not a grayscale image."
+
+# format input and output 
+'''
+Other experiments prove your story....
+'''
+def test_task_101(trajectory):
+    image_path = "./output/101.png"
+    ref_path = "./data/101.jpeg"
+    
+    # 打开目标图像
+    image = Image.open(image_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    
+    # 定义黑色像素的阈值（例如，灰度值小于等于50的像素被认为是黑色）
+    black_threshold = 50
+    
+    # 计算黑色像素的数量
+    black_pixels = np.sum(gray_array <= black_threshold)
+    
+    # 计算总像素数量
+    total_pixels = gray_array.size
+    
+    # 计算黑色像素比例
+    black_ratio = black_pixels / total_pixels
+    print(black_ratio)
+    # 检查图像中黑色像素的比例是否超过30%
+    assert black_ratio > 0.5, "The black pixel percentage does not exceed 50%."
+
+def test_task_102(trajectory):
+    image_path = "./output/102.png"
+    ref_path = "./data/102.jpeg"
+    
+    # 打开目标图像
+    image = Image.open(image_path)
+    
+    # 将图像转换为灰度图
+    gray_image = image.convert('L')
+    
+    # 将灰度图转换为numpy数组
+    gray_array = np.array(gray_image)
+    
+    # 定义黑色像素的阈值（例如，灰度值小于等于50的像素被认为是黑色）
+    black_threshold = 50
+    
+    # 计算黑色像素的数量
+    black_pixels = np.sum(gray_array <= black_threshold)
+    
+    # 计算总像素数量
+    total_pixels = gray_array.size
+    
+    # 计算黑色像素比例
+    black_ratio = black_pixels / total_pixels
+    print(black_ratio)
+    # 检查图像中黑色像素的比例是否超过30%
+    assert black_ratio > 0.5, "The black pixel percentage does not exceed 50%."
+
+
+def test_task_103(trajectory):
+    image_path = "./output/103.png"
+    assert os.path.exists(image_path)
+
+def test_task_105(trajectory):
+    image_path = "./output/105.png"
+    assert os.path.exists(image_path)
+
+def test_task_107(trajectory):
+    image_path = "./output/107.png"
+    
+    assert os.path.exists(image_path)
+
+def test_task_109(trajectory):
+    image_path = "./output/109.png"
+    
+    assert os.path.exists(image_path)
+
+def test_task_110(trajectory):
+    image_path = "./output/110.png"
+    
+    assert os.path.exists(image_path)
+
+def test_task_111(trajectory):
+    image_path = "./output/111.jpeg"
+    
+    assert os.path.exists(image_path)
+
+def test_task_112(trajectory):
+    image_path = "./output/112.pdf"
+    
+    assert os.path.exists(image_path)
+
+def test_task_113(trajectory):
+    image_path = "./output/113.mp4"
+    
+    assert os.path.exists(image_path)
+
+def test_task_114(trajectory):
+    image_path = "./output/114.mp4"
+    
+    assert os.path.exists(image_path)
+
+def test_task_116(trajectory):
+    image_path = "./output/116.png"
+    
+    assert os.path.exists(image_path)
+
+def test_task_117(trajectory):
+    image_path = "./output/117.png"
+    assert os.path.exists(image_path)
+    
+    
+def test_task_118(trajectory):
+    image_path = "./output/118.png"
+    assert os.path.exists(image_path)
+    
+def test_task_119(trajectory):
+    image_path = "./output/119.png"
+    assert os.path.exists(image_path)
+    
+def test_task_120(trajectory):
+    image_path = "./output/120.png"
+    assert os.path.exists(image_path)
+
+def test_task_121(trajectory):
+    image_path = "./output/121.png"
+    assert os.path.exists(image_path)
+
+def test_task_122(trajectory):
+    image_path = "./output/122.png"
+    assert os.path.exists(image_path)
+
+def test_task_123(trajectory):
+    image_path = "./output/123.png"
+    assert os.path.exists(image_path)
+
+def test_task_124(trajectory):
+    image_path = "./output/124.png"
+    assert os.path.exists(image_path)
+
+def test_task_126(trajectory):
+    image_path = "./output/126.png"
+    assert os.path.exists(image_path)
+
+def test_task_128(trajectory):
+    image_path = "./output/128.xlsx"
+    assert os.path.exists(image_path)
+
+def test_task_129(trajectory):
+    image_path = "./output/129.csv"
+    assert os.path.exists(image_path)
+
+def test_task_130(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert 'llama' in final_answer
+
+def test_task_131(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert ('新希望' in final_answer or "猪周期" in final_answer or "饲料" in final_answer)
+
+
+def test_task_132(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert '%' in final_answer
+
+def test_task_133(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert '%' in final_answer
+
+def test_task_134(trajectory):
+    final_answer=trajectory[-1]['content']
+    ans="10715086071862673209484250490600018105614048117055336074437503883703510511249361224931983788156958581275946729175531468251871452856923140435984577574698574803934567774824230985421074605062371141877954182153046474983581941267398767559165543946077062914571196477686542167660429831652624386837205668069376"
+    assert ans in final_answer
+
+def test_task_135(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert '9.78' in final_answer
+
+def test_task_136(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert '2.5' in final_answer
+
+def test_task_137(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert '8.1' in final_answer
+
+def test_task_138(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert 'Finished' in final_answer
+
+def test_task_139(trajectory):
+    final_answer=trajectory[-1]['content']
+    assert 'Finished' in final_answer
+
+def test_task_140(trajectory):
+    output_folder = "./output/140"
+    
+    # 检查目标文件夹中是否存在 HTML 文件
+    html_files_exist = any(file.endswith('.html') for file in os.listdir(output_folder))
+    assert html_files_exist
+
+def test_task_141(trajectory):
+    output_folder = "./output/141"
+    
+    # 检查目标文件夹中是否存在 HTML 文件
+    html_files_exist = any(file.endswith('.html') for file in os.listdir(output_folder))
+    assert html_files_exist
+
+def test_task_142(trajectory):
+    output_folder = "./output/142"
+    
+    # 检查目标文件夹中是否存在 HTML 文件
+    html_files_exist = any(file.endswith('.html') for file in os.listdir(output_folder))
+    assert html_files_exist
+
+def test_task_143(trajectory):
+    output_folder = "./output/143"
+    
+    # 检查目标文件夹中是否存在 HTML 文件
+    html_files_exist = any(file.endswith('.html') for file in os.listdir(output_folder))
+    assert html_files_exist
+
+
+def test_task_144(trajectory):
+    image_path = "./output/144.wav"
+    assert os.path.exists(image_path)
+
+def test_task_145(trajectory):
+    image_path = "./output/145.png"
+    assert os.path.exists(image_path)
+
+from pydub import AudioSegment
+
+def test_task_146(trajectory):
+    audio_path = "./output/146.mp3"
+    ref_path = "./data/Ghostrifter Official - Serenity.mp3"
+    
+    # 加载音频文件
+    audio = AudioSegment.from_file(audio_path)
+    ref_audio = AudioSegment.from_file(ref_path)
+    
+    # 计算音频的分贝（dBFS）
+    audio_dbfs = audio.dBFS
+    ref_audio_dbfs = ref_audio.dBFS
+    
+    # 比较音量
+    assert ref_audio_dbfs < audio_dbfs
+    
+
+def test_task_147(trajectory):
+    audio_path = "./output/147.mp3"
+    ref_path = "./data/Ghostrifter Official - Serenity.mp3"
+    
+    # 加载音频文件
+    audio = AudioSegment.from_file(audio_path)
+    ref_audio = AudioSegment.from_file(ref_path)
+    
+    # 获取音频的持续时间（以毫秒为单位）
+    audio_duration = len(audio)
+    ref_audio_duration = len(ref_audio)
+    
+    # 比较音频的持续时间
+    assert audio_duration > ref_audio_duration
+    
+
+def test_task_149(trajectory):
+    audio_path = "./output/149.mp3"
+    ref_path = "./data/Ghostrifter Official - Serenity.mp3"
+    
+    # 加载音频文件
+    audio = AudioSegment.from_file(audio_path)
+    ref_audio = AudioSegment.from_file(ref_path)
+    
+    # 计算音频的分贝（dBFS）
+    audio_dbfs = audio.dBFS
+    ref_audio_dbfs = ref_audio.dBFS
+    
+    # 比较音量
+    assert ref_audio_dbfs > audio_dbfs
+
+
+def test_task_150(trajectory):
+    audio_path = "./output/150.mp3"
+    ref_path = "./data/Ghostrifter Official - Serenity.mp3"
+    
+    # 加载音频文件
+    audio = AudioSegment.from_file(audio_path)
+    ref_audio = AudioSegment.from_file(ref_path)
+    
+    # 获取音频的持续时间（以毫秒为单位）
+    audio_duration = len(audio)
+    ref_audio_duration = len(ref_audio)
+    
+    # 比较音频的持续时间
+    assert audio_duration < ref_audio_duration
+    
+
+def test_task_151(trajectory):
+    assert os.path.exists("./output/151/")
+
+def test_task_152(trajectory):
+    assert os.path.exists("./output/152.mp3")

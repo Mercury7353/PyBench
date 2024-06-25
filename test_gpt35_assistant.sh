@@ -1,1 +1,1 @@
-python run_code_interpreter_nbclient_beta.py --config_path ./config/gpt35_prompt_v2.yaml --task_path ./data/meta/task.json --output_path gpt35_assistant_0524.jsonl
+python run_codeinterpreter_beta.py --config_path ./config/gpt4_prompt_v2.yaml --task_path ./data/meta/task.json --output_path gpt4_0620.jsonl

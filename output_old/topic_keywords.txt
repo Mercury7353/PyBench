@@ -1,0 +1,60 @@
+Topic 1:
+mold: 140.496
+problems: 134.301
+potential: 99.643
+molding: 92.283
+maintenance: 90.833
+available: 89.282
+causes: 88.699
+injection: 86.560
+troubleshoot: 79.583
+types: 73.266
+
+Topic 2:
+considerations: 37.118
+safety: 36.352
+procedures: 26.789
+injection: 26.658
+machines: 24.982
+molding: 23.542
+specific: 22.205
+proper: 22.180
+solutions: 20.465
+key: 19.847
+
+Topic 3:
+molding: 43.236
+injection: 40.498
+professionals: 28.145
+help: 24.334
+latest: 24.132
+different: 23.078
+types: 22.594
+industry: 20.641
+trends: 19.496
+controlled: 18.275
+
+Topic 4:
+does: 73.418
+affect: 73.207
+molded: 68.812
+risk: 61.144
+minimized: 60.890
+selection: 58.638
+injection: 57.256
+material: 55.160
+optimized: 49.022
+prevent: 41.066
+
+Topic 5:
+molding: 233.656
+used: 225.909
+injection: 220.726
+different: 189.316
+types: 181.773
+materials: 140.807
+produce: 102.919
+parts: 98.691
+process: 83.782
+applications: 73.577
+

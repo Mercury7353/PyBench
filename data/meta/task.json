@@ -4,46 +4,49 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除重复项",
-        "user": "Could you help me clean the given dataset? Especially clean the duplicated data.",
+        "user": "Could you help me clean the given dataset? Especially clean the duplicated data. Please Save the cleaned csv to ./output/2.csv",
         "file_paths": [
             "./data/yearly_deaths_by_clinic.csv"
         ],
         "attachments": [
             "📄yearly_deaths_by_clinic"
         ]
+        
     },
     {
         "index": "3",
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除重复项",
-        "user": "帮我处理一下这个数据里面的重复值",
+        "user": "帮我处理一下这个数据里面的重复值, Please Save the cleaned csv to ./output/3.csv",
         "file_paths": [
             "./data/Week 40 - US Christmas Tree Sales - 2010 to 2016.csv"
         ],
         "attachments": [
             "📄Week 40 - US Christmas Tree Sales - 2010 to 2016"
-        ]
+        ],
+        "unit_test":"import pandas as pd\ndf=pd.read_csv('./output/3.csv')\nduplicates = df.duplicated().sum()\nassert duplicates==0"
     },
     {
         "index": "4",
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除空值",
-        "user": "Let's get rid of the null value",
+        "user": "Let's get rid of the null value, Please Save the cleaned csv to ./output/4.csv",
         "file_paths": [
             "./data/accessories_organizer.csv"
         ],
         "attachments": [
             "📄accessories_organizer"
-        ]
+        ],
+        "unit_test":"import pandas as pd\ndf=pd.read_csv('./output/4.csv')\nnull_value = df.isnull().sum().sum()\nassert null_value==0"
     },
     {
         "index": "5",
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除空值",
-        "user": "请帮我做一下简单的数据预处理，检查空值，重复值和异常值",
+        "user": "请帮我做一下简单的数据预处理，检查空值，重复值和异常值, Please Save the cleaned csv to ./output/5.csv",
         "file_paths": [
             "./data/ThrowbackDataThursday - 202001 - Ozone Hole.csv"
         ],
@@ -56,7 +59,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除异常值",
-        "user": "Please detect and handle with outliers",
+        "user": "Please detect and handle with outliers. Please Save the cleaned csv to ./output/6.csv",
         "file_paths": [
             "./data/activity_clean.csv"
         ],
@@ -69,7 +72,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除异常值",
-        "user": "Analyse the distribution of citations and point out the outliners, then tell me the count of countries for each region",
+        "user": "Analyse the distribution of citations and point out the outliners, then tell me the count of countries for each region. Please show me the result in this format: <Region>:<count>\n ...",
         "file_paths": [
             "./data/AI Country rank 1996-2021.xlsx"
         ],
@@ -82,7 +85,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据清洗",
         "category3": "去除异常值",
-        "user": "检测一下这个数据集里面的异常值，然后对它进行处理",
+        "user": "检测一下这个数据集里面的异常值，然后对它进行处理, Please Save the cleaned csv to ./output/8.csv",
         "file_paths": [
             "./data/Week 40 - US Christmas Tree Sales - 2010 to 2016.csv"
         ],
@@ -95,7 +98,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据转换",
         "category3": "数据格式转换",
-        "user": "Detect the columns in the dataset, convert the string into float if there is a columns of numeric value but with the type of string.",
+        "user": "Detect the columns in the dataset, convert the string into float if there is a columns of numeric value but with the type of string. Please Save the cleaned csv to ./output/9_1.xlsx and ./output/9_2.csv",
         "file_paths": [
             "./data/tv.xlsx",
             "./data/tv.csv"
@@ -109,7 +112,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据转换",
         "category3": "数据格式转换",
-        "user": "将数据里面的日期转成YYYY-MM-DD格式",
+        "user": "将数据里面的日期转成YYYY-MM-DD格式, Please Save the file to ./output/10.csv",
         "file_paths": [
             "./data/Virat_Kohli_ODI.csv"
         ],
@@ -122,9 +125,8 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据转换",
         "category3": "数据格式转换",
-        "user": "Please save this file as an xls file",
+        "user": "Please save this file as an xlsx file, Please Save the file to ./output/11.xlsx",
         "file_paths": [
-            "./data/Turkey_Syria_Earthquake.xlsx",
             "./data/Turkey_Syria_Earthquake.csv"
         ],
         "attachments": [
@@ -136,7 +138,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据聚合",
         "category3": "按某个维度聚合",
-        "user": "按照network对数据做聚合",
+        "user": "读取这两个文件,然后按照network对数据做聚合,Please Save the file to ./output/12.csv",
         "file_paths": [
             "./data/tv.xlsx",
             "./data/tv.csv"
@@ -150,7 +152,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据聚合",
         "category3": "按某个维度聚合",
-        "user": "group the data by certificate",
+        "user": "group the data by certificate, Please Save the file to ./output/13.csv",
         "file_paths": [
             "./data/action.csv"
         ],
@@ -163,7 +165,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据排序",
         "category3": "按某列或多列排序",
-        "user": "sort the data by average user view",
+        "user": "read the file and merge the dataframe, then descending sort the data by average user view, Please Save the file to ./output/14.csv",
         "file_paths": [
             "./data/tv.xlsx",
             "./data/tv.csv"
@@ -177,7 +179,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据排序",
         "category3": "按某列或多列排序",
-        "user": "按照avg_us_viewers和ad_cost做排序",
+        "user": "按照avg_us_viewers和ad_cost做排序,'avg_us_viewers' in descending order and 'ad_cost' in ascending order, Please Save the file to ./output/15.csv",
         "file_paths": [
             "./data/tv.xlsx",
             "./data/tv.csv"
@@ -191,7 +193,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据筛选",
         "category3": "按条件筛选数据",
-        "user": "Select all the data from Wisconsion and draw a pie plot by gender",
+        "user": "Select all the data from Wisconsion and draw a pie plot by gender, the image's title should be 'Total Sales by Gender in Wisconsin', the data labels should be shown. Please Save the file to ./output/16.png",
         "file_paths": [
             "./data/AdidasSalesdata.xlsx"
         ],
@@ -204,7 +206,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据筛选",
         "category3": "按条件筛选数据",
-        "user": "筛选一些时长超过120分钟且打分超过7分的电影",
+        "user": "筛选一些时长超过120分钟且打分超过7分的电影，并告诉我这些电影一共有几个?",
         "file_paths": [
             "./data/horror.csv"
         ],
@@ -217,7 +219,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据统计",
         "category3": "计算统计指标：均值，总和，标准差",
-        "user": "calculate the average and variance of the distance column",
+        "user": "Calculate the average and variance of the distance column. Keep two decimal places. Please use the following format to answer the question: Average: <fill in your answer> \n Variance:<fill in your answer>.",
         "file_paths": [
             "./data/Qatar_Lusail.csv"
         ],
@@ -230,7 +232,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据统计",
         "category3": "计算统计指标：均值，总和，标准差",
-        "user": "统计各列数值的均值和方差",
+        "user": "统计各列数值的均值和方差, 保留两位小数Please use the following format to answer the question: <Column Name>: Average: <fill in your answer>, Variance:<fill in your answer>.\n....",
         "file_paths": [
             "./data/Australia_Melbourne.csv"
         ],
@@ -243,7 +245,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据分组",
         "category3": "按某个列分组",
-        "user": "group the data by column: Map and draw a radar graph which shows the average ability of each group ",
+        "user": "group the data by column: Map and draw a radar graph which shows the average ability of each group, please save the figure to ./output/20.png",
         "file_paths": [
             "./data/agents_abilities_stat.csv"
         ],
@@ -256,7 +258,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据分组",
         "category3": "按某个列分组",
-        "user": "计算不同区域的保险的不同性别占比",
+        "user": "计算不同区域的保险的不同性别占比, Please show the answer in the follow format: <Region>: Male:<proportion>, Female:<proportion>\n...",
         "file_paths": [
             "./data/insurance.csv"
         ],
@@ -269,7 +271,7 @@
         "category1": "简单数据分析处理\n（pandas）",
         "category2": "数据分组",
         "category3": "按某个列分组",
-        "user": "Calculate Average Ratings of Episodes by Different Directors in 'Game of Thrones'",
+        "user": "Calculate Average Ratings of Episodes by Different Directors in 'Game of Thrones'. Please show the chart directly in your final answer.",
         "file_paths": [
             "./data/Game_of_Thrones.csv"
         ],
@@ -365,7 +367,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "数据问答/表格问答",
         "category3": "两张表关联查询",
-        "user": "保险付费金额与性别、年龄、bmi或是否吸烟有什么关系？",
+        "user": "保险付费金额与是否吸烟有什么关系？请画图分析，图片存储到 ./output/31.png",
         "file_paths": [
             "./data/insurance.csv"
         ],
@@ -378,7 +380,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "总结分析",
         "category3": "两张表关联查询",
-        "user": "Summarize this data for me",
+        "user": "How many Super Bowls are covered in these datasets?",
         "file_paths": [
             "./data/tv.xlsx",
             "./data/tv.csv"
@@ -392,7 +394,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "总结分析",
         "category3": "两张表关联查询",
-        "user": "Summarize the sales of video games",
+        "user": "Summarize the sales of video games, tell me the Average Global Sale per Game, keep two decimal places",
         "file_paths": [
             "./data/Video_Game_Sales.csv"
         ],
@@ -431,7 +433,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "数据决策支持",
         "category3": "从分析结果做出决策或制定策略",
-        "user": "What Types of Videos Should I Create to Gain Popularity and Become a Top 100 YouTuber Worldwide?",
+        "user": "What Types of Videos Should I Create to Gain Popularity and Become a Top 100 YouTuber Worldwide? Tell me the exact type!",
         "file_paths": [
             "./data/Global YouTube Statistics.csv"
         ],
@@ -444,7 +446,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "数据决策支持",
         "category3": "从分析结果做出决策或制定策略",
-        "user": "这是google近期的股价波动数据，我现在持有10000股google的股票，我应该继续持有还是卖出？",
+        "user": "这是google近期的股价波动数据，我现在持有10000股google的股票，我应该继续持有还是卖出？请在最终答案中返回:’持有‘ 或者 ‘出售’",
         "file_paths": [
             "./data/Google.csv"
         ],
@@ -457,7 +459,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "复杂数据分析",
         "category3": "从分析结果做出决策或制定策略",
-        "user": "删除其中有空值的行，并分析不同类别的电影的分布",
+        "user": "删除其中有空值的行，并分析不同类别的电影的分布, 把清洗后的数据存储到 ./output/38.csv",
         "file_paths": [
             "./data/movies.csv"
         ],
@@ -470,7 +472,7 @@
         "category1": "总结分析\n（分析问答）",
         "category2": "复杂数据分析",
         "category3": "从分析结果做出决策或制定策略",
-        "user": "Processing Actor Information in the Oscars Dataset: Removing Null Values and Analyzing Which Type of Actors are More Likely to Win an Oscar",
+        "user": "Processing Actor Information in the Oscars Dataset: Removing Null Values and Analyzing Which Gender of Actors are More Likely to Win an Oscar?",
         "file_paths": [
             "./data/oscars.xlsx"
         ],
@@ -483,7 +485,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据分类",
         "category3": "简单分类机器学习模型训练、分类",
-        "user": "训练一个简单机器学习模型，来做鸢尾花的数据作分类",
+        "user": "训练一个简单机器学习模型，来做鸢尾花的数据作分类,把模型输出为 ./output/40.pkl",
         "file_paths": [
             "./data/IRIS.csv"
         ],
@@ -496,7 +498,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据分类",
         "category3": "简单分类机器学习模型训练、分类",
-        "user": "Train a classify model, report its precision and recall. Then save the model",
+        "user": "Train a classify model, report its precision and recall. Then save the model to ./output/41.pkl",
         "file_paths": [
             "./data/classify.csv"
         ],
@@ -509,7 +511,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据聚类",
         "category3": "聚类，发现潜在模式",
-        "user": "对数据中的家庭信息做聚类分析",
+        "user": "对数据中的家庭信息做聚类分析,绘制聚类分析图，把输出存到 ./output/42.png",
         "file_paths": [
             "./data/family.csv"
         ],
@@ -522,7 +524,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据聚类",
         "category3": "聚类，发现潜在模式",
-        "user": "Do cluster analysis on the data",
+        "user": "Do cluster analysis on the data，draw a cluster map and save the image to ./output/43.png",
         "file_paths": [
             "./data/Country Wise Airport.csv"
         ],
@@ -535,7 +537,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据时序分析",
         "category3": "趋势分析、周期性分析",
-        "user": "Analyse the trend of the stock price",
+        "user": "Analyse the trend of the stock price,  plot the 'Close' price against the 'Date'. The image title should be 'Stock Price Trend of AAPL', save the image to ./output/44.png",
         "file_paths": [
             "./data/regress_stocks.csv"
         ],
@@ -548,7 +550,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据时序分析",
         "category3": "趋势分析、周期性分析",
-        "user": "Deploy a time-series analyse on the given data, and write a data analyse report with figures",
+        "user": "Deploy a time-series analyse on the given data, save the image to ./output/45.png",
         "file_paths": [
             "./data/2022-year-tripdata-pivot.xlsx"
         ],
@@ -561,7 +563,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据时序分析",
         "category3": "趋势分析、周期性分析",
-        "user": "预测农场未来的气温波动",
+        "user": "预测农场未来的气温波动,绘制时间序列分析图，把图片存到 ./output/46.png",
         "file_paths": [
             "./data/Farm_Weather_Data.xlsx"
         ],
@@ -574,7 +576,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据回归分析",
         "category3": "训练回归模型",
-        "user": "Explore the data, and train a machine learning model to predict the quality of orange",
+        "user": "Explore the data, and train a machine learning model to predict the quality of orange, save the model to './output/47.pkl'",
         "file_paths": [
             "./data/Classify_Orange Quality Data.csv"
         ],
@@ -587,7 +589,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据回归分析",
         "category3": "训练回归模型",
-        "user": "Explore the data, select and train a machine learning model to predict the university rank",
+        "user": "Explore the data, select and train a machine learning model to predict the university rank, save the model to ./output/48.pkl",
         "file_paths": [
             "./data/World University Rankings 2023.csv"
         ],
@@ -600,7 +602,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据预测",
         "category3": "做时序预测",
-        "user": "Train a model to predict the stock price",
+        "user": "Train a LSTM model to predict the stock price, and save the model to ./output/49.pkl",
         "file_paths": [
             "./data/regress_stocks.csv"
         ],
@@ -613,7 +615,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据预测",
         "category3": "做时序预测",
-        "user": "预测农场未来的天气变化情况",
+        "user": "训练一个岭回归模型，预测农场未来的天气变化情况，把模型存到 ./output/50.pkl",
         "file_paths": [
             "./data/Farm_Weather_Data.xlsx"
         ],
@@ -626,7 +628,7 @@
         "category1": "简单机器学习\n（sklearn）",
         "category2": "数据预测",
         "category3": "做时序预测",
-        "user": "这是一份google股价的波动数据，预测一下google未来的股价",
+        "user": "这是一份google股价的波动数据，请训练一个SVM模型来预测一下google未来的股价，并把模型存储到 ./output/51.pkl",
         "file_paths": [
             "./data/Google.csv"
         ],
@@ -639,7 +641,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "数据文本挖掘",
         "category3": "提取关键词",
-        "user": "Extract key words and draw two wordcloud on pos and neg label(use blue and red colors)",
+        "user": "Extract key words and draw two wordcloud on pos and neg label(use blue and red colors), please save the image to ./output/52_pos.png and ./output/52_neg.png",
         "file_paths": [
             "./data/moviereviews2.csv"
         ],
@@ -652,7 +654,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "数据文本挖掘",
         "category3": "提取关键词",
-        "user": "这份研报中提到哪些关键词？",
+        "user": "分析这篇研报的内容，总结这份研报中提到哪些关键词？,给我返回一个中文的关键词列表",
         "file_paths": [
             "./data/重庆啤酒.pdf"
         ],
@@ -665,7 +667,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "数据文本挖掘",
         "category3": "提取主题",
-        "user": "Apply a LDA analyse on the dataset",
+        "user": "Apply a LDA analyse on the dataset, I need 5 topics and report the theme of each topic for me. Use the format: Topic x: <the theme>\n...",
         "file_paths": [
             "./data/LDA.csv"
         ],
@@ -678,7 +680,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "数据文本挖掘",
         "category3": "提取主题",
-        "user": "这篇小说是什么主题？",
+        "user": "这篇小说是什么主题？,请用中文返回主题关键词",
         "file_paths": [
             "./data/guangmingbilei.txt"
         ],
@@ -691,7 +693,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "数据文本挖掘",
         "category3": "提取情感倾向",
-        "user": "Excute Sentiment Analyse on the given csv file",
+        "user": "Excute Sentiment Analyse on the given csv file and tell me whether the whole file is positive and negative",
         "file_paths": [
             "./data/bbc_data.csv"
         ],
@@ -704,7 +706,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "词云",
         "category3": "画英文词云",
-        "user": "Select a proper shape and draw a wordcloud form the title",
+        "user": "Select a proper shape and draw a wordcloud form the title, please save the image to ./output/57.png",
         "file_paths": [
             "./data/business_data.csv"
         ],
@@ -717,7 +719,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "词云",
         "category3": "提取关键词并画词云",
-        "user": "Extract the keywords from content of the news and draw a wordcloud",
+        "user": "Extract the keywords from content of the news and draw a wordcloud, please save the image to ./output/58.png",
         "file_paths": [
             "./data/entertainment_data.csv"
         ],
@@ -730,7 +732,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "词云",
         "category3": "提取关键词并画词云",
-        "user": "提取这篇小说的关键词并绘制成词云",
+        "user": "提取这篇小说的关键词并绘制成词云,把图片存储到 ./output/59.txt",
         "file_paths": [
             "./data/如懿传.txt"
         ],
@@ -743,7 +745,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "拆线图",
-        "user": "A line chart for China tea_export",
+        "user": "Draw A line chart for China tea_export, please save the image to ./output/60.png",
         "file_paths": [
             "./data/Tea_export.csv"
         ],
@@ -756,7 +758,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "拆线图",
-        "user": "A line chart plotting the change in the number of Australian gold medals at each Olympic Games",
+        "user": "Draw A line chart plotting the change in the number of Australian gold medals at each Olympic Games, please save the image to ./output/61.png",
         "file_paths": [
             "./data/summer_paralympics.csv"
         ],
@@ -769,7 +771,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "拆线图",
-        "user": "绘制不同大洲的茶出口量随时间变化的曲线",
+        "user": "绘制不同大洲的茶出口量随时间变化的曲线，把图片存储到  ./output/62.png",
         "file_paths": [
             "./data/Tea_export.csv"
         ],
@@ -782,7 +784,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "柱状图",
-        "user": "对各个产品的销量绘制一个柱状图",
+        "user": "对各个产品的销量绘制一个柱状图,把图片存储到  ./output/63.png",
         "file_paths": [
             "./data/sales_data.csv"
         ],
@@ -795,7 +797,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "柱状图",
-        "user": "帮我画图分析一下哪些类型的油管视频更受欢迎",
+        "user": "帮我画图分析一下哪些类型的油管视频更受欢迎,把图片存储到  ./output/64.png",
         "file_paths": [
             "./data/Global YouTube Statistics.csv"
         ],
@@ -808,7 +810,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "饼状图",
-        "user": "分析员工的受教育程度，做画饼状图分析",
+        "user": "分析员工的受教育程度，做画饼状图分析,把图片存储到  ./output/65.png",
         "file_paths": [
             "./data/HR_Analytics.csv"
         ],
@@ -821,7 +823,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "饼状图",
-        "user": "Which Meals Do These Invoices Primarily Originate From? Analyzing with a Pie Chart",
+        "user": "Which Meals Do These Invoices Primarily Originate From? Analyzing with a Pie Chart, please save the image to ./output/66.png",
         "file_paths": [
             "./data/Invoices.csv"
         ],
@@ -834,7 +836,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "散点图",
-        "user": "绘制X和Y的散点图",
+        "user": "绘制X和Y的散点图,把图片存储到 ./output/67.png",
         "file_paths": [
             "./data/Azerbaijan_Baku.csv"
         ],
@@ -847,7 +849,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "散点图",
-        "user": "Creating a Scatter Plot of Age vs BMI after Removing Null Values in the Data",
+        "user": "Creating a Scatter Plot of Age vs BMI after Removing Null Values in the Data,  please save the image to ./output/68.png",
         "file_paths": [
             "./data/insurance.csv"
         ],
@@ -860,7 +862,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "雷达图",
-        "user": "Read the data set and Draw a radar graph ",
+        "user": "Read the data set and Draw a radar graph , please save the image to ./output/69.png",
         "file_paths": [
             "./data/radar.csv"
         ],
@@ -873,7 +875,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "画多图",
-        "user": "帮我画两张图，左边的图是年龄与bmi的散点图，然后计算不同年龄的平均保险金额，并在右边绘制一条随着年龄增长保险金额变化的曲线",
+        "user": "帮我画一张图，要包含两个子图，左边的图是年龄与bmi的散点图，然后计算不同年龄的平均保险金额，并在右边绘制一条随着年龄增长保险金额变化的曲线，把图片保存到 ./output/70.png",
         "file_paths": [
             "./data/insurance.csv"
         ],
@@ -886,7 +888,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "画多图",
-        "user": "After Data Cleaning, Plotting Two Graphs: A Line Chart Showing the Variation of Google Closing Prices over Time, and a Bar Chart Representing the Average Closing Prices per Year",
+        "user": "After Data Cleaning, Plotting Two Graphs(two subplot in a figure): A Line Chart Showing the Variation of Google Closing Prices over Time, and a Bar Chart Representing the Average Closing Prices per Year, Save the image to ./output/71.png",
         "file_paths": [
             "./data/Google.csv"
         ],
@@ -899,7 +901,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "函数分析图",
-        "user": "绘制正弦和余弦函数的图像，并分析其周期性",
+        "user": "绘制正弦和余弦函数的图像，并分析其周期性,Save the image to ./output/72.png",
         "file_paths": [],
         "attachments": []
     },
@@ -908,7 +910,7 @@
         "category1": "文本挖掘\n（jieba、wordcloud）",
         "category2": "画图",
         "category3": "函数分析图",
-        "user": "Could you please tell me what is the max value of y? y = - 2 * x * x + 4 * x + 100. Make a plot to show the curve of y.",
+        "user": "Could you please tell me what is the max value of y? y = - 2 * x * x + 4 * x + 100. Make a plot to show the curve of y.Save the image to ./output/73.png",
         "file_paths": [],
         "attachments": []
     },
@@ -917,7 +919,7 @@
         "category1": "文档处理\n（pandoc）",
         "category2": "格式转换",
         "category3": "文档格式转换",
-        "user": "把这个文件转为excel格式",
+        "user": "合并这两个表格，把这个文件转为xlsx格式，存储到 ./output/74.xlsx",
         "file_paths": [
             "./data/wta_matches_qual_itf_1975.csv",
             "./data/wta_matches_qual_itf_1975.xlsx"
@@ -931,7 +933,7 @@
         "category1": "文档处理\n（pandoc）",
         "category2": "格式转换",
         "category3": "文档格式转换",
-        "user": "could you please help to save this file as a docx file",
+        "user": "could you please help to save this file as a docx file and save the file to ./output/75.docx",
         "file_paths": [
             "./data/starcoder2paper.pdf"
         ],
@@ -944,7 +946,7 @@
         "category1": "文档处理\n（pandoc）",
         "category2": "总结摘要",
         "category3": "提取文本+总结摘要/分析",
-        "user": "summarize this paper, and what is the main contributions of this paper",
+        "user": "summarize this paper, and answer: what is the main contributions of this paper",
         "file_paths": [
             "./data/WizardMath_Paper.pdf"
         ],
@@ -970,7 +972,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "调整大小",
-        "user": "resize this image to 224 * 224",
+        "user": "resize this image to 224 * 224, and save the image to ./output/78.png",
         "file_paths": [
             "./data/78.jpeg"
         ],
@@ -983,7 +985,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "调整大小",
-        "user": "我需要一张1000*500大小的图片",
+        "user": "把这张图片调整成1000*500大小,save the image to ./output/79.png",
         "file_paths": [
             "./data/79.jpeg"
         ],
@@ -996,7 +998,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "旋转",
-        "user": "向左旋转90度",
+        "user": "向左旋转90度， save the image to ./output/80.png",
         "file_paths": [
             "./data/80.jpeg"
         ],
@@ -1009,7 +1011,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "旋转",
-        "user": "Flip this image vertically.",
+        "user": "Flip this image vertically. save the image to ./output/81.png",
         "file_paths": [
             "./data/81.jpeg"
         ],
@@ -1022,7 +1024,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "旋转",
-        "user": "turn this image up to down",
+        "user": "turn this image up to down. save the image to ./output/82.png",
         "file_paths": [
             "./data/82.jpeg"
         ],
@@ -1035,7 +1037,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "裁剪",
-        "user": "把这张图沿横向等分成四份",
+        "user": "把这张图沿横向等分成四份, save the image to ./output/83_1.png, 83_2.png, 83_3.png and 83_4.png",
         "file_paths": [
             "./data/83.jpeg"
         ],
@@ -1048,7 +1050,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "裁剪",
-        "user": "截取这张图的上半部分，取一个方图",
+        "user": "截取这张图的上半部分，取一个方图, save the image to ./output/84.png",
         "file_paths": [
             "./data/84.jpeg"
         ],
@@ -1061,7 +1063,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "裁剪",
-        "user": "Crop a 300*300 area from the center of this image",
+        "user": "Crop a 300*300 area from the center of this image, save the image to ./output/85.png",
         "file_paths": [
             "./data/85.jpeg"
         ],
@@ -1074,7 +1076,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "翻转",
-        "user": "把这张图左右翻转",
+        "user": "把这张图左右翻转,save the image to ./output/86.png",
         "file_paths": [
             "./data/86.jpeg"
         ],
@@ -1087,7 +1089,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "翻转",
-        "user": "Flip this image horizontally",
+        "user": "Flip this image horizontally, save the image to ./output/87.png",
         "file_paths": [
             "./data/87.jpeg"
         ],
@@ -1100,7 +1102,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "删除背景",
-        "user": "\nRemove the background of this image",
+        "user": "\nRemove the background of this image, save the image to ./output/88.png",
         "file_paths": [
             "./data/88.jpeg"
         ],
@@ -1113,7 +1115,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "删除背景",
-        "user": "删除这张图的背景，只保留前景",
+        "user": "删除这张图的背景，只保留前景, save the image to ./output/89.png",
         "file_paths": [
             "./data/89.jpeg"
         ],
@@ -1126,7 +1128,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "提取图片颜色板",
-        "user": "提取这张图的色板",
+        "user": "提取这张图的色板, save the image to ./output/90.png",
         "file_paths": [
             "./data/90.jpeg"
         ],
@@ -1139,7 +1141,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像处理",
         "category3": "提取图片颜色板",
-        "user": "Extract the color map from this image",
+        "user": "Extract the color map from this image, save the image to ./output/91.png",
         "file_paths": [
             "./data/91.jpeg"
         ],
@@ -1152,7 +1154,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像增强",
         "category3": "调整亮度",
-        "user": "把亮度调低",
+        "user": "把亮度调低, save the image to ./output/92.png",
         "file_paths": [
             "./data/92.jpeg"
         ],
@@ -1165,7 +1167,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像增强",
         "category3": "调整亮度",
-        "user": "Increase the brightness of this image",
+        "user": "Increase the brightness of this image, save the image to ./output/93.png",
         "file_paths": [
             "./data/93.jpeg"
         ],
@@ -1178,7 +1180,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像增强",
         "category3": "对比度",
-        "user": "Decrease the contrast of this image",
+        "user": "Decrease the contrast of this image, save the image to ./output/94.png",
         "file_paths": [
             "./data/94.jpeg"
         ],
@@ -1191,7 +1193,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像增强",
         "category3": "对比度",
-        "user": "增加这张图片的对比度",
+        "user": "增加这张图片的对比度, save the image to ./output/95.png",
         "file_paths": [
             "./data/95.jpeg"
         ],
@@ -1204,7 +1206,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像增强",
         "category3": "饱和度",
-        "user": "降低这张图的饱和度",
+        "user": "降低这张图的饱和度, save the image to ./output/96.png",
         "file_paths": [
             "./data/96.jpeg"
         ],
@@ -1217,7 +1219,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像增强",
         "category3": "饱和度",
-        "user": "Increase the saturation of this image",
+        "user": "Increase the saturation of this image, save the image to ./output/97.png",
         "file_paths": [
             "./data/97.jpeg"
         ],
@@ -1230,7 +1232,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像滤镜",
         "category3": "模糊",
-        "user": "给这张图加高斯模糊",
+        "user": "给这张图加高斯模糊, save the image to ./output/98.png",
         "file_paths": [
             "./data/98.jpeg"
         ],
@@ -1243,7 +1245,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像滤镜",
         "category3": "模糊",
-        "user": "add Poisson Noise to the picture",
+        "user": "add Poisson Noise to the picture, save the image to ./output/99.png",
         "file_paths": [
             "./data/99.jpeg"
         ],
@@ -1256,7 +1258,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像滤镜",
         "category3": "模糊",
-        "user": "把图片转成灰色",
+        "user": "把图片转成灰色, save the image to ./output/100.png",
         "file_paths": [
             "./data/100.jpeg"
         ],
@@ -1269,7 +1271,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像滤镜",
         "category3": "边缘检测",
-        "user": "检测汽车的边缘",
+        "user": "检测汽车的边缘, save the image to ./output/101.png",
         "file_paths": [
             "./data/101.jpeg"
         ],
@@ -1282,7 +1284,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像滤镜",
         "category3": "边缘检测",
-        "user": "Detect the edges of the human body",
+        "user": "Detect the edges of the human body, save the image to ./output/102.png",
         "file_paths": [
             "./data/102.jpeg"
         ],
@@ -1295,7 +1297,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像合成",
         "category3": "多图拼接",
-        "user": "把下面两张图拼成一个",
+        "user": "把下面两张图拼成一个,save the image to ./output/103.png",
         "file_paths": [
             "./data/103.jpeg",
             "./data/104.jpeg"
@@ -1310,7 +1312,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像合成",
         "category3": "多图拼接",
-        "user": "concat the following two images vertically",
+        "user": "concat the following two images vertically, save the image to ./output/105.png",
         "file_paths": [
             "./data/105.jpeg",
             "./data/106.jpeg"
@@ -1325,7 +1327,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "图像合成",
         "category3": "不同图层拼接",
-        "user": "以第一张图为背景，把第二张图放在上层",
+        "user": "以第一张图为背景，把第二张图放在上层, save the image to ./output/107.png",
         "file_paths": [
             "./data/107.jpeg",
             "./data/108.jpeg"
@@ -1340,7 +1342,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "文字渲染",
         "category3": "文本渲染",
-        "user": "在图片上添加“鸡同鸭讲”的文字",
+        "user": "在图片上添加“鸡同鸭讲”的文字,save the image to ./output/109.png",
         "file_paths": [
             "./data/109.jpeg"
         ],
@@ -1353,7 +1355,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "文字渲染",
         "category3": "文本渲染",
-        "user": "add title \"Map of the Middle East Situation\" in color red",
+        "user": "add title \"Map of the Middle East Situation\" in color red, save the image to ./output/110.png",
         "file_paths": [
             "./data/110.jpeg"
         ],
@@ -1366,7 +1368,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "格式转换",
         "category3": "图片格式转换",
-        "user": "convert the picture to jpeg format",
+        "user": "convert the picture to jpeg format, save the image to ./output/111.jpeg",
         "file_paths": [
             "./data/111.jpeg"
         ],
@@ -1379,7 +1381,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "格式转换",
         "category3": "图片格式转换",
-        "user": "save this image to pdf file",
+        "user": "save this image to pdf file, save the image to ./output/112.pdf",
         "file_paths": [
             "./data/112.jpeg"
         ],
@@ -1392,7 +1394,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "格式转换",
         "category3": "gif转视频",
-        "user": "turn this gif into video",
+        "user": "turn this gif into video, save the image to ./output/113.mp4",
         "file_paths": [
             "./data/113.gif"
         ],
@@ -1405,7 +1407,7 @@
         "category1": "图片处理\n（PIL、opencv-python、moviepy）",
         "category2": "格式转换",
         "category3": "gif转视频",
-        "user": "把这个动图转为视频",
+        "user": "把这个gif动图转为视频mp4格式, save the image to ./output/114.mp4",
         "file_paths": [
             "./data/114.gif"
         ],
@@ -1418,7 +1420,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "特殊形状",
         "category3": "画心形",
-        "user": "帮我画一个心形图案",
+        "user": "帮我画一个心形图案，save the image to ./output/115.png",
         "file_paths": [],
         "attachments": []
     },
@@ -1427,7 +1429,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "特殊形状",
         "category3": "画心形",
-        "user": "draw a cute cat for me",
+        "user": "draw a cute cat for me， save the image to ./output/116.png",
         "file_paths": [],
         "attachments": []
     },
@@ -1436,7 +1438,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "二维码",
         "category3": "生成二维码",
-        "user": "make a qrcode which links to www.modelbest.cn",
+        "user": "make a qrcode which links to www.modelbest.cn, save the image to ./output/117.png",
         "file_paths": [],
         "attachments": []
     },
@@ -1445,7 +1447,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "二维码",
         "category3": "生成二维码",
-        "user": "创建一个二维码，扫描后显示的内容是滕王阁序全文",
+        "user": "创建一个二维码，扫描后显示的内容是滕王阁序全文, save the image to ./output/118.png",
         "file_paths": [],
         "attachments": []
     },
@@ -1454,7 +1456,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "二维码",
         "category3": "生成二维码",
-        "user": "以这张图为背景，创建一个二维码，要求中间是红色，四角是蓝色的渐变色，扫描后指向的内容是",
+        "user": "以这张图为背景，创建一个二维码，要求中间是红色，四角是蓝色的渐变色，扫描后指向的内容是x.com, save the image to ./output/119.png",
         "file_paths": [
             "./data/119.jpeg"
         ],
@@ -1467,7 +1469,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "二维码",
         "category3": "生成二维码",
-        "user": "draw a QRCode and use this image as  a logo at the center of the qrcode",
+        "user": "draw a QRCode nevigate to modelbest.cn and use this image as  a logo at the center of the qrcode, save the image to ./output/120.png",
         "file_paths": [
             "./data/120.webp"
         ],
@@ -1480,7 +1482,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "词云",
         "category3": "画词云",
-        "user": "Select a proper shape and draw a wordcloud form the title",
+        "user": "Select a proper shape and draw a wordcloud form the title, save the image to ./output/121.png",
         "file_paths": [
             "./data/news.txt"
         ],
@@ -1493,7 +1495,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "词云",
         "category3": "画词云",
-        "user": "Extract the keywords from content of the news and draw a wordcloud",
+        "user": "Extract the keywords from content of the news and draw a wordcloud, save the image to ./output/122.png",
         "file_paths": [
             "./data/news.txt"
         ],
@@ -1506,7 +1508,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "词云",
         "category3": "画词云",
-        "user": "提取这篇研报的关键词并绘制成词云",
+        "user": "提取这篇研报的关键词并绘制成词云, save the image to ./output/123.png",
         "file_paths": [
             "./data/重庆啤酒.pdf"
         ],
@@ -1519,7 +1521,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "词云",
         "category3": "画词云",
-        "user": "set the background color to white, and draw a image-colored wordcloud picture",
+        "user": "set the background color to white, and draw a image-colored wordcloud picture, save the image to ./output/124.png",
         "file_paths": [
             "./data/124.jpeg",
             "./data/baike_text.txt"
@@ -1534,7 +1536,7 @@
         "category1": "作图\n（graphviz、networkx、wordcloud、pyqrcode）",
         "category2": "词云",
         "category3": "画词云",
-        "user": "提取这张图的前景与背景，并以此为背景，根据文件中的文本画一个词云，要求词的大小与词频相关",
+        "user": "提取这张图的前景与背景，并以此为背景，根据文件中的文本画一个词云，要求词的大小与词频相关,save the image to ./output/126.png",
         "file_paths": [
             "./data/126.jpeg",
             "./data/llama2.pdf"
@@ -1549,7 +1551,7 @@
         "category1": "网页搜索和爬虫",
         "category2": "数据抓取",
         "category3": "抓取数据并转换格式",
-        "user": "Extracting Key Information of ModelBest Intelligence Company from Baidu Baike and Saving it as an Excel File",
+        "user": "Extracting Key Information of ModelBest Intelligence Company from Baidu Baike and Saving it as an Excel File, save the file to ./output/128.xlsx",
         "file_paths": [],
         "attachments": []
     },
@@ -1558,7 +1560,7 @@
         "category1": "网页搜索和爬虫",
         "category2": "数据抓取",
         "category3": "抓取数据并转换格式",
-        "user": "从huggingface上查找rag相关的数据集，把下载量前三的数据集下载下来，保存为每行一个Json的格式，每个json需要有role和content字段，role字段可以是system, user, assistant或knowledge，content字段是具体的内容。",
+        "user": "从huggingface上查找rag相关的数据集，把下载量前三的数据集下载下来，保存为每行一个Json的格式，每个json需要有role和content字段，role字段可以是system, user, assistant或knowledge，content字段是具体的内容 save the file to ./output/129.csv",
         "file_paths": [],
         "attachments": []
     },
@@ -1646,7 +1648,7 @@
         "category1": "数学求解\n（sympy、numpy、scipy）",
         "category2": "数学求解",
         "category3": "求积分",
-        "user": "一根金属棒，在不同长度位置的密度不同。其密度与长度关系为p(x)=2x^2+3x+6(kg/m)，其中x是其长度。求这根金属棒的质量M。",
+        "user": "一根金属棒，在不同长度位置的密度不同。其密度与长度关系为p(x)=2x^2+3x+6(kg/m)，其中x属于[0,L]。求这根金属棒的质量M。假设总长度L=1m,答案保留两位小数",
         "file_paths": [],
         "attachments": []
     },
@@ -1673,7 +1675,7 @@
         "category1": "简单程序开发（pygame、html）",
         "category2": "简单游戏开发",
         "category3": "求导",
-        "user": "用python写一个贪吃蛇",
+        "user": "用python写一个贪吃蛇, save the files to a folder ./output/140/ ",
         "file_paths": [],
         "attachments": []
     },
@@ -1682,7 +1684,7 @@
         "category1": "简单程序开发（pygame、html）",
         "category2": "简单游戏开发",
         "category3": "求导",
-        "user": "write a flappy bird html demo",
+        "user": "write a flappy bird html demo, save the files to a folder ./output/141/ (create the folder first)",
         "file_paths": [],
         "attachments": []
     },
@@ -1691,7 +1693,7 @@
         "category1": "简单程序开发（pygame、html）",
         "category2": "简单网页开发",
         "category3": "求导",
-        "user": "design a website for geoffrey hinton",
+        "user": "design a website for geoffrey hinton, save the files to a folder ./output/142/ (create the folder first)",
         "file_paths": [
             "./data/Geoffrey Hinton.pdf"
         ],
@@ -1704,7 +1706,7 @@
         "category1": "简单程序开发（pygame、html）",
         "category2": "简单网页开发",
         "category3": "求导",
-        "user": "这是面壁智能的一些信息，请为这家公司设计一个网站主页",
+        "user": "这是面壁智能的一些信息，请为这家公司设计一个网站主页, save the files to a folder ./output/143/ (create the folder first)",
         "file_paths": [
             "./data/面壁智能.pdf"
         ],
@@ -1717,7 +1719,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频格式转化",
         "category3": "音频格式转化",
-        "user": "Help me convert the MP3 file to WAV file",
+        "user": "Help me convert the MP3 file to WAV file, save the files ./output/144.wav",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3"
         ],
@@ -1730,7 +1732,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频特征提取",
         "category3": "音频特征提取",
-        "user": "Draw the Mayer spectrum of this audio",
+        "user": "Draw the Mayer spectrum of this audio, save the image ./output/145.png",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3"
         ],
@@ -1743,7 +1745,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
         "category3": "音频编辑",
-        "user": "Increase the volume in this audio by 10%",
+        "user": "Increase the volume in this audio by 10%, save the file to ./output/146.mp3",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3"
         ],
@@ -1756,7 +1758,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
         "category3": "音频编辑",
-        "user": "把这个两个音频拼接起来，中间用淡出处理",
+        "user": "把这个两个音频拼接起来，中间用淡出处理,save the file to ./output/147.mp3",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3",
             "./data/Ghostrifter Official - Haze.wav"
@@ -1771,7 +1773,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
         "category3": "音频编辑",
-        "user": "Decrease the volume by 100%",
+        "user": "Decrease the volume by 100%, save the file to ./output/149.mp3",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3"
         ],
@@ -1784,7 +1786,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
         "category3": "音频编辑",
-        "user": "cut the first 30 seconds of the audio file and save it to a new file",
+        "user": "cut the first 30 seconds of the audio file and save it to a new file, save the file to ./output/150.mp3",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3"
         ],
@@ -1797,7 +1799,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
         "category3": "音频编辑",
-        "user": "检测音频中的静音部分，自动将音频文件分割成多个片段",
+        "user": "检测音频中的静音部分，自动将音频文件分割成多个片段, save the files to ./output/151/",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3"
         ],
@@ -1810,7 +1812,7 @@
         "category1": "音频处理（audioread,librosa,PyAudio,pydub）",
         "category2": "音频编辑",
         "category3": "音频编辑",
-        "user": "Put these two audio clips on top of each other",
+        "user": "Put these two audio clips on top of each other, save the file to ./output/152.mp3",
         "file_paths": [
             "./data/Ghostrifter Official - Serenity.mp3",
             "./data/Ghostrifter Official - Haze.wav"

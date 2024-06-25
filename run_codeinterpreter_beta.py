@@ -86,7 +86,7 @@ def execute_code(code_str: str,Kernel,nb):
 
 
 def main(config_path: str, task_path: str, output_path: str):
-    os.makedirs("function_0609_cells", exist_ok=True)
+    os.makedirs("Unit_test", exist_ok=True)
     os.makedirs("output", exist_ok=True)
     logger.info("started")
     config = safe_load(open(config_path, "r"))
@@ -205,7 +205,7 @@ def main(config_path: str, task_path: str, output_path: str):
                 code_response = execute_code(code_script, Kernel,nb)
                 logger.info(f"Code response:\n{code_response}")
                 #if config["mode"] == "prompt":
-                messages.append({"role": "user", "content": code_response})
+                messages.append({"role": "user", "content": "[INFO]This is a Code Interpreter Message:\n"+code_response})
                 cells.append(
                         {
                             "role": "assistant",
@@ -216,13 +216,13 @@ def main(config_path: str, task_path: str, output_path: str):
                 #else:
                 #    messages.append({"role": "tool", "content": code_response})
 
-            save_as_ipynb(generate_notebook(cells), f"function_0609_cells/{index}.ipynb")
+            save_as_ipynb(generate_notebook(cells), f"Unit_test/{index}.ipynb")
             item = {"messages": messages}
             item.update(task)
             #print(json.dumps(item, ensure_ascii=False), file=fout)
         except Exception:
             logger.error(traceback.format_exc())
-            save_as_ipynb(generate_notebook(cells), f"function_0609_cells/{index}.ipynb")
+            save_as_ipynb(generate_notebook(cells), f"Unit_test/{index}.ipynb")
             item = {"messages": messages}
             item.update(task)
             #print(json.dumps(item, ensure_ascii=False), file=fout)

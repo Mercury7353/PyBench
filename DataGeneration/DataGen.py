@@ -65,11 +65,11 @@ user =ChatClient(app_code='CodeAndFunction',user_token=user_token,model_id=20)
 
 
 tools = [
-            {"name": "excute_python", "description": "Excute python code and get result",
+            {"name": "execute_python", "description": "Execute python code and get code feedback",
             "parameters": {"type": "object", 
             "properties":
             {"code": 
-            {"type": "string", "description": "The code need to be excuted"}}, 
+            {"type": "string", "description": "The code need to be executed"}}, 
             "required": ["code"]}}
 ]
 
