@@ -1,1 +1,1 @@
-python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path compare_only.jsonl
+python eval_code_interpreter_WL_rate.py --config_path ./config/evaluator_winlose_rate.yaml --output_path compare_codeinterpreter_cpt.jsonl

@@ -40,7 +40,7 @@ system_prompt_template: |
   4. Do not ask for user input in your python code.
 code_start_token: "```python"
 code_end_token: "```"
-mode: assistant
+mode: prompt
 max_turns: 10
 tool_call_token: <|tool_call|>
 llm:
@@ -49,8 +49,8 @@ llm:
     token_url: https://llm-center.ali.modelbest.cn/llm/client/token/access_token
     url: https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync
     app_code: CodeAndFunction
-    user_token: 5T3QSU4H8FzMms69kqEO3A0zmhxm1S4bGkG_Nsm7m0Q
-    model: gpt-35-turbo-16k
+    user_token: FXwRa9evioXWzTkM93C-t7O-260CDT0cRrQPMWQfWDA
+    model: gpt-3.5-turbo
     temperature: 0.2
     max_tokens: 1000
     top_p: 0.5

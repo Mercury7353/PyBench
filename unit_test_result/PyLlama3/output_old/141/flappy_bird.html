@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flappy Bird</title>
+    <style>
+        canvas {
+            border: 1px solid #000000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        // Flappy Bird game logic goes here
+
+        // Draw the game on the canvas
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Draw game elements
+        }
+
+        // Start the game
+        function start() {
+            setInterval(draw, 10);
+        }
+
+        start();
+    </script>
+</body>
+</html>
