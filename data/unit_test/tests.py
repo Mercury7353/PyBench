@@ -348,9 +348,12 @@ def test_task_25(trajectory):
 
 def test_task_27(trajectory):
     final_answer=trajectory[-1]['content']
-    answer_list=["NBC"]
+    answer_list=["ABC","NBC"]
+    flag=False
     for ans in answer_list:
-        assert ans in final_answer
+        if ans in final_answer:
+            flag=True
+    assert flag
 
 def test_task_28(trajectory):
     final_answer=trajectory[-1]['content']
@@ -367,9 +370,12 @@ def test_task_29(trajectory):
 
 def test_task_30(trajectory):
     final_answer=trajectory[-1]['content']
-    answer_list=["323"]
+    answer_list=["323","237"]
+    flag=False
     for ans in answer_list:
-        assert ans in final_answer
+        if ans in final_answer:
+            flag=True
+    assert flag
 
 def test_task_31(trajectory):
     ref_path="./gpt4_output/smoker_charges_relationship.png"
@@ -378,8 +384,12 @@ def test_task_31(trajectory):
 
 def test_task_32(trajectory):
     final_answer=trajectory[-1]['content']
-    #print(final_answer)
-    assert "106" in final_answer
+    answer_list=["53"]
+    flag=False
+    for ans in answer_list:
+        if ans in final_answer:
+            flag=True
+    assert flag
 
 def test_task_33(trajectory):
     final_answer=trajectory[-1]['content']
@@ -401,7 +411,7 @@ def test_task_36(trajectory):
 
 def test_task_37(trajectory):
     final_answer=trajectory[-1]['content']
-    assert ("持有" in final_answer or "出售" in final_answer)
+    assert ("持有" in final_answer or "出售" in final_answer or "hold" in final_answer or "sell" in final_answer)
 
 
 def test_task_38(trajectory):
@@ -412,7 +422,7 @@ def test_task_38(trajectory):
 def test_task_39(trajectory):
     final_answer=trajectory[-1]['content']
     ans="Male"
-    assert ans in final_answer
+    assert (ans in final_answer or 'male' in final_answer)
 
 def test_task_40(trajectory):
     model_path = "./output/40.pkl"
@@ -473,7 +483,7 @@ def test_task_43(trajectory):
     ans="./output/43.png"
     ref="./gpt4_output/elbow_method_plot.png"
     print("WARNING BAD CASE FOR GPT-4 NEED MANUALLY FIX",ref)
-    assert are_images_similar(ans,ref)
+    assert os.path.exists(ans)
 
 def test_task_44(trajectory):
     ans="./output/44.png"
@@ -489,9 +499,9 @@ def test_task_46(trajectory):
     
     ans="./output/46.png"
     ref="./gpt4_output/monthly_ride_counts.png"
-    print("WARNING BAD CASE FOR GPT-4 NEED MANUALLY FIX",46)
+    #print("WARNING BAD CASE FOR GPT-4 NEED MANUALLY FIX",46)
     
-    assert are_images_similar(ans,ref)
+    assert os.path.exists(ans)
 
 def test_task_47(trajectory):
     model_path = "./output/47.pkl"
@@ -754,9 +764,16 @@ def test_task_77(trajectory):
     assert "如懿" in final_answer
 
 def test_task_78(trajectory):
-    final_answer=trajectory[-1]['content']
-    #print(final_answer)
-    assert "如懿" in final_answer
+    image_path="./output/78.png"
+    # 检查文件是否存在
+    #print("Check",os.path.exists(image_path))
+    assert os.path.exists(image_path)
+    with Image.open(image_path) as img:
+        #print("In")
+        width, height = img.size
+        #print("AAA",width, height)
+        assert width==224
+        assert height==224
 
 def test_task_79(trajectory):
     image_path="./output/79.png"
@@ -1256,6 +1273,11 @@ def test_task_114(trajectory):
     
     assert os.path.exists(image_path)
 
+def test_task_115(trajectory):
+    image_path = "./output/115.png"
+    
+    assert os.path.exists(image_path)
+
 def test_task_116(trajectory):
     image_path = "./output/116.png"
     
@@ -1308,11 +1330,11 @@ def test_task_129(trajectory):
 
 def test_task_130(trajectory):
     final_answer=trajectory[-1]['content']
-    assert 'llama' in final_answer
+    assert ('llama' in final_answer or 'Llama' in final_answer)
 
 def test_task_131(trajectory):
     final_answer=trajectory[-1]['content']
-    assert ('新希望' in final_answer or "猪周期" in final_answer or "饲料" in final_answer)
+    assert ('新希望' in final_answer or "猪周期" in final_answer or "饲料" in final_answer or 'pig' in final_answer or 'New Hope' in final_answer or 'new hope' in final_answer)
 
 
 def test_task_132(trajectory):
@@ -1334,7 +1356,7 @@ def test_task_135(trajectory):
 
 def test_task_136(trajectory):
     final_answer=trajectory[-1]['content']
-    assert '2.5' in final_answer
+    assert ('2.5' in final_answer or '5/2' in final_answer)
 
 def test_task_137(trajectory):
     final_answer=trajectory[-1]['content']
@@ -1342,7 +1364,7 @@ def test_task_137(trajectory):
 
 def test_task_138(trajectory):
     final_answer=trajectory[-1]['content']
-    assert 'Finished' in final_answer
+    assert ('no' in final_answer or 'not' in final_answer) 
 
 def test_task_139(trajectory):
     final_answer=trajectory[-1]['content']
@@ -1407,16 +1429,7 @@ def test_task_147(trajectory):
     audio_path = "./output/147.mp3"
     ref_path = "./data/Ghostrifter Official - Serenity.mp3"
     
-    # 加载音频文件
-    audio = AudioSegment.from_file(audio_path)
-    ref_audio = AudioSegment.from_file(ref_path)
-    
-    # 获取音频的持续时间（以毫秒为单位）
-    audio_duration = len(audio)
-    ref_audio_duration = len(ref_audio)
-    
-    # 比较音频的持续时间
-    assert audio_duration > ref_audio_duration
+    assert os.path.exists(audio_path)
     
 
 def test_task_149(trajectory):

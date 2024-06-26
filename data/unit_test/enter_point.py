@@ -28,10 +28,13 @@ def check_content(task_id,trajectory):
 # 示例调用
 if __name__=="__main__":
     trajectory_map={}
-    with open("./unit_test_result/codeinterpreter_cpt/trajectory.jsonl","r") as f:
+    with open("/data/zyl7353/codeinterpreterbenchmark/unit_test_result/PyLlama3/trajectory.jsonl","r") as f:
         for line in f:
             json_dict=json.loads(line)
-            trajectory_map[json_dict["index"]]=json_dict['messages']
+            try:
+                trajectory_map[json_dict["index"]]=json_dict['messages']
+            except:
+                trajectory_map[json_dict["index"]]=[{"role":"","content":"error"}]
     Pass_Count=0
     #check_content(1)  # 运行所有 test_task_1_ 开头的测试函数
     for i in range(2,153):
@@ -40,7 +43,7 @@ if __name__=="__main__":
             print(i,"Pass")
             Pass_Count+=1
         except:
-            #traceback.print_exc()
+            traceback.print_exc()
             print(i,"Failed")
 
     print(Pass_Count)
