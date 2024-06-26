@@ -1,0 +1,35 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    margin-top: 10px; /* Adjusted spacing */
+}
+
+main {
+    padding: 20px; /* Increased padding */
+}
+
+img {
+   max-width :100%;
+   height:auto ;
+   display:block ; 
+   margin-bottom :20 px ;
+}
+footer{
+background -color:#f1f1f1 ;
+text-align:center ;
+padding :10 px ;
+position:absolute ;/* Footer sticks at bottom*/
+bottom :0;width :
+100 %;}

@@ -29,7 +29,7 @@ You can also explore the system prompt in this yaml
 ## Run on PyBench
 Edit the output trajectory file path before run the code!
 ```bash
-python run_codeinterpreter_beta.py --config_path ./config/model.yaml --task_path ./data/meta/task.json --output_path <your output path for the jsonl file >
+python /data/zyl7353/codeinterpreterbenchmark/inference.py --config_path ./config/<your config>.yaml --task_path ./data/meta/task.json --output_path <your trajectory.jsonl path>
 
 ```
 

@@ -1,0 +1,33 @@
+Rank,Country,Region,Documents,Citable documents,Citations,Self-citations,Citations per document,H index
+1,China,Asiatic Region,229772,227992,1856194,1155213,8.08,324
+2,United States,Northern America,171630,166520,3589528,1120562,20.91,572
+3,India,Asiatic Region,71010,69243,406564,149228,5.73,167
+4,Japan,Asiatic Region,59155,57794,459044,123494,7.76,187
+5,United Kingdom,Western Europe,53306,50815,979585,183278,18.38,309
+6,Germany,Western Europe,44903,43207,640044,139020,14.25,247
+7,France,Western Europe,34211,32975,502006,101864,14.67,219
+8,Italy,Western Europe,31731,29877,401728,102242,12.66,189
+9,Spain,Western Europe,29707,28295,436938,98320,14.71,203
+10,Canada,Northern America,28505,27615,631814,74672,22.17,245
+11,Australia,Pacific Region,26952,25948,410044,61384,15.21,206
+12,South Korea,Asiatic Region,26927,26479,266601,39163,9.9,153
+13,Taiwan,Asiatic Region,23752,23331,371926,61796,15.66,190
+14,Brazil,Latin America,18158,17788,136220,31717,7.5,116
+15,Iran,Middle East,15254,15119,158044,41544,10.36,121
+16,Netherlands,Western Europe,13978,13370,258304,34513,18.48,178
+17,Turkey,Middle East,12621,12449,170783,27666,13.53,156
+18,Poland,Eastern Europe,12151,11507,119775,37321,9.86,110
+19,Singapore,Asiatic Region,11999,11604,257604,26799,21.47,190
+21,Hong Kong,Asiatic Region,11399,11131,284162,25761,24.93,193
+22,Malaysia,Asiatic Region,11255,11074,92600,18529,8.23,105
+24,Greece,Western Europe,9150,8869,108742,16286,11.88,120
+25,Switzerland,Western Europe,9148,8738,216541,20486,23.67,176
+26,Portugal,Western Europe,9068,8600,89516,15944,9.87,105
+27,Mexico,Latin America,8424,7874,64233,14315,7.63,97
+28,Sweden,Western Europe,8403,8125,95242,13833,11.33,104
+30,Czech Republic,Eastern Europe,7778,7555,65371,16910,8.4,89
+31,Belgium,Western Europe,7663,7352,162137,17952,21.16,143
+32,Austria,Western Europe,7658,7256,87812,15410,11.47,102
+33,Finland,Western Europe,6797,6625,135395,14409,19.92,130
+35,Saudi Arabia,Middle East,6317,6195,70288,9724,11.13,105
+36,Israel,Middle East,6243,6051,176150,18187,28.22,168

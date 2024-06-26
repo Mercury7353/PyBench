@@ -56,7 +56,7 @@ llm:
     url: https://llm-center.ali.modelbest.cn/llm/client/conv/accessLargeModel/sync
     app_code: CodeAndFunction
     user_token: FXwRa9evioXWzTkM93C-t7O-260CDT0cRrQPMWQfWDA
-    model: gpt-4-turbo
+    model: gpt-4o-2024-05-13
     temperature: 0.2
     max_tokens: 1000
     top_p: 0.5

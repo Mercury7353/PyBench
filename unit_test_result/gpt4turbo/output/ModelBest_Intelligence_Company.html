@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://baike.baidu.com/error.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>ç¾åº¦ç¾ç§ââå¨çé¢åçä¸­æç¾ç§å¨ä¹¦</title>
+    <style>
+    p {
+        margin: 0;
+    }
+    .baikeLogo {
+        width: 780px;
+        height: 50px;
+        margin: 150px auto 75px;
+        text-indent: -9999em;
+        background: url(https://img.baidu.com/img/baike/logo-baike.png) 50% 50% no-repeat;
+    }
+    /* S-- errorBox */
+        .errorBox {
+            width: 780px;
+            margin: 0 auto 65px;
+            text-align: center;
+            font-family: "Microsoft yahei";
+        }
+        .errorBox .timeOut {
+            color: #666;
+            font-size: 16px;
+        }
+        .errorBox .timeOut a {
+            color: #136ec2;
+            text-decoration:none;
+        }
+        .errorBox .countdown {
+            font-weight: 700;
+        }
+    /* E-- errorBox */
+
+    /* S-- sorryBox */
+        .sorryBox {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .sorryBox .sorryTxt {
+            color: #559ee7;
+        }
+        .sorryBox .sorryCont {
+            color: #333;
+            font-size: 35px;
+        }
+        .sorryBox .sorryBubble {
+            position: absolute;
+            left: 98px;
+            top: -35px;
+            width: 72px;
+            height: 37px;
+            background: url(/static/common/img/error_bubble_7da2966.jpg) no-repeat 50% 50%;
+        }
+    /* E-- sorryBox */
+
+    /* S-- footer */
+        .ft {
+            width: 780px;
+            margin: 0 auto 65px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            line-height: 20px;
+            color: #666;
+            font-size: 12px;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        .ft a{
+            color: #2d64b3;
+            text-decoration: none;
+        }
+        .ft a:hover {
+            text-decoration: underline;
+        }
+        .feedBackWays .ul {
+            margin: 0;
+            padding: 0;
+        }
+        .feedBackWays .li {
+            list-style: none;
+        }
+        .ftCont {
+            margin-top: 20px;
+            color: #2d64b3;
+        }
+    /* E-- footer */
+    </style>
+</head>
+<body>
+    <div id="bd">
+        <h1 class="baikeLogo">
+            ç¾åº¦ç¾ç§éè¯¯é¡µ
+        </h1>
+        <div class="errorBox">
+            <!-- ä¸»ä½ -->
+            <div class="sorryBox">
+                <div class="sorryBubble"></div>
+                <p class="sorryCont"><span class="sorryTxt">æ±æ­</span>ï¼æ¨æè®¿é®çé¡µé¢ä¸å­å¨...</p>
+            </div>
+            <div class="timeOut" style="display: block;">
+                <p><span class="countdown" id="countdown">3</span>ç§åèªå¨è·³è½¬å°<a href="http://baike.baidu.com/">ç¾ç§é¦é¡µ</a></p>
+            </div>
+            <!-- /ä¸»ä½ -->
+        </div>
+    </div>
+    <div id="ft">
+        <div class="ft">
+            <div class="feedBackWays">
+                <ul class="ul">
+                    <li class="li">å¦ææ³æåºåè½é®é¢ææè§å»ºè®®,è¯·å°<a href="http://baike.baidu.com/feedback" target="_blank">æè§åé¦</a>;</li>
+                    <li class="li">å¦ææ¨è¦ä¸¾æ¥ä¾µææè¿æ³ä¿¡æ¯,è¯·å°<a href="http://help.baidu.com/newadd?prod_id=10&amp;category=1" target="_blank">æè¯ä¸­å¿</a>;</li>
+                    <li class="li">å¶ä»é®é¢è¯·è®¿é®<a href="http://tieba.baidu.com/f?kw=%B0%D9%B6%C8%B0%D9%BF%C6" target="_blank">ç¾åº¦ç¾ç§å§</a>ã</li>
+                </ul>
+            </div>
+            <div class="ftCont">
+                Â©<span id="copyYear">2022</span>Baidu <a href="http://www.baidu.com/duty/" target="_blank">ä½¿ç¨ç¾åº¦åå¿è¯»</a> | <a href="http://help.baidu.com/question?prod_en=baike&amp;class=89&amp;id=1637" target="_blank">ç¾ç§åè®®</a> | <a href="http://baike.baidu.com/hezuo/" target="_blank">ç¾åº¦ç¾ç§åä½å¹³å°</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function isFromMain() {
+            var query = window.location.href.split('?')[1];
+            if (query) {
+                var queryArr = query.split('&');
+                for (var i = 0; i < queryArr.length; i++) {
+                    var temp = queryArr[i].split('=');
+                    if (temp[0] === 'uri' && temp[1] === '/') {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    window.onload = function(){
+        var time = 3,
+            year = new Date().getFullYear();
+        if (isFromMain()) {
+            return;
+        }
+        document.getElementsByClassName('timeOut')[0].style.display = 'block';
+        document.getElementById("copyYear").innerHTML = year;
+        setInterval(function(){
+            if (time == 0){
+                window.location = "http://baike.baidu.com/";
+                return;
+            }
+            document.getElementById("countdown").innerHTML = time;
+            time--;
+        }, 1000);
+    }
+    </script>
+
+</body></html>

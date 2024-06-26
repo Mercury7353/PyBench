@@ -56,7 +56,7 @@ llm:
       api_key: token-abc123
       base_url: http://localhost:8001/v1
     model_args:
-      model: /data/zyl7353/models/codeinterpreter_cpt_jupyter-hf
+      model: /data/zyl7353/models/codeinterpreter_ultrachat_ablation0615-hf
       temperature: 0.2
       max_tokens: 1000
       top_p: 0.85

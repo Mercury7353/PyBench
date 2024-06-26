@@ -21,51 +21,21 @@ os.environ["AZURE_OPENAI_ENDPOINT"] = "https://zyl-code-interpreter.openai.azure
 import nbformat
 from nbclient import NotebookClient
 def execute_code(code_str: str,Kernel,nb):
-    #print("codeSTr",code_str)
-    # 创建一个新的notebook对象
-    #code_str = code_str.replace('\\n', '\n')
-    
-    # 添加一个包含代码的cell
     nb.cells.append(nbformat.v4.new_code_cell(code_str))
-    
     total_cells=len(nb.cells)
-    #print(total_cells)
     cell = nb.cells[-1]
-    
-    #nb_new=nbformat.v4.new_notebook()
-    # 执行notebook
-    
     client = NotebookClient(nb,allow_errors=True)
     client.kc=Kernel
-    
-    #client.execute()
-
-    
     print(cell)
-    #print("Name",client.kc)
-    #outputs=nb.cells[-1]['outputs']#[0]['data']['text/plain']
-    #print("Output",outputs)
-    
     try:
         client.reset_execution_trackers()
         client.execute_cell(cell=cell,cell_index=-1)
     except Exception as e:
         #print("Code error")
         traceback.print_exc()
-        
-        #error_message=traceback.format_exc()
         error_message=str(e)
-        #split('Traceback')[-2]
-        #error_message=error_message.split("\n")[-2]
-        #print("Error",error_message)
         return error_message
-    #"There are some errors in the code. All variable in this cell should be redefined,Please Debug:\n"+error_message
-    
-    # 提取执行结果
-    #outputs = nb.cells[-1].outputs
-    #print("CheckOutput",nb_c.cells[-1]['outputs'][0])
     outputs=nb.cells[-1]['outputs']#[0]['data']['text/plain']
-    #print("Output",outputs)
     
     result = ""
     for output in outputs:
@@ -86,7 +56,7 @@ def execute_code(code_str: str,Kernel,nb):
 
 
 def main(config_path: str, task_path: str, output_path: str):
-    os.makedirs("Unit_test", exist_ok=True)
+    os.makedirs("Check", exist_ok=True)
     os.makedirs("output", exist_ok=True)
     logger.info("started")
     config = safe_load(open(config_path, "r"))
@@ -216,13 +186,13 @@ def main(config_path: str, task_path: str, output_path: str):
                 #else:
                 #    messages.append({"role": "tool", "content": code_response})
 
-            save_as_ipynb(generate_notebook(cells), f"Unit_test/{index}.ipynb")
+            save_as_ipynb(generate_notebook(cells), f"Check/{index}.ipynb")
             item = {"messages": messages}
             item.update(task)
             #print(json.dumps(item, ensure_ascii=False), file=fout)
         except Exception:
             logger.error(traceback.format_exc())
-            save_as_ipynb(generate_notebook(cells), f"Unit_test/{index}.ipynb")
+            save_as_ipynb(generate_notebook(cells), f"Check/{index}.ipynb")
             item = {"messages": messages}
             item.update(task)
             #print(json.dumps(item, ensure_ascii=False), file=fout)

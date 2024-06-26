@@ -1,0 +1,176 @@
+    
+ 
+BIOGRAPHICAL INFORMATION
+......Curriculum Vitae .pdf
+......Biographical sketch
+......Brief Bio
+......Photographs
+ 
+PUBLICATIONS
+......Publications by year
+......Slides of public talks
+ 
+MEDIA INTERVIEWS
+.... CBS 60 Minutes, Sept 2023
+.... Interview at Collision Conference,
+Toronto, June 2023
+.... CNN Amanpour and Company, May
+2023
+.... PBS, May 2023
+.... BBC News, May 2023
+.... CNN Jake Tapper, May 2023
+.... CBC The National, May 2023
+.... CBS Morning News, March 2023
+.... Interview on CBC radio "The Current",
+May 5 2015
+ 
+VIDEO LECTURES
+....YouTube (Feb 2024) The Romanes
+Lecture (40mins)
+....YouTube (Dec 2023) The Arthur Miller
+Lecture on Science and Ethics (1.13hr)
+....YouTube (May 2023) Two Paths to
+Intlligence (1hr)
+....YouTube (2012) Brains, Sex and Machine
+Learning (1hr)
+....YouTube (2007) The Next Generation of
+Neural Networks (1hr)
+....YouTube (2010) Recent Developments in
+Deep Learning (1hr)
+ 
+TUTORIALS
+....Tutorial (2009) Deep Belief Nets (3hrs)
+ppt pdf readings
+....Workshop Talk (2007) How to do
+backpropagation in a brain (20mins)
+ppt2007 pdf2007 ppt2014 pdf2014 Geoﬀrey E. Hinton
+Department of
+Computer Science  email: geoﬀrey [dot]
+hinton [at] gmail [dot]
+com
+University of
+Toronto  voice: send email
+6 King's College
+Rd.  fax: scan and send
+email
+Toronto, Ontario 
+ 
+Information for prospective students, postdocs and
+visitors:
+I will not be taking any more students, postdocs or
+visitors.
+Basic papers on deep learning
+LeCun, Y., Bengio, Y. and Hinton, G. E. (2015)
+Deep Learning
+Nature, Vol. 521, pp 436-444. [pdf]
+Hinton, G. E., Osindero, S. and Teh, Y. (2006)
+A fast learning algorithm for deep belief nets.
+Neural Computation, 18, pp 1527-1554. [pdf]
+Movies of the neural network generating and
+recognizing digits
+Hinton, G. E. and Salakhutdinov, R. R. (2006)
+Reducing the dimensionality of data with neural
+networks.
+Science, Vol. 313. no. 5786, pp. 504 - 507, 28 July
+2006.
+[ full paper ] [ supporting online material (pdf) ] [ Matlab
+code ]
+Recent Papers
+Hinton, G. E. (2022)
+The Forward-Forward Algorithm: Some Preliminary
+Investigations
+arXiv:2212.13345
+[pdf of ﬁnal version]
+[ﬀcode.zip matlab code for the supervised version of FF
+with the ﬁrst 10 pixels being the labels]
+[load mnistdata.mat in matlab to create the data]2024/5/17 18:02 Home Page of Geoffrey Hinton
+https://www.cs.toronto.edu/~hinton/ 1/3 
+2012 COURSERA COURSE LECTURES:
+Neural Networks for Machine Learning
+....Lectures(.mp4)
+....Lecture Slides(.pptx or .pdf))
+ 
+OLD UNIVERSITY OF TORONTO COURSES
+....csc321 Spring 2013(undergrad)
+....csc2535 Spring 2013(graduate)
+ 
+OLD TUTORIAL SLIDES
+....2011 NIPS workshop talk pdf ppt
+........paper on Transforming Autoencoders
+....2007 NIPS tutorial html ppt ps pdf
+........Readings: 2007 NIPS tutorial
+....CIFAR Summer School 2007
+....CIAR Summer School 2006
+....CIFAR Summer School 2005
+....List of Past Tutorials
+ 
+MOVIES
+....generating digits
+....speaking with a glove (Sidney Fels)
+ 
+MATLAB CODE
+.... Matlab for Science paper
+....t-SNE software
+....trajectory from motor program
+....ink from trajectory
+....introduction to python
+ 
+SUPERVISION
+....Current PhD and Master's Students
+....Former PhD Students
+....Former Master's Students
+....PostDocs
+ 
+MACHINE LEARNING AT TORONTO
+....learning.cs.toronto.edu
+ 
+HOME PAGE (top level)
+....www.cs.toronto.edu/~hinton[README.txt explains what to do to run FF}
+Sindy Loewe's translation to python code is available at
+https://github.com/loeweX/Forward-Forward
+Chen, T., Zhang, R., & Hinton, G. (2022)
+Analog bits: Generating discrete data using diﬀusion
+models with self-conditioning
+arXiv preprint arXiv:2208.04202 [pdf]
+Ren, M., Kornblith, S., Liao, R., & Hinton, G. (2022)
+Scaling Forward Gradient With Local Losses
+arXiv preprint arXiv:2210.03310 [pdf]
+Chen, T., Saxena, S., Li, L., Lin, T. Y., Fleet, D. J., &
+Hinton, G. (2022)
+A uniﬁed sequence interface for vision tasks
+arXiv preprint arXiv:2206.07669 [pdf]
+Chen, T., Li, L., Saxena, S., Hinton, G., & Fleet, D. J.
+(2022)
+A generalist framework for panoptic segmentation of
+images and videos
+arXiv preprint arXiv:2210.06366 [pdf]
+Liao, R., Kornblith, S., Ren, M., Fleet, D. J., & Hinton, G.
+(2022)
+Gaussian-Bernoulli RBMs Without Tears
+arXiv preprint arXiv:2210.10318 [pdf]
+Culp, L., Sabour, S., & Hinton, G. E. (2022)
+Testing GLOM's ability to infer wholes from ambiguous
+parts
+arXiv preprint arXiv: 2211.16564 [pdf]
+Agarwal, R., Melnick, L., Frosst, N., Zhang, X.,
+Lengerich, B., Caruana, R., & Hinton, G. E. (2021)
+Neural additive models:Interpretable machine learning
+with neural nets
+Advances in Neural Information Processing Systems, 34,
+4699-4711. [pdf]
+Bengio, Y., Lecun, Y., & Hinton, G. (2021)
+Deep learning for AI
+Communications of the ACM, 64(7), 58-65. [pdf]
+2021 commencement address at IIT Mumbai    2024/5/17 18:02 Home Page of Geoffrey Hinton
+https://www.cs.toronto.edu/~hinton/ 2/3Joseph Turian's map of 2500 English words produced
+by using t-SNE on the word feature vectors learned by
+Collobert & Weston, ICML 2008    
+Doing analogies by using vector algebra on word
+embeddings (in 2008)    
+My old favorite Gary Marcus quote    
+GPT-4 corrects Gary Marcus    
+My new favorite Gary Marcus quote
+"It gloms on to diﬀerent clusters of text. That is all."
+A new concept of healing from the people who design
+unimprovised explosive devices    2024/5/17 18:02 Home Page of Geoffrey Hinton
+https://www.cs.toronto.edu/~hinton/ 3/3
