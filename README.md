@@ -29,7 +29,7 @@ To address this gap, we introduce **PyBench**, a benchmark that encompasses 6 ma
 
 ## 📁 PyInstruct
 
-To figure outout a way enhacing model's ability on PyBench, we generate a homologous dataset: **PyInstruct**
+To figure outout a way enhacing model's ability on PyBench, we generate a homologous dataset: **PyInstruct**. The PyInstruct contains multi-turn interaction between model and files, stimulating models capility on coding, deugging and multi-turn complex task solving.  Compare to other Datasets focus on multi-turn coding ability, PyInstruct has longer turns and tokens per trajectory.  
 
 ![Data Statistics](images/data.png)
 *Dataset Statistics. Token statistics are computed using Llama-2 tokenizer.*
@@ -47,146 +47,25 @@ Trained on **PyInstruct** and general conversations, **CodeActAgent** excels at 
 Please check out [:page_with_curl: our paper](TODO) for more details about data collection, model training, evaluation, and more!
 
 
-## 🚀 Use CodeActAgent for Your Application!
+## 🚀 Evaluate your model on PyBench!
 
-<video src="https://github.com/xingyaoww/code-act/assets/38853559/62c80ada-62ce-447e-811c-fc801dd4beac"> </video>
+<video src="COMMING SOON"> </video>
 *Demo of the chat interface.*
 
-A CodeActAgent system contains the following components:
-
-- **LLM Serving**: We use [vLLM as an example](#serve-the-model-using-vllm-into-openai-compatible-api), but any serving software that can serve the model into an OpenAI compatile API should be fine.
-- **Interaction Interface**:
-  - [Chat-UI for chat interface + MongoDB for chat history](#via-chat-ui)
-  - OR [simple Python script](#via-simple-python-script)
-- **Code Execution Engine**: This service will start an [API](#start-your-code-execution-engine) that accepts code execution requests from Chat-UI or the Python script, then starts an individual docker container to execute code for *each* chat session.
-
-🌟 **If you have access to a Kubernetes cluster**: You can follow [our Kubernetes setup guide](docs/KUBERNETES_DEPLOY.md) that allows you to spin up all of these components using one command!
-
-Follow the guide below to set up with Docker.
-
-### Serve the Model into OpenAI Compatible API
-
-#### Using VLLM via Docker (requires [nvidia-docker](https://github.com/NVIDIA/nvidia-docker))
-
-```bash
-# You should download the model first, here is an example for CodeActAgent-Mistral
-cd $YOUR_DIR_TO_DOWNLOADED_MISTRAL_MODEL
-git lfs install
-git clone https://huggingface.co/xingyaoww/CodeActAgent-Mistral-7b-v0.1
-./scripts/chat/start_vllm.sh $YOUR_DIR_TO_DOWNLOADED_MISTRAL_MODEL/CodeActAgent-Mistral-7b-v0.1
-# OR
-# ./scripts/chat_ui/start_vllm.sh $YOUR_DIR_TO_DOWNLOADED_LLAMA_MODEL/CodeActAgent-Llama-7b
-```
-
-This script (docker-required) will start hosting the model based on `CUDA_VISIBLE_DEVICES` to port `8080` and you may access the model via OPENAI_API_BASE of `http://localhost:8080/v1` (by default). You may check the [OpenAI API's official documentation](https://platform.openai.com/docs/api-reference/chat/create) for detailed instruction. You may also check vLLM's [official instruction](https://vllm.ai/) for more information.
-
-#### Using LLama.cpp (for laptop!)
-
-This is tested on MacOS (M2 Max, Ventura 13.6).
-
-**Install LLama.cpp**
-```bash
-git clone https://github.com/ggerganov/llama.cpp.git
-# optionally create a conda environment for installation
-conda create -n llamacpp python=3.10
-# Install dependencies for llama cpp
-cd llama.cpp
-conda activate llamacpp
-pip install -r requirements.txt
-# Build (refer to https://github.com/ggerganov/llama.cpp?tab=readme-ov-file#build for more details)
-make
-```
-
-**(Optional) Convert Model into [gguf](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) Format**
-
-OR you can skip the following commands by downloading the pre-converted quantized version (q8_0) [here](https://huggingface.co/xingyaoww/CodeActAgent-Mistral-7b-v0.1.q8_0.gguf).
-```bash
-# Download the model if you haven't
-git lfs install
-git clone https://huggingface.co/xingyaoww/CodeActAgent-Mistral-7b-v0.1
-# Assume you are in the directory of llama.cpp
-python convert.py ./CodeActAgent-Mistral-7b-v0.1 --outtype f16 --outfile CodeActAgent-Mistral-7b-v0.1.f16.gguf
-# (optional) Quantize for faster inference
-./quantize CodeActAgent-Mistral-7b-v0.1.f16.gguf CodeActAgent-Mistral-7b-v0.1.q8_0.gguf Q8_0
-```
-
-**Serve into OpenAI compatible API**
-
-See [this](https://github.com/ggerganov/llama.cpp/tree/master/examples/server#llamacpp-http-server) for a detailed description of the arguments.
-```bash
-./server -m CodeActAgent-Mistral-7b-v0.1.q8_0.gguf -c 8192 --port 8080
-```
-
-Now you can access the OpenAI compatible server on `http://localhost:8080/v1` with model name being `CodeActAgent-Mistral-7b-v0.1.q8_0.gguf`. **You need to change model name from `CodeActAgent-Mistral-7b-v0.1` to `CodeActAgent-Mistral-7b-v0.1.q8_0.gguf` for the interaction interface** in the following section (in chat-ui configuration file or in the Python script)!
-
-#### (Optional) Test if OpenAI-compatible API is working
-```bash
-curl -X POST 'http://localhost:8080/v1/chat/completions' -d '{
-  "model": "CodeActAgent-Mistral-7b-v0.1.q8_0.gguf",
-  "messages": [
-      {"role": "system", "content": "You are a helpful assistant."},
-      {"role": "user", "content": "How to build a website?"}
-  ]
-}'
-```
+### Build the Environment  
 
 
-### Start your Code Execution Engine!
-
-We implemented a containerized code execution engine based on [JupyterKernelGateway](https://github.com/jupyter-server/kernel_gateway). The idea is to start a Jupyter server inside a [docker container](scripts/chat_ui/code_execution/Dockerfile) *per chat session* to support code execution request from the model (the session will timeout in a fixed period of time). It requires docker to be installed locally.
-
-```bash
-# Start a code execution server at 8081
-./scripts/chat/code_execution/start_jupyter_server.sh 8081
-```
-
-### Interact with the system!
-
-#### via simple Python script
-
-If you don't want to spin up a fancy interface and just want to play with it from the command line, we got you covered!
-
-```bash
-# Make sure you started model server (vLLM or llama.cpp) and code execution engine before running this!
-python3 scripts/chat/demo.py --model_name xingyaoww/CodeActAgent-Mistral-7b-v0.1 --openai_api_base http://$YOUR_API_HOST:$YOUR_API_PORT/v1 --jupyter_kernel_url http://$YOUR_CODE_EXEC_ENGINE_HOST:$YOUR_CODE_EXEC_ENGINE_PORT/execute
-```
+### Run your model on vllm server   
 
 
-#### via Chat-UI
-
-If you've served the model and the code execution engine, you can run your own chat interface just like [this](https://chat.xwang.dev)!
-
-If you want user management, you may need to start your own mongoDB instance: 
-
-```bash
-./scripts/chat/start_mongodb.sh $YOUR_MONGO_DB_PASSWORD
-# The database will be created at `pwd`/data/mongodb and available at localhost:27017
-```
-
-Then, you can configure your `chat-ui` interface.
-
-```bash
-cp chat-ui/.env.template chat-ui/.env.local
-# Make sure you modify .env.local to your configuration by correctly fill-in
-# 1. JUPYTER_API_URL
-# 2. model endpoint (search for 'TODO_OPENAI_BASE_URL');
-#    You also need to change the model name to CodeActAgent-Mistral-7b-v0.1.q8_0.gguf if you are using llama.cpp to infer the model
-# 3. MONGODB_URL - You may leave this empty, the chat-ui will automatically start a database (but it will be deleted once the container is stopped)
-```
-
-Now you can build and start your own web application (docker-required)!
-```bash
-./scripts/chat/run_chat_ui.sh
-# It will starts the interface on localhost:5173 by default
-
-# Run this script for debug mode
-# ./scripts/chat/run_chat_ui_debug.sh
-```
-
-For more information (e.g., if you don't want to use docker), please check-out chat-ui's [documentation](https://github.com/huggingface/chat-ui)!
+### Run Inference to get outut files and trajectory  
 
 
-### 📊 Evaluation 
+### Evaluate the output on Unit Test   
+
+
+
+### 📊 LeaderBoard 
 
 Please refer to [docs/EVALUATION.md](docs/EVALUATION.md) for detailed instruction.
 
