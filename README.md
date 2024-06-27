@@ -10,7 +10,7 @@
 </p>
 
 PyBench is a comperhensive benchmark evaluting LLM on real world coding tasks including **chart data analysis**, **text data analysis**, **image/ audio editing** and **software / website development**. We collect files from Kaggle, arXiv and another sources and automatically generate querys according to the type and content of each file.
-![Overview](figures/overview.png)
+![Overview](images/hook.png)
 
 ## News
 
