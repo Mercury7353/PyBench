@@ -5,33 +5,23 @@
 •
 <a href="comming soon" >🤗 Data (CodeActInstruct)</a>
 •
-<a href="https://huggingface.co/Mercury7353/PyLlama3" >🤗 Model (CodeActAgent-Mistral-7b-v0.1)</a>
+<a href="https://huggingface.co/Mercury7353/PyLlama3" >🤗 Model (PyLlama3)</a>
 •
 </p>
 
-PyBench is a comperhensive benchmark evaluting LLM on real world coding tasks including **chart data analysis**, **text data analysis**, **image/ audio editing** and **software / website development**. We collect files from Kaggle, arXiv and another sources and automatically generate querys according to the type and content of each file.
+PyBench is a comperhensive benchmark evaluting LLM on real world coding tasks including **chart data analysis**, **text data analysis**, **image/ audio editing** and **software / website development**.  
+ We collect files from Kaggle, arXiv and another sources and automatically generate querys according to the type and content of each file.
 ![Overview](images/hook.png)
 
-## News
 
-**Apr 10, 2024**: CodeActAgent Mistral is [officially available at `ollama`](https://ollama.com/xingyaow/codeact-agent-mistral)!
 
-**Mar 11, 2024**: We also add [llama.cpp](https://github.com/ggerganov/llama.cpp) support for inferencing CodeActAgent on laptop (tested on MacOS), check out instructions [here](#using-llamacpp-for-laptop)!
+## Why we need PyBench?
 
-**Mar 11, 2024**: We now support serving all CodeActAgent's components (LLM serving, code executor, MongoDB, Chat-UI) via Kubernetes ⎈! Check out [this guide](docs/KUBERNETES_DEPLOY.md)!
-
-**Feb 2, 2024**: CodeAct is released!
-
-## Why CodeAct?
-
-Our extensive analysis of 17 LLMs on API-Bank and a newly curated benchmark [M<sup>3</sup>ToolEval](docs/EVALUATION.md) shows that CodeAct outperforms widely used alternatives like Text and JSON (up to 20% higher success rate). Please check our paper for more detailed analysis!
-
-![Comparison between CodeAct and Text/JSON](figures/codeact-comparison-table.png)
-*Comparison between CodeAct and Text / JSON as action.*
-
-![Comparison between CodeAct and Text/JSON](figures/codeact-comparison-perf.png)
-*Quantitative results comparing CodeAct and {Text, JSON} on M<sup>3</sup>ToolEval.*
-
+The LLM Agent, equipped with a code interpreter, is capable of automatically solving real-world coding tasks, such as data analysis and image processing.
+%
+However, existing benchmarks primarily focus on either simplistic tasks, such as completing a few lines of code, or on extremely complex and specific tasks at the repository level, neither of which are representative of various daily coding tasks. 
+%
+To address this gap, we introduce **PyBench**, a benchmark that encompasses six main categories of real-world tasks, covering more than 10 types of files. 
 
 ## 📁 CodeActInstruct
 
