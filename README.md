@@ -25,16 +25,18 @@ The LLM Agent, equipped with a code interpreter, is capable of automatically sol
 However, existing benchmarks primarily focus on either simplistic tasks, such as completing a few lines of code, or on extremely complex and specific tasks at the repository level, neither of which are representative of various daily coding tasks. 
 %
 To address this gap, we introduce **PyBench**, a benchmark that encompasses 6 main categories of real-world tasks, covering more than 10 types of files. 
+![How PyBench Works](images/generateTraj.png)   
 
 ## 📁 PyInstruct
 
+To figure outout a way enhacing model's ability on PyBench, we generate a homologous dataset: **PyInstruct**
 
 ![Data Statistics](images/data.png)
 *Dataset Statistics. Token statistics are computed using Llama-2 tokenizer.*
 
 ## 🪄 PyLlama
 
-Trained on **CodeActInstruct** and general conversations, **CodeActAgent** excels at out-of-domain agent tasks compared to open-source models of the same size, while not sacrificing generic performance (e.g., knowledge, dialog). We release two variants of CodeActAgent:
+Trained on **PyInstruct** and general conversations, **CodeActAgent** excels at out-of-domain agent tasks compared to open-source models of the same size, while not sacrificing generic performance (e.g., knowledge, dialog). We release two variants of CodeActAgent:
 - **CodeActAgent-Mistral-7b-v0.1** (recommended, [model link](https://huggingface.co/xingyaoww/CodeActAgent-Mistral-7b-v0.1)): using Mistral-7b-v0.1 as the base model with 32k context window.
 - **CodeActAgent-Llama-7b** ([model link](https://huggingface.co/xingyaoww/CodeActAgent-Llama-2-7b)): using Llama-2-7b as the base model with 4k context window.
 
