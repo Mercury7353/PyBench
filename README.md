@@ -36,15 +36,7 @@ To figure outout a way enhacing model's ability on PyBench, we generate a homolo
 
 ## 🪄 PyLlama
 
-Trained on **PyInstruct** and general conversations, **CodeActAgent** excels at out-of-domain agent tasks compared to open-source models of the same size, while not sacrificing generic performance (e.g., knowledge, dialog). We release two variants of CodeActAgent:
-- **CodeActAgent-Mistral-7b-v0.1** (recommended, [model link](https://huggingface.co/xingyaoww/CodeActAgent-Mistral-7b-v0.1)): using Mistral-7b-v0.1 as the base model with 32k context window.
-- **CodeActAgent-Llama-7b** ([model link](https://huggingface.co/xingyaoww/CodeActAgent-Llama-2-7b)): using Llama-2-7b as the base model with 4k context window.
-
-![Model Performance](figures/model-performance.png)
-*Evaluation results for CodeActAgent. ID and OD correspondingly stand for in-domain and out-of-domain evaluation. Overall averaged performance normalizes the MT-Bench score to be consistent with other tasks and excludes in-domain tasks for fair comparison.*
-
-
-Please check out [:page_with_curl: our paper](TODO) for more details about data collection, model training, evaluation, and more!
+We trained Llama3-8B-base on PyInstruct, CodeActInstruct, CodeFeedback and Jupyter Notebook Corpus to get PyLlama3, getting an outstandingly performance on PyBench
 
 
 ## 🚀 Evaluate your model on PyBench!
@@ -52,17 +44,50 @@ Please check out [:page_with_curl: our paper](TODO) for more details about data 
 <video src="COMMING SOON"> </video>
 *Demo of the chat interface.*
 
-### Build the Environment  
+### Prepare the environment:
+It is highly recommend to install these packages in a docker
+```bash
+pip install -r requirements.txt
+```
+
+### Set up your model
+Use vllm to start a server in your local host, the default port is "8001"
+
+run
+```bash
+bash SetUpModel.sh 
+```
+to start the server.
+setup your model path and jinja template path.  
+
+### Edit the config
+Complete your model path and your port in ./config/model.yaml  
+
+You can also explore the system prompt in this yaml
 
 
-### Run your model on vllm server   
 
 
-### Run Inference to get outut files and trajectory  
+### Run on PyBench
+Edit the output trajectory file path before run the code!
+```bash
+python /data/zyl7353/codeinterpreterbenchmark/inference.py --config_path ./config/<your config>.yaml --task_path ./data/meta/task.json --output_path <your trajectory.jsonl path>
+
+```
+
+### Run Unit test
+      
+- Step 1:
+Put the output files in ./output   
 
 
-### Evaluate the output on Unit Test   
+- Step 2:
+Set the trajectory path in ./data/unit_test/enter_point.py
 
+- Step 3:
+```bash
+python data/unit_test/enter_point.py 
+```
 
 
 ### 📊 LeaderBoard 
