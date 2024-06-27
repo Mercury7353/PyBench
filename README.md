@@ -3,15 +3,18 @@
 <p align="center">
 <a href="comming soon">📃 Paper</a>
 •
-<a href="comming soon" >🤗 Data (CodeActInstruct)</a>
+<a href="comming soon" >🤗 Data (PyInstruct)</a>
 •
 <a href="https://huggingface.co/Mercury7353/PyLlama3" >🤗 Model (PyLlama3)</a>
 •
-</p>
+</p>  
+
 
 PyBench is a comperhensive benchmark evaluting LLM on real world coding tasks including **chart data analysis**, **text data analysis**, **image/ audio editing** and **software / website development**.  
- We collect files from Kaggle, arXiv and another sources and automatically generate querys according to the type and content of each file.
-![Overview](images/hook.png)
+ We collect files from Kaggle, arXiv and another sources and automatically generate querys according to the type and content of each file.  
+
+![Overview](images/hook.png)   
+
 
 
 
@@ -21,17 +24,15 @@ The LLM Agent, equipped with a code interpreter, is capable of automatically sol
 %
 However, existing benchmarks primarily focus on either simplistic tasks, such as completing a few lines of code, or on extremely complex and specific tasks at the repository level, neither of which are representative of various daily coding tasks. 
 %
-To address this gap, we introduce **PyBench**, a benchmark that encompasses six main categories of real-world tasks, covering more than 10 types of files. 
+To address this gap, we introduce **PyBench**, a benchmark that encompasses 6 main categories of real-world tasks, covering more than 10 types of files. 
 
-## 📁 CodeActInstruct
-
-We collect an instruction-tuning dataset, CodeActInstruct, consists of 7k multi-turn interactions using CodeAct. Dataset is release at [huggingface dataset 🤗](https://huggingface.co/datasets/xingyaoww/code-act). Please refer to the paper and [this section](#-data-generation-optional) for details of data collection.
+## 📁 PyInstruct
 
 
-![Data Statistics](figures/data-stats.png)
+![Data Statistics](images/data.png)
 *Dataset Statistics. Token statistics are computed using Llama-2 tokenizer.*
 
-## 🪄 CodeActAgent
+## 🪄 PyLlama
 
 Trained on **CodeActInstruct** and general conversations, **CodeActAgent** excels at out-of-domain agent tasks compared to open-source models of the same size, while not sacrificing generic performance (e.g., knowledge, dialog). We release two variants of CodeActAgent:
 - **CodeActAgent-Mistral-7b-v0.1** (recommended, [model link](https://huggingface.co/xingyaoww/CodeActAgent-Mistral-7b-v0.1)): using Mistral-7b-v0.1 as the base model with 32k context window.
@@ -181,25 +182,6 @@ Now you can build and start your own web application (docker-required)!
 ```
 
 For more information (e.g., if you don't want to use docker), please check-out chat-ui's [documentation](https://github.com/huggingface/chat-ui)!
-
-
-## 🎥 Reproduce Experiments in the Paper
-
-```bash
-git clone https://github.com/xingyaoww/code-act
-# To clone all submodules
-git submodule update --init --recursive
-```
-
-### 📂 Data Generation (Optional)
-
-**Recommended:** You may download the processed **CodeActInstruct** from [huggingface dataset 🤗](https://huggingface.co/datasets/xingyaoww/code-act).
-
-**For reproducibility:** You can optionally generate data follow instructions in [docs/DATA_GENERATION.md](docs/DATA_GENERATION.md) to generate interaction data.
-
-### 📘 Model Training
-
-We use a fork of [Megatron-LLM](https://github.com/xingyaoww/Megatron-LLM) for training. You can follow [docs/MODEL_TRAINING.md](docs/MODEL_TRAINING.md) for detailed instructions.
 
 
 ### 📊 Evaluation 
