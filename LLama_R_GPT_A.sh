@@ -1,1 +1,0 @@
-python run_code_interpreter_LlamaR_GPTA.py --config_path ./config/ReasonVsAction.yaml --task_path ./data/meta/task.json --output_path beta_LLAMA_R_GPT_A_0529_v5.jsonl

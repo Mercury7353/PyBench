@@ -1,1 +1,0 @@
-python extract_ans.py --config_path /data/zyl7353/codeinterpreterbenchmark/config/extract_key.yaml --output_path extract_test_0619_v2.jsonl

@@ -1,0 +1,2 @@
+{% for message in messages %}{{'<|begin_of_text|>' + message['role'] + '\n' + message['content'] + '\n' + '<|tool_call|>' + message['tool_call_string'] if "tool_call_string" in message.keys() }}{% if (loop.last and add_generation_prompt) or not loop.last %}{{ '<|end_of_text|>' + '\n'}}{% endif %}{% endfor %}
+{% if add_generation_prompt and messages[-1]['role'] != 'assistant' %}{{ '<|begin_of_text|>assistant\n' }}{% endif %}

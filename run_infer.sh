@@ -1,1 +1,1 @@
-python /data/zyl7353/codeinterpreterbenchmark/inference.py --config_path ./config/llama3_prompt.yaml --task_path ./data/meta/task.json --output_path ./unit_test_result/PyLlama3_Pyins_codefb/trajectory.jsonl
+python /data/zyl7353/codeinterpreterbenchmark/inference.py --config_path ./config/your_model.yaml --task_path ./data/meta/task.json --output_path ./unit_test_result/PyLlama3_Pyins_codefb/trajectory.jsonl

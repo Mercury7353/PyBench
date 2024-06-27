@@ -1,1 +1,0 @@
-python run_code_interpreter_ReasonVsAction.py --config_path ./config/ReasonVsAction.yaml --task_path ./data/meta/task.json --output_path beta_GPT_REASON_LLAMA_ACTION_0529.jsonl

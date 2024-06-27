@@ -1,1 +1,0 @@
-python run_code_interpreter.py --config_path ./config/llama3_prompt.yaml --task_path ./data/meta/task.json --output_path codeinterpreter_ablation_ultrachat0615.jsonl

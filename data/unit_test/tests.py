@@ -281,7 +281,7 @@ def test_task_15(trajectory):
     
 def test_task_16(trajectory):
     key_path="./output/16.png"
-    reference_path="./gpt4_output/wisconsin_sales_by_gender_pie_chart.png"
+    reference_path="./ref/wisconsin_sales_by_gender_pie_chart.png"
     assert are_images_similar(reference_path,key_path)
 
 def test_task_17(trajectory):
@@ -302,7 +302,7 @@ def test_task_19(trajectory):
     
 def test_task_20(trajectory):    
     ans_path="./output/20.png"
-    reference_path="./gpt4_output/radar_chart.png"
+    reference_path="./ref/radar_chart.png"
     assert are_images_similar(ans_path,reference_path)
 
 
@@ -384,7 +384,7 @@ def test_task_30(trajectory):
     assert flag
 
 def test_task_31(trajectory):
-    ref_path="./gpt4_output/smoker_charges_relationship.png"
+    ref_path="./ref/smoker_charges_relationship.png"
     ans_path="./output/31.png"
     assert are_images_similar(ref_path,ans_path)
 
@@ -482,29 +482,29 @@ def test_task_41(trajectory):
 
 def test_task_42(trajectory):
     ans="./output/42.png"
-    ref="./gpt4_output/clusters_scatter.png"
+    ref="./ref/clusters_scatter.png"
     assert are_images_similar(ans,ref)
 
 def test_task_43(trajectory):
     ans="./output/43.png"
-    ref="./gpt4_output/elbow_method_plot.png"
+    ref="./ref/elbow_method_plot.png"
     print("WARNING BAD CASE FOR GPT-4 NEED MANUALLY FIX",ref)
     assert os.path.exists(ans)
 
 def test_task_44(trajectory):
     ans="./output/44.png"
-    ref="./gpt4_output/stock_price_trend.png"
+    ref="./ref/stock_price_trend.png"
     assert are_images_similar(ans,ref)
 
 def test_task_45(trajectory):
     ans="./output/45.png"
-    ref="./gpt4_output/monthly_ride_counts.png"
+    ref="./ref/monthly_ride_counts.png"
     assert are_images_similar(ans,ref)
 
 def test_task_46(trajectory):
     
     ans="./output/46.png"
-    ref="./gpt4_output/monthly_ride_counts.png"
+    ref="./ref/monthly_ride_counts.png"
     #print("WARNING BAD CASE FOR GPT-4 NEED MANUALLY FIX",46)
     
     assert os.path.exists(ans)
@@ -681,54 +681,54 @@ def test_task_59(trajectory):
 
 def test_task_60(trajectory):
     ans="./output/60.png"
-    ref="./gpt4_output/china_tea_export_line_chart.png"
+    ref="./ref/china_tea_export_line_chart.png"
     #print("WARNING 60 only verify the exist of the images")
     assert are_images_similar(ans,ref)
 
 def test_task_61(trajectory):
     ans="./output/61.png"
-    ref="./gpt4_output/australian_gold_medals_over_time.png"
+    ref="./ref/australian_gold_medals_over_time.png"
     #print("WARNING 60 only verify the exist of the images")
     assert are_images_similar(ans,ref)
 
 def test_task_62(trajectory):
     ans="./output/62.png"
-    ref="./gpt4_output/australian_gold_medals_over_time.png"
+    ref="./ref/australian_gold_medals_over_time.png"
     print("WARNING 62 Has NO Reference!")
     assert are_images_similar(ans,ref)
 
 def test_task_63(trajectory):
     ans="./output/63.png"
-    ref="./gpt4_output/sales_by_product.png"
+    ref="./ref/sales_by_product.png"
     #print("WARNING 60 only verify the exist of the images")
     assert are_images_similar(ans,ref)
 
 def test_task_64(trajectory):
     ans="./output/64.png"
-    ref="./gpt4_output/youtube_category_popularity.png"
+    ref="./ref/youtube_category_popularity.png"
     assert os.path.exists(ans)
     #print("WARNING 60 only verify the exist of the images")
     #assert are_images_similar(ans,ref,0) 
 
 def test_task_65(trajectory):
     ans="./output/65.png"
-    ref="./gpt4_output/employee_education_distribution.png"
+    ref="./ref/employee_education_distribution.png"
     assert are_images_similar(ans,ref) 
 
 
 def test_task_66(trajectory):
     ans="./output/66.png"
-    ref="./gpt4_output/meals_distribution_pie_chart.png"
+    ref="./ref/meals_distribution_pie_chart.png"
     assert are_images_similar(ans,ref) 
 
 def test_task_67(trajectory):
     ans="./output/67.png"
-    ref="./gpt4_output/X_vs_Y_scatter_plot.png"
+    ref="./ref/X_vs_Y_scatter_plot.png"
     assert are_images_similar(ans,ref) 
 
 def test_task_68(trajectory):
     ans="./output/67.png"
-    ref="./gpt4_output/X_vs_Y_scatter_plot.png"
+    ref="./ref/X_vs_Y_scatter_plot.png"
     assert are_images_similar(ans,ref) 
 
 def test_task_69(trajectory):
