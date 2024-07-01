@@ -91,17 +91,10 @@ python data/unit_test/enter_point.py
 
 
 ### 📊 LeaderBoard 
-
-Please refer to [docs/EVALUATION.md](docs/EVALUATION.md) for detailed instruction.
+TBD
 
 ## 📚 Citation
 
 ```bibtex
-@inproceedings{wang2024executable,
-      title={Executable Code Actions Elicit Better LLM Agents}, 
-      author={Xingyao Wang and Yangyi Chen and Lifan Yuan and Yizhe Zhang and Yunzhu Li and Hao Peng and Heng Ji},
-      year={2024},
-      eprint={2402.01030},
-      booktitle={ICML}
-}
+TBD
 ```
