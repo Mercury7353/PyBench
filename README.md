@@ -3,7 +3,7 @@
 <p align="center">
 <a href="comming soon">📃 Paper</a>
 •
-<a href="comming soon" >🤗 Data (PyInstruct)</a>
+<a href="https://huggingface.co/datasets/Mercury7353/PyInstruct" >🤗 Data (PyInstruct)</a>
 •
 <a href="https://huggingface.co/Mercury7353/PyLlama3" >🤗 Model (PyLlama3)</a>
 •
