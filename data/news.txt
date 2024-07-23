@@ -1,0 +1,31 @@
+IT之家 5 月 21 日消息，面壁智能昨晚推出并开源 MiniCPM 系列最新的端侧多模态模型 MiniCPM-Llama3-V 2.5，支持 30+ 种语言，宣称可实现：
+
+最强端侧多模态综合性能：超越 Gemini Pro 、GPT-4V
+
+OCR 能力 SOTA（IT之家注：State-of-the-Art）：9 倍像素更清晰，难图长图长文本精准识别
+
+图像编码快 150 倍：首次端侧系统级多模态加速
+
+
+▲ OpenCompass 模型量级对比
+MiniCPM-Llama3-V 2.5 总参数量为 8B，多模态综合性能超越 GPT-4V-1106、Gemini Pro、Claude 3、Qwen-VL-Max 等商用闭源模型，OCR 能力及指令跟随能力得到进一步提升，可精准识别难图、长图、长文本，并支持超过 30 种语言的多模态交互。
+
+
+▲ 官方测试结果
+在 OpenCompass 测试中，MiniCPM-Llama3-V 2.5 综合性能超越多模态“巨无霸”GPT-4V 和 Gemini Pro；在 OCRBench 上，超越了 GPT-4o、GPT-4V、Claude 3V Opus、Gemini Pro 等标杆模型。
+
+
+▲ OpenCompass 测试
+
+▲ OCRBench 测试
+
+▲ Object HalBench 测试
+
+▲ RealWorldQA 测试
+此外，在图像编码方面，MiniCPM-Llama3-V 2.5 首次整合 NPU 和 CPU 加速框架，并结合显存管理、编译优化技术，实现了 150 倍加速提升。
+
+在语言模型推理方面，经过 CPU、编译优化、显存管理等优化方式，MiniCPM-Llama3-V 2.5 在手机端的语言解码速度由 Llama 3 的 0.5 token / s 上下提升到 3-4 token / s，并可支持 30 多种语言，包括德语、法语、西班牙语、意大利语、俄语等主流语言，基本覆盖一带一路国家。
+
+
+▲ LLaVABench 评测结果
+OCR 技术方面，MiniCPM-Llama3-V 2.5 实现高效编码及无损识别 180 万高清像素图片，并且支持任意长宽比、甚至 1:9 极限比例图像。

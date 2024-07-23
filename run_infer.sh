@@ -1,0 +1,1 @@
+python ./inference.py --config_path ./config/gpt.yaml --task_path ./data/meta/task.json --output_path ./trajectory.jsonl
