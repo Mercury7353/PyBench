@@ -1,7 +1,7 @@
 <h1 align="center"> PyBench: Evaluate LLM Agent on Real World Tasks </h1>
 
 <p align="center">
-<a href="comming soon">📃 Paper</a>
+<a href="https://arxiv.org/abs/2407.16732">📃 Paper</a>
 •
 <a href="https://huggingface.co/datasets/Mercury7353/PyInstruct" >🤗 Data (PyInstruct)</a>
 •
