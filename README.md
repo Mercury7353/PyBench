@@ -85,7 +85,7 @@ python /data/zyl7353/codeinterpreterbenchmark/inference.py --config_path ./confi
 ```bibtex
 @misc{zhang2024pybenchevaluatingllmagent,
       title={PyBench: Evaluating LLM Agent on various real-world coding tasks}, 
-      author={Yaolun Zhang and Yinxu Pan and Yudong Wang and Jie Cai and Zhi Zheng and Guoyang Zeng and Zhiyuan Liu},
+      author={Yaolun Zhang and Yinxu Pan and Yudong Wang and Jie Cai},
       year={2024},
       eprint={2407.16732},
       archivePrefix={arXiv},
